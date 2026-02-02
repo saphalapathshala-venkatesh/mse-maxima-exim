@@ -75,7 +75,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] lg:h-[500px] rounded-sm overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80"
                 alt="Premium spices and vegetables display"
                 fill
                 className="object-cover"
@@ -139,7 +139,7 @@ export default function Home() {
           </div>
           <div className="relative h-[400px] rounded-sm overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=800&q=80"
+              src="https://images.unsplash.com/photo-1607877742574-a7d9a6c0e4b0?w=800&q=80"
               alt="MSE processing facility"
               fill
               className="object-cover"
