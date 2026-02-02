@@ -45,9 +45,9 @@ export default function AboutPage() {
               We are committed to building long-term relationships with our customers through consistent quality, competitive pricing, and reliable service.
             </p>
           </div>
-          <div className="relative h-[400px] rounded-sm overflow-hidden">
+          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+              src="/images/facility.jpg"
               alt="MSE office and team"
               fill
               className="object-cover"
@@ -74,7 +74,7 @@ export default function AboutPage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value) => (
-            <div key={value.title} className="bg-card-surface border border-card-border rounded-sm p-6">
+            <div key={value.title} className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-6 hover:border-gold-accent/40 transition-colors duration-200">
               <h3 className="font-playfair text-lg text-off-white mb-3">{value.title}</h3>
               <p className="text-sm text-muted-text">{value.desc}</p>
             </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
           <p className="text-muted-text max-w-2xl mx-auto mb-8">
             Looking for a reliable export partner for your agri-product needs? Let&apos;s discuss how we can work together.
           </p>
-          <Button href="/contact" variant="primary">Contact Us</Button>
+          <Button href="/contact" variant="primary" size="lg">Contact Us</Button>
         </div>
       </Section>
     </div>

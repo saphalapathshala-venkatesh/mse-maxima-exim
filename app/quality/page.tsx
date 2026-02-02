@@ -77,12 +77,12 @@ export default function QualityPage() {
               ))}
             </ul>
           </div>
-          <div className="bg-card-surface border border-card-border rounded-sm p-8">
+          <div className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-8 text-center">
             <h3 className="font-playfair text-xl text-off-white mb-4">Quality Documentation</h3>
             <p className="text-sm text-muted-text mb-6">
               Request our quality manual, HACCP plan, or specific test reports for our products.
             </p>
-            <Button href="/contact" variant="primary">Request Documents</Button>
+            <Button href="/contact" variant="primary" size="lg">Request Documents</Button>
           </div>
         </div>
       </Section>

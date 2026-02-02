@@ -60,7 +60,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="bg-card-surface border border-card-border rounded-sm p-8">
+          <div className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-8">
             <h2 className="font-playfair text-2xl text-off-white mb-6">Request a Quote</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-sm text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-xl text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
                   placeholder="Your name"
                 />
               </div>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-sm text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-xl text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
                   placeholder="you@company.com"
                 />
               </div>
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-sm text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-xl text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
                   placeholder="Your company"
                 />
               </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
                   name="country"
                   value={formData.country}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-sm text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-xl text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200"
                   placeholder="Your country"
                 />
               </div>
@@ -126,12 +126,12 @@ export default function ContactPage() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-sm text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-navy-alt border border-card-border rounded-xl text-off-white placeholder-muted-text/50 focus:outline-none focus:border-gold-accent transition-colors duration-200 resize-none"
                   placeholder="Tell us about your requirements..."
                 />
               </div>
 
-              <Button type="submit" variant="primary" className="w-full">
+              <Button type="submit" variant="primary" size="lg" className="w-full">
                 Submit Inquiry
               </Button>
             </form>

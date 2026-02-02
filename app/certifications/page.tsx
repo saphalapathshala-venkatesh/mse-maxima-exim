@@ -47,14 +47,14 @@ export default function CertificationsPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert) => (
-            <div key={cert.name} className="bg-card-surface border border-card-border rounded-sm p-6 hover:border-gold-accent/30 transition-colors duration-200">
+            <div key={cert.name} className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-6 hover:border-gold-accent/40 hover:shadow-lg transition-all duration-200 flex flex-col">
               <h3 className="font-playfair text-xl text-off-white mb-3">{cert.name}</h3>
-              <p className="text-sm text-muted-text mb-4">{cert.description}</p>
-              <p className="text-xs text-muted-text/70 mb-4">
+              <p className="text-sm text-muted-text mb-4 flex-grow">{cert.description}</p>
+              <p className="text-xs text-muted-text/70 mb-5">
                 <span className="text-gold-accent">Scope:</span> {cert.scope}
               </p>
-              <Button href="#" variant="ghost" className="text-sm px-0">
-                View Certificate →
+              <Button href="#" variant="secondary" size="md">
+                View Certificate
               </Button>
             </div>
           ))}
@@ -67,7 +67,7 @@ export default function CertificationsPage() {
           <p className="text-muted-text max-w-2xl mx-auto mb-8">
             Contact us if you require specific certifications or compliance documentation for your market.
           </p>
-          <Button href="/contact" variant="primary">Contact Us</Button>
+          <Button href="/contact" variant="primary" size="lg">Contact Us</Button>
         </div>
       </Section>
     </div>

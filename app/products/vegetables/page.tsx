@@ -19,7 +19,7 @@ export default function VegetablesPage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=1600&q=80"
+            src="/images/vegetables.jpg"
             alt="Vegetables background"
             fill
             className="object-cover opacity-30"
@@ -38,7 +38,7 @@ export default function VegetablesPage() {
       <Section>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {vegetables.map((veg) => (
-            <div key={veg.name} className="bg-card-surface border border-card-border rounded-sm p-6 hover:border-gold-accent/30 transition-colors duration-200">
+            <div key={veg.name} className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-6 hover:border-gold-accent/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
               <h3 className="font-playfair text-lg text-off-white mb-2">{veg.name}</h3>
               <p className="text-sm text-muted-text">{veg.desc}</p>
             </div>
@@ -73,10 +73,10 @@ export default function VegetablesPage() {
               </li>
             </ul>
           </div>
-          <div className="text-center bg-card-surface border border-card-border rounded-sm p-8">
+          <div className="text-center bg-white/[0.08] border border-white/[0.14] rounded-xl p-8">
             <h3 className="font-playfair text-xl text-off-white mb-4">Bulk Orders</h3>
             <p className="text-sm text-muted-text mb-6">Contact us for bulk pricing, custom specifications, and sample requests.</p>
-            <Button href="/contact" variant="primary">Get Quote</Button>
+            <Button href="/contact" variant="primary" size="lg">Get Quote</Button>
           </div>
         </div>
       </Section>

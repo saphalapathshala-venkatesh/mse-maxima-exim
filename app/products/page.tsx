@@ -1,23 +1,24 @@
 import Section from '@/components/Section'
 import Card from '@/components/Card'
+import Button from '@/components/Button'
 
 const products = [
   {
     title: 'Spices',
     description: 'Premium whole and ground spices including turmeric, chili, cumin, coriander, and more. Sourced from the finest farms across India.',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
+    image: '/images/spices.jpg',
     href: '/products/spices',
   },
   {
     title: 'Oleoresins',
     description: 'Natural extracts with concentrated flavor, aroma, and color. Perfect for food processing, pharmaceuticals, and cosmetics industries.',
-    image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80',
+    image: '/images/oleoresins.jpg',
     href: '/products/oleoresins',
   },
   {
     title: 'Vegetables',
     description: 'Dehydrated and fresh vegetables processed in state-of-the-art facilities. Meeting international quality and safety standards.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80',
+    image: '/images/vegetables.jpg',
     href: '/products/vegetables',
   },
 ]
@@ -54,9 +55,9 @@ export default function ProductsPage() {
           <p className="text-muted-text max-w-2xl mx-auto mb-8">
             We offer customized solutions for specific product requirements, packaging needs, and volume specifications.
           </p>
-          <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium bg-gold-accent text-navy-primary hover:bg-gold-accent/90 rounded-sm transition-all duration-200">
+          <Button href="/contact" variant="primary" size="lg">
             Request Custom Quote
-          </a>
+          </Button>
         </div>
       </Section>
     </div>

@@ -14,19 +14,19 @@ const products = [
   {
     title: 'Spices',
     description: 'Premium whole and ground spices sourced from the finest farms across India.',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80',
+    image: '/images/spices.jpg',
     href: '/products/spices',
   },
   {
     title: 'Oleoresins',
     description: 'Natural extracts with concentrated flavor and color for food industries.',
-    image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80',
+    image: '/images/oleoresins.jpg',
     href: '/products/oleoresins',
   },
   {
     title: 'Vegetables',
     description: 'Dehydrated and fresh vegetables meeting international quality standards.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80',
+    image: '/images/vegetables.jpg',
     href: '/products/vegetables',
   },
 ]
@@ -69,13 +69,13 @@ export default function Home() {
                 Your trusted partner for high-quality spices, oleoresins, and vegetables. Complete traceability and international certifications guaranteed.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button href="/products" variant="primary">View Products</Button>
-                <Button href="/contact" variant="outline">Request Quote</Button>
+                <Button href="/products" variant="primary" size="lg">View Products</Button>
+                <Button href="/contact" variant="secondary" size="lg">Request Quote</Button>
               </div>
             </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-sm overflow-hidden">
+            <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80"
+                src="/images/hero-spices.jpg"
                 alt="Premium spices and vegetables display"
                 fill
                 className="object-cover"
@@ -114,7 +114,7 @@ export default function Home() {
               imageSrc={product.image}
               imageAlt={product.title}
               href={product.href}
-              buttonText="View All Products"
+              buttonText="View Products"
             />
           ))}
         </div>
@@ -137,9 +137,9 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="relative h-[400px] rounded-sm overflow-hidden">
+          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1607877742574-a7d9a6c0e4b0?w=800&q=80"
+              src="/images/facility.jpg"
               alt="MSE processing facility"
               fill
               className="object-cover"
@@ -183,11 +183,11 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {certifications.map((cert) => (
-            <div key={cert.name} className="bg-card-surface border border-card-border rounded-sm p-6 text-center hover:border-gold-accent/30 transition-colors duration-200">
+            <div key={cert.name} className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-6 text-center hover:border-gold-accent/40 hover:shadow-lg transition-all duration-200">
               <h4 className="font-playfair text-lg text-off-white mb-2">{cert.name}</h4>
-              <p className="text-xs text-muted-text mb-4">{cert.desc}</p>
-              <Button href="#" variant="ghost" className="text-xs px-0">
-                View Certificate →
+              <p className="text-xs text-muted-text mb-5">{cert.desc}</p>
+              <Button href="#" variant="secondary" size="md">
+                View Certificate
               </Button>
             </div>
           ))}
@@ -201,7 +201,7 @@ export default function Home() {
           <h2 className="font-playfair text-2xl md:text-3xl text-off-white mb-6">
             Partner with a trusted exporter for your agri-product needs.
           </h2>
-          <Button href="/contact" variant="primary">Request a Quote</Button>
+          <Button href="/contact" variant="primary" size="lg">Request a Quote</Button>
         </div>
       </section>
     </>

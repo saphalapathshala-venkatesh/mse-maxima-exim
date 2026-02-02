@@ -8,16 +8,20 @@ A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), bui
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Fonts**: Playfair Display (headings), Inter (body) via next/font
-- **Images**: next/image with Unsplash images
+- **Images**: Local images in /public/images/
 
 ## Design System
 - **Primary Navy**: #0B1B33
 - **Navy Alt**: #102A4C
-- **Gold Accent**: #C8A24A
+- **Gold Accent**: #C8A24A (gradient: #D1AE57 to #B8892E)
 - **Off-white**: #F5F1E8
 - **Muted text**: #C7D2E1
 - **Card surface**: rgba(255,255,255,0.08)
 - **Border**: rgba(255,255,255,0.14)
+
+## Button Styles
+- **Primary**: Glossy gold gradient with shadow and hover lift
+- **Secondary**: Glass effect with gold border outline
 
 ## Project Structure
 ```
@@ -38,9 +42,17 @@ app/
 components/
 ├── Header.tsx          # Sticky header with navigation
 ├── Footer.tsx          # Footer with links and contact
-├── Button.tsx          # Reusable button component
+├── Button.tsx          # Glossy button component (primary/secondary)
 ├── Section.tsx         # Reusable section wrapper
-└── Card.tsx            # Reusable card component
+└── Card.tsx            # Premium card component
+
+public/images/
+├── hero-spices.jpg     # Hero section spices image
+├── hero-vegetables.jpg # Hero vegetables image
+├── facility.jpg        # Processing facility image
+├── spices.jpg          # Spices category image
+├── oleoresins.jpg      # Oleoresins category image
+└── vegetables.jpg      # Vegetables category image
 ```
 
 ## Running the Project
@@ -50,16 +62,17 @@ components/
 
 ## Key Features
 1. Sticky header with navigation and CTAs
-2. Hero section with headline, buttons, and credibility strip
-3. Products section with category cards
+2. Hero section with headline, glossy buttons, and credibility strip
+3. Products section with premium cards
 4. Why Choose MSE section with strengths
 5. Quality assurance timeline
-6. Certifications grid
+6. Certifications grid with View Certificate buttons
 7. CTA band
 8. Responsive footer
 
 ## Recent Changes
-- Initial setup of Next.js 14 with TypeScript and Tailwind CSS
-- Created all 9 pages as per requirements
-- Implemented dark navy premium theme with gold accents
-- Added responsive design for mobile/tablet/desktop
+- Enhanced Button component with glossy gradient styles
+- Added local stock images to /public/images/
+- Updated all CTAs to use glossy buttons (no arrow-only links)
+- Improved card styling with glass effects and hover animations
+- Rounded corners (rounded-xl) throughout for premium feel

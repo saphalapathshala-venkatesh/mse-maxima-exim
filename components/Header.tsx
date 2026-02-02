@@ -38,7 +38,7 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Button href="/contact" variant="primary">Request Quote</Button>
-            <Button href="#" variant="outline">Download Catalogue</Button>
+            <Button href="#" variant="secondary">Download Catalogue</Button>
           </div>
 
           <button
@@ -71,7 +71,7 @@ export default function Header() {
               ))}
               <div className="flex flex-col gap-3 pt-4">
                 <Button href="/contact" variant="primary">Request Quote</Button>
-                <Button href="#" variant="outline">Download Catalogue</Button>
+                <Button href="#" variant="secondary">Download Catalogue</Button>
               </div>
             </nav>
           </div>

@@ -1,0 +1,70 @@
+We already have the MSE website running. Now improve the UI to feel more premium and consistent.
+
+GOAL:
+- Make the UI more appealing and premium.
+- Replace ALL CTA text links with glossy button CTAs.
+- Fix broken "MSE processing facility" image (it is currently empty / not loading).
+- Ensure consistency across product cards, certifications cards, and hero CTAs.
+
+STRICT REQUIREMENTS:
+1) Replace these everywhere:
+   - "View Products →"
+   - "View All Products →"
+   - "View Certificate →"
+   with glossy CTA buttons (no arrow-only CTAs).
+   CTA text must be full, e.g. "View Products", "Request Quote", "View Certificate".
+   Arrows are allowed only as a small icon inside the button (optional), not as the label.
+
+2) Create a reusable Button component:
+   - variants: primary, secondary
+   - sizes: md, lg
+   - default rounded-xl
+   - subtle lift on hover, and premium glossy effect
+
+PRIMARY BUTTON (gold glossy):
+- background: gradient from #D1AE57 to #B8892E
+- top highlight: subtle inset white overlay
+- text: #0B1B33 (navy)
+- shadow: soft
+- hover: slightly brighter + translateY(-1px)
+
+SECONDARY BUTTON (navy glass outline):
+- background: rgba(255,255,255,0.06)
+- border: 1px solid rgba(200,162,74,0.55)
+- text: #F5F1E8
+- hover: background rgba(255,255,255,0.10)
+
+3) Fix missing "processing facility" image:
+- Put 3 placeholder images inside /public/images/:
+  /public/images/hero-spices.jpg
+  /public/images/hero-vegetables.jpg
+  /public/images/facility.jpg
+  /public/images/spices.jpg
+  /public/images/oleoresins.jpg
+  /public/images/vegetables.jpg
+- If you cannot fetch real images, use simple local placeholders (but must not break).
+- Update next/image usage to reference these local public images.
+
+4) Improve Product Cards:
+- Keep the same layout but make cards feel premium:
+  - glass panel background rgba(255,255,255,0.08)
+  - subtle border rgba(255,255,255,0.14)
+  - hover: border brighten + shadow + small lift
+  - card image should be full width on top with slight dark overlay
+  - add a glossy CTA button inside each card: "View Products"
+
+5) Improve Certifications cards:
+- Keep grid, but each certification card must have a glossy "View Certificate" button.
+- Ensure consistent spacing, alignment, and button placement.
+- Do NOT use arrow-only CTAs.
+
+6) Keep theme and typography:
+- Primary Navy background and texture stays.
+- Headings: Playfair Display
+- Body: Inter
+- No new sections. Only UI polish and fixes.
+
+DELIVERABLE:
+- Provide updated code with the reusable Button component and refactor all CTAs to use it.
+- Ensure the facility image no longer shows empty/broken.
+- Site should look more premium and consistent.
