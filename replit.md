@@ -73,14 +73,16 @@ public/images/
 8. Responsive footer
 
 ## Recent Changes
-- Enterprise-grade refinement with improved visual hierarchy
-- Added cinematic hero transition image as visual divider
-- Updated spacing system (Hero: pt-28 pb-20, Content: py-16, CTA: py-20)
-- Product cards now use flex layout with equal heights and aligned buttons
-- QA section redesigned with side-by-side lab image and process panel
-- Process circles wrapped in rounded panel container (bg-[#162D4A])
-- Certification buttons refined with glass navy + gold border style
-- Material variation: Products/QA use bg-[#0F2847], CTA has gradient
-- Added lucide-react icons for QA process steps
-- Enhanced Button component with glossy gradient styles
-- Card component with flex-1 content and mt-auto button alignment
+- **Design V2 Overhaul** - Complete agency-grade premium redesign
+- 3-surface material system: deep navy base, slate glass panels, warm ivory strips
+- Hero section with image collage (2 stacked images) and gold accent line
+- Hero spotlight radial gradient for cinematic effect
+- Cinematic hero transition banner with vignette overlay
+- Product cards with "Export Grade" category tag pills
+- QA section with side-by-side lab image card and process panel
+- Process circles with Lucide icons inside slate-panel container
+- Certification cards with "Certified" badge pills and secondary buttons
+- Footer with warm ivory gradient divider and Request Quote CTA
+- Consistent spacing: Hero pt-24 pb-16, Content py-16, CTA py-18
+- All CTAs converted to proper buttons (no text-link CTAs)
+- Equal-height cards with flex layout and mt-auto button alignment

@@ -9,6 +9,7 @@ interface CardProps {
   href?: string
   buttonText?: string
   className?: string
+  tag?: string
 }
 
 export default function Card({ 
@@ -18,12 +19,13 @@ export default function Card({
   imageAlt = '',
   href,
   buttonText,
-  className = '' 
+  className = '',
+  tag
 }: CardProps) {
   return (
-    <div className={`group flex flex-col h-full bg-white/[0.08] border border-white/[0.14] rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${className}`}>
+    <div className={`group flex flex-col h-full bg-slate-glass border border-slate-border rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${className}`}>
       {imageSrc && (
-        <div className="relative h-56 overflow-hidden flex-shrink-0">
+        <div className="relative h-52 overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -31,7 +33,14 @@ export default function Card({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/80 via-navy-primary/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/90 via-navy-primary/30 to-transparent" />
+          {tag && (
+            <div className="absolute top-4 left-4">
+              <span className="px-3 py-1 text-[10px] uppercase tracking-wider text-gold-accent border border-gold-accent/50 rounded-full bg-navy-primary/60 backdrop-blur-sm">
+                {tag}
+              </span>
+            </div>
+          )}
         </div>
       )}
       <div className="p-6 flex flex-col flex-1">

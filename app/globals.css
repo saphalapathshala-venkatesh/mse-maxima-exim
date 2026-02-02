@@ -34,9 +34,24 @@ body::before {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.slate-panel {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+}
+
+.ivory-strip {
+  background: #F5F1E8;
+  color: #0B1B33;
+}
+
+.hero-spotlight {
+  background: radial-gradient(ellipse 80% 50% at 30% 40%, rgba(200,162,74,0.08) 0%, transparent 70%);
 }
 
 .container-main {

@@ -1,0 +1,142 @@
+We already have the MSE website. Perform a premium Design V2 overhaul to make it
+much more appealing and agency-grade, while keeping the same content sections
+(Hero, Products, Why Choose, QA Process, Certifications, CTA, Footer).
+
+PRIMARY GOAL:
+Make the site look premium and authentic, not monotonous navy, not plain, and not template-like.
+
+DO NOT add new pages or new sections. Only upgrade visuals, layout rhythm, imagery,
+button system, and component consistency.
+
+1) MATERIAL / SURFACE SYSTEM (to remove monotony)
+Implement 3 surfaces used consistently:
+A) Deep Navy base (hero + footer): #0B1B33
+B) Slate glass panels (content containers): rgba(255,255,255,0.07) with border rgba(255,255,255,0.12)
+C) Warm Ivory “breathing” panels for short strips/dividers: #F5F1E8 with navy text
+
+Rules:
+- The whole page should NOT be the same navy background.
+- Alternate sections using slate-glass panels and occasional ivory strips.
+- Keep it premium: no bright colors, no loud gradients.
+
+2) HERO SECTION — must look cinematic and premium
+Replace the current hero visual approach with:
+- Left: headline + subheadline + two CTAs
+- Right: a premium image collage (2 stacked cards or 1 large + 1 small overlay):
+  - spices image
+  - vegetables image
+  - optional facility image as a faint background layer
+Add a subtle gold accent line under the headline.
+
+Hero background:
+- deep navy gradient + subtle noise (very light)
+- soft spotlight behind headline (radial gradient)
+
+3) IMAGE QUALITY (major upgrade)
+The first image under header must be replaced with a premium “hero transition” banner:
+- full width, short height
+- high quality spices + vegetables close-up
+- add overlay gradient so it blends with navy theme
+
+Replace the QA section image (the black/white tanks) with a clean QA-related image:
+- lab testing / inspection / hygienic processing
+- integrate as a card inside the QA section (not floating alone).
+
+IMPORTANT:
+Use local images inside /public/images so they never break.
+Create these placeholder local assets (if not present):
+/public/images/hero-spices.jpg
+/public/images/hero-vegetables.jpg
+/public/images/banner-spices-veg.jpg
+/public/images/qa-lab.jpg
+/public/images/facility.jpg
+/public/images/spices.jpg
+/public/images/oleoresins.jpg
+/public/images/vegetables.jpg
+
+If you can't fetch real photos, use temporary placeholders but ensure the layout is premium and images never show empty.
+
+4) SECTION RHYTHM (remove empty gaps)
+Adopt consistent spacing:
+- Hero: pt-24 pb-16
+- Banner image section: py-10
+- Main content sections: py-16
+- CTA strip: py-18
+- Footer: pt-16 pb-10
+Remove any large empty navy space between sections. Each section should visually connect.
+
+5) BUTTON SYSTEM (glossy + premium, consistent everywhere)
+Create a reusable Button component with variants:
+- primary (glossy gold)
+- secondary (glass outline)
+- subtle (ivory on navy when needed)
+
+Primary glossy gold:
+- gradient: #D1AE57 -> #B8892E
+- text: #0B1B33
+- soft shadow + slight lift hover
+Secondary glass:
+- background rgba(255,255,255,0.06)
+- border 1px solid rgba(200,162,74,0.55)
+- text #F5F1E8
+
+Replace ALL text-link CTAs:
+- View Products
+- View Certificate
+- Request Quote
+- Download Catalogue
+must be real buttons, same sizing, aligned, no arrow-only CTAs.
+
+6) PRODUCTS SECTION — fix alignment + premium cards
+- Make 3 product cards equal height using flex:
+  card: flex flex-col
+  content: flex-1
+  CTA: mt-auto
+- Ensure all buttons align perfectly.
+- Improve card visuals:
+  - image top with subtle overlay
+  - glass panel body
+  - border + hover lift
+  - add small category tag pill (e.g., “Export Grade”) in muted gold outline
+
+7) QA PROCESS — put circles inside a premium panel
+- Remove the horizontal line.
+- Wrap all 5 steps in one rounded rectangle container (panel):
+  - background: rgba(255,255,255,0.06)
+  - border: rgba(255,255,255,0.12)
+  - padding: large
+- Each step circle uses icon + small number under icon
+Icons (Lucide outline):
+1 Sourcing: Sprout
+2 Processing: Factory
+3 Testing: ShieldCheck
+4 Packaging: Package
+5 Global Logistics: Globe
+Each circle gets unique muted color ring (one circle one color):
+#6F8F72, #4F8FA8, #C8A24A, #7A7FA8, #5C7C99
+
+8) CERTIFICATIONS — fix buttons + card discipline
+- Certification cards must be equal height.
+- Button anchored at bottom, centered.
+- Change button styling to “secondary glass” (not primary gold).
+- Add a small certification badge area at top of card to look authentic (e.g., “Certified” pill).
+
+9) FOOTER — make it premium, not monotonous
+- Footer stays deep navy but add a warm ivory top strip divider (thin).
+- Use a 3-column grid with better spacing.
+- Add a compact “Request Quote” CTA in footer (secondary button).
+- Improve typography hierarchy.
+
+TYPOGRAPHY:
+- Keep Playfair Display for headings
+- Inter for body
+- Improve readability: consistent line-heights, reduce overly large empty lines.
+
+DELIVERABLE:
+Return updated code with:
+- refined global styles/tokens
+- updated sections, spacing, images, buttons
+- consistent premium material contrast
+- no empty broken images
+- aligned CTAs and cards
+- overall “agency-grade” polish

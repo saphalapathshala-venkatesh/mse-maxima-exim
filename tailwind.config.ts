@@ -11,11 +11,16 @@ const config: Config = {
       colors: {
         'navy-primary': '#0B1B33',
         'navy-alt': '#102A4C',
+        'navy-slate': '#0F2847',
+        'panel-slate': '#162D4A',
         'gold-accent': '#C8A24A',
         'off-white': '#F5F1E8',
+        'warm-ivory': '#F5F1E8',
         'muted-text': '#C7D2E1',
-        'card-surface': 'rgba(255,255,255,0.08)',
-        'card-border': 'rgba(255,255,255,0.14)',
+        'card-surface': 'rgba(255,255,255,0.07)',
+        'card-border': 'rgba(255,255,255,0.12)',
+        'slate-glass': 'rgba(255,255,255,0.07)',
+        'slate-border': 'rgba(255,255,255,0.12)',
       },
       fontFamily: {
         'playfair': ['var(--font-playfair)', 'serif'],
