@@ -83,8 +83,8 @@ export default function Home() {
             {/* Right: Single Premium Export Image */}
             <div className="relative h-[380px] lg:h-[440px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-white/10">
               <Image
-                src="/images/export-bulk-spices.png"
-                alt="Bulk export spices in wooden bowls"
+                src="/images/export-spices-vegetables.png"
+                alt="Export spices and dehydrated vegetables"
                 fill
                 className="object-cover"
                 priority
