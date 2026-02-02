@@ -1,0 +1,80 @@
+Refine the existing MSE website to achieve a true enterprise-grade,
+agency-built (10 developers, 20+ years experience) look.
+
+GOAL:
+- Improve visual hierarchy, cohesion, and premium feel.
+- Remove dead spaces, fix misalignments, add material contrast.
+- Make the site feel authentic, export-industry credible, and polished.
+
+MANDATORY CHANGES:
+
+1) HERO TRANSITION IMAGE
+- Replace the first image below the header with a cinematic, eye-catching image:
+  - spices + vegetables on dark surface
+  - full width, short height
+  - subtle dark overlay + vignette
+- This image must act as a visual divider, not a standalone section.
+
+2) SECTION SPACING SYSTEM
+- Reduce excessive vertical gaps.
+- Use consistent rhythm:
+  - Hero: pt-28 pb-20
+  - Transition images: py-10
+  - Content sections: py-16
+  - CTA sections: py-20
+  - Footer: pt-20 pb-12
+- No large empty navy areas between sections.
+
+3) PRODUCT CARDS ALIGNMENT
+- Make product cards equal height using flex layout.
+- Structure cards as:
+  - flex flex-col
+  - content area flex-1
+  - CTA button mt-auto
+- Ensure all "View Products" buttons align perfectly across cards.
+
+4) QUALITY ASSURANCE IMAGE
+- Replace the current disconnected black-and-white facility image.
+- Use a clean, premium image related to:
+  - quality testing
+  - lab inspection
+  - hygienic processing
+- Integrate the image into the QA section (side-by-side or soft background),
+  so it visually supports the process.
+
+5) QA PROCESS PANEL
+- Remove the horizontal connecting line.
+- Wrap all 5 process circles inside a single rounded rectangular container:
+  - calm slate/navy background (lighter than base)
+  - subtle inner shadow
+  - generous padding
+- Circles sit cleanly inside this panel, not floating on the page.
+
+6) CERTIFICATION BUTTONS & ALIGNMENT
+- Change "View Certificate" buttons to a refined secondary style:
+  - glass navy background
+  - soft gold border
+  - white text
+- Ensure:
+  - equal card heights
+  - button anchored at bottom
+  - consistent button size and alignment
+
+7) MATERIAL & COLOR VARIATION
+- Reduce monotony by introducing surface contrast:
+  - Deep navy: hero, footer
+  - Slate / blue-grey panels: products, QA, certifications
+  - Occasional soft off-white micro sections for breathing
+- Add subtle gradients and grain textures (very light).
+- Do NOT introduce bright colors or clutter.
+
+STRICT RULES:
+- Do not add new sections.
+- Do not remove existing content.
+- Do not change brand colors drastically.
+- Focus on cohesion, alignment, and material quality.
+
+DELIVERABLE:
+- Updated code with refined spacing, aligned components,
+  cohesive QA section, premium imagery, and reduced monotony.
+- The site should look intentionally designed, not assembled.

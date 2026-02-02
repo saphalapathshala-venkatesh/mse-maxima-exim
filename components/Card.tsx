@@ -21,9 +21,9 @@ export default function Card({
   className = '' 
 }: CardProps) {
   return (
-    <div className={`group bg-white/[0.08] border border-white/[0.14] rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${className}`}>
+    <div className={`group flex flex-col h-full bg-white/[0.08] border border-white/[0.14] rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${className}`}>
       {imageSrc && (
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-56 overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -34,15 +34,17 @@ export default function Card({
           <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/80 via-navy-primary/20 to-transparent" />
         </div>
       )}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="font-playfair text-xl text-off-white mb-2">{title}</h3>
         {description && (
-          <p className="text-sm text-muted-text mb-5 leading-relaxed">{description}</p>
+          <p className="text-sm text-muted-text mb-5 leading-relaxed flex-1">{description}</p>
         )}
         {href && buttonText && (
-          <Button href={href} variant="primary" size="md">
-            {buttonText}
-          </Button>
+          <div className="mt-auto">
+            <Button href={href} variant="primary" size="md">
+              {buttonText}
+            </Button>
+          </div>
         )}
       </div>
     </div>

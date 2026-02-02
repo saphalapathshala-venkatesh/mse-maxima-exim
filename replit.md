@@ -48,8 +48,10 @@ components/
 
 public/images/
 ├── hero-spices.jpg     # Hero section spices image
+├── hero-transition.png # Cinematic transition image (spices on dark surface)
 ├── hero-vegetables.jpg # Hero vegetables image
 ├── facility.jpg        # Processing facility image
+├── quality-lab.png     # Quality testing laboratory image
 ├── spices.jpg          # Spices category image
 ├── oleoresins.jpg      # Oleoresins category image
 └── vegetables.jpg      # Vegetables category image
@@ -71,8 +73,14 @@ public/images/
 8. Responsive footer
 
 ## Recent Changes
+- Enterprise-grade refinement with improved visual hierarchy
+- Added cinematic hero transition image as visual divider
+- Updated spacing system (Hero: pt-28 pb-20, Content: py-16, CTA: py-20)
+- Product cards now use flex layout with equal heights and aligned buttons
+- QA section redesigned with side-by-side lab image and process panel
+- Process circles wrapped in rounded panel container (bg-[#162D4A])
+- Certification buttons refined with glass navy + gold border style
+- Material variation: Products/QA use bg-[#0F2847], CTA has gradient
+- Added lucide-react icons for QA process steps
 - Enhanced Button component with glossy gradient styles
-- Added local stock images to /public/images/
-- Updated all CTAs to use glossy buttons (no arrow-only links)
-- Improved card styling with glass effects and hover animations
-- Rounded corners (rounded-xl) throughout for premium feel
+- Card component with flex-1 content and mt-auto button alignment
