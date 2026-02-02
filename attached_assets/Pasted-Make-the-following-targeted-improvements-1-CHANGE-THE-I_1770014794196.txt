@@ -1,0 +1,44 @@
+Make the following targeted improvements:
+
+1) CHANGE THE IMAGE (below the hero CTAs / View Products area)
+- Replace the current image collage (spice jars + berries) with ONE premium export-style banner image.
+- The image must convey bulk export spices (unbranded), e.g. spices in bowls/sacks on dark wood/slate.
+- Remove any irrelevant fruits/berries visuals.
+- Add the image locally as: /public/images/export-bulk-spices.jpg
+- Update the code to use this single image (no collage), with rounded corners and a soft shadow.
+- Add a subtle dark overlay gradient on the image so it matches the premium navy theme.
+
+2) FOOTER PREMIUM UPGRADE — reduce plain single color look
+- Footer currently looks flat/monotonous. Redesign it into a premium 3-layer footer:
+
+A) TOP DIVIDER STRIP
+- Add a thin full-width divider above footer (8–12px tall) in warm ivory (#F5F1E8) or subtle gold line (#C8A24A).
+
+B) FOOTER BODY
+- Use a deep navy gradient background (not flat):
+  from #07162C to #0B1B33 (subtle).
+- Add very subtle texture/noise effect using CSS (low opacity).
+- Improve spacing and hierarchy:
+  headings brighter, links slightly muted, better line-height.
+
+C) FOOTER CTA BUTTON
+- Add a colored CTA button in footer (e.g. “Request Quote”):
+  Use glossy gold gradient (#D1AE57 → #B8892E),
+  text color #0B1B33,
+  hover lift + shadow.
+
+3) FOOTER LINKS — add color + premium hover
+- Make footer hyperlinks visually distinct:
+  default: soft ivory text (rgba(245,241,232,0.85))
+  hover: gold (#C8A24A)
+- Underline should appear on hover only.
+- Optional: for the main navigation links only (Quality/Certifications/About/Contact), allow a subtle teal hover (#4F8FA8) if it looks premium; do NOT use many colors.
+
+4) FOOTER BOTTOM BAR
+- Add a bottom bar strip with slightly darker navy (#061225) for copyright and policy links.
+- Policy links should follow the same hover color system.
+
+RULES:
+- Do not change footer content meaning.
+- Only improve visual styling, CTA addition, and link colors.
+- Keep it premium and consistent with the rest of the site.

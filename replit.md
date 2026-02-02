@@ -47,13 +47,14 @@ components/
 └── Card.tsx            # Premium card component
 
 public/images/
-├── hero-spices.jpg     # Hero section spices image
-├── hero-transition.png # Cinematic transition image (spices on dark surface)
-├── hero-vegetables.jpg # Hero vegetables image
-├── facility.jpg        # Processing facility image
+├── export-bulk-spices.png  # Hero single image (bulk spices in burlap sacks)
+├── export-spices-banner.png # Transition banner (spices in wooden bowls)
+├── hero-spices.jpg     # Legacy hero spices image
+├── hero-vegetables.jpg # Legacy hero vegetables image
+├── facility.jpg        # Processing facility image (unused)
 ├── quality-lab.png     # Quality testing laboratory image
 ├── spices.jpg          # Spices category image
-├── oleoresins.jpg      # Oleoresins category image
+├── oleoresins-new.png  # Oleoresins product image (lab glassware)
 └── vegetables.jpg      # Vegetables category image
 ```
 
@@ -73,13 +74,18 @@ public/images/
 8. Responsive footer
 
 ## Recent Changes
-- **Final Visual Corrections** - Export-grade premium polish
-- New export-spices-banner.png (bulk spices in wooden bowls, no retail jars)
+- **Hero Image Upgrade** - Single premium export image (no collage)
+- New export-bulk-spices.png (bulk spices in burlap sacks, wooden bowls, dark slate)
+- Replaced image collage with single rounded image + dark overlay gradient
+- **Footer 3-Layer Premium Design**
+- Top divider strip: warm ivory/gold gradient (8px)
+- Body: deep navy gradient (#07162C to #0B1B33) with subtle noise texture
+- Bottom bar: darker navy (#061225) for copyright
+- Glossy gold CTA button in footer
+- Links: soft ivory default, gold hover with underline
+- **Previous: Final Visual Corrections**
 - Removed factory/industrial image from Why Choose MSE section
 - Why Choose MSE now uses 2x2 slate-panel card grid layout
-- Footer upgraded: warm ivory/gold top divider, gradient body, darker base strip
-- Footer columns have border-bottom headings for hierarchy
-- Copyright section on separate darker strip (#050D18)
 - **Premium Corrections Update** - Enhanced contrast and visual variety
 - Products section now on warm ivory (#F5F1E8) background with navy cards
 - Certifications section on warm ivory background with 4 navy cards

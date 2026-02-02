@@ -80,33 +80,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Image Collage */}
-            <div className="relative h-[420px] lg:h-[480px]">
-              {/* Main large image */}
-              <div className="absolute top-0 right-0 w-[85%] h-[75%] rounded-xl overflow-hidden shadow-2xl border border-white/10">
-                <Image
-                  src="/images/hero-spices.jpg"
-                  alt="Premium spices display"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-navy-primary/30 to-transparent" />
-              </div>
-              {/* Overlay smaller image */}
-              <div className="absolute bottom-0 left-0 w-[55%] h-[50%] rounded-xl overflow-hidden shadow-2xl border border-white/10">
-                <Image
-                  src="/images/hero-vegetables.jpg"
-                  alt="Fresh vegetables"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-navy-primary/40 to-transparent" />
-              </div>
-              {/* Accent ring */}
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full border border-gold-accent/20 pointer-events-none" />
+            {/* Right: Single Premium Export Image */}
+            <div className="relative h-[380px] lg:h-[440px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-white/10">
+              <Image
+                src="/images/export-bulk-spices.png"
+                alt="Bulk export spices in wooden bowls"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy-primary/40 via-transparent to-navy-primary/30" />
             </div>
           </div>
 
