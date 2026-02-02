@@ -61,27 +61,27 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden">
+      <section className="relative pt-20 pb-10 md:pt-24 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 hero-spotlight pointer-events-none" />
         <div className="container-main relative z-10">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Left: Content */}
-            <div>
-              <h1 className="font-playfair text-4xl md:text-5xl lg:text-[3.5rem] text-off-white leading-[1.1] mb-4">
+            <div className="order-1">
+              <h1 className="font-playfair text-3xl md:text-4xl lg:text-[3.5rem] text-off-white leading-[1.15] mb-4">
                 Premium Agri-Exports with Global Compliance
               </h1>
-              <div className="w-20 h-0.5 bg-gradient-to-r from-gold-accent to-transparent mb-6" />
-              <p className="text-lg text-muted-text mb-8 leading-relaxed max-w-lg">
+              <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-gold-accent to-transparent mb-5 md:mb-6" />
+              <p className="text-base md:text-lg text-muted-text mb-6 md:mb-8 leading-relaxed max-w-lg">
                 Your trusted partner for high-quality spices, oleoresins, and vegetables. Complete traceability and international certifications guaranteed.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button href="/products" variant="primary" size="lg">View Products</Button>
                 <Button href="/contact" variant="secondary" size="lg">Request Quote</Button>
               </div>
             </div>
 
             {/* Right: Premium Visual Panel */}
-            <div className="relative h-[380px] lg:h-[460px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10">
+            <div className="relative h-[280px] sm:h-[340px] lg:h-[460px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 order-2 mt-6 lg:mt-0">
               <Image
                 src="/images/hero-spices-vegetables.png"
                 alt="Premium spices and fresh vegetables for global export"
@@ -101,10 +101,10 @@ export default function Home() {
           </div>
 
           {/* Credibility Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 mt-6 border-t border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-8 md:pt-10 mt-6 border-t border-white/10">
             {credibilityItems.map((item) => (
               <div key={item} className="text-center">
-                <p className="text-sm text-muted-text">{item}</p>
+                <p className="text-xs md:text-sm text-muted-text">{item}</p>
               </div>
             ))}
           </div>
@@ -129,15 +129,15 @@ export default function Home() {
       </section>
 
       {/* Products Section - Warm Ivory Background */}
-      <section className="py-16 bg-warm-ivory">
+      <section className="py-12 md:py-16 bg-warm-ivory">
         <div className="container-main">
-          <div className="text-center mb-10">
-            <h2 className="font-playfair text-3xl md:text-4xl text-navy-primary mb-3">Our Products</h2>
-            <p className="text-navy-primary/70 max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3">Our Products</h2>
+            <p className="text-sm md:text-base text-navy-primary/70 max-w-2xl mx-auto px-4 md:px-0">
               Explore our range of premium export-quality products sourced and processed to meet the highest international standards.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {products.map((product) => (
               <Card
                 key={product.title}
@@ -165,18 +165,18 @@ export default function Home() {
       {/* Why Choose MSE */}
       <Section>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-4">Why Choose MSE</h2>
-            <p className="text-muted-text">Trusted by global importers for quality, compliance, and reliability.</p>
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-off-white mb-3 md:mb-4">Why Choose MSE</h2>
+            <p className="text-sm md:text-base text-muted-text px-4 md:px-0">Trusted by global importers for quality, compliance, and reliability.</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {strengths.map((item) => (
-              <div key={item.title} className="slate-panel p-6 hover:border-gold-accent/30 transition-all duration-200">
-                <div className="flex gap-4">
-                  <span className="w-2 h-2 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
+              <div key={item.title} className="slate-panel p-5 md:p-6 hover:border-gold-accent/30 transition-all duration-200">
+                <div className="flex gap-3 md:gap-4">
+                  <span className="w-2 h-2 mt-1.5 md:mt-2 bg-gold-accent rounded-full flex-shrink-0" />
                   <div>
-                    <h4 className="text-off-white font-medium mb-2">{item.title}</h4>
-                    <p className="text-sm text-muted-text leading-relaxed">{item.desc}</p>
+                    <h4 className="text-off-white font-medium mb-1 md:mb-2 text-sm md:text-base">{item.title}</h4>
+                    <p className="text-xs md:text-sm text-muted-text leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </div>
@@ -254,15 +254,15 @@ export default function Home() {
       </section>
 
       {/* Certifications - Warm Ivory Background */}
-      <section className="py-16 bg-warm-ivory">
+      <section className="py-12 md:py-16 bg-warm-ivory">
         <div className="container-main">
-          <div className="text-center mb-10">
-            <h2 className="font-playfair text-3xl md:text-4xl text-navy-primary mb-3">Certifications</h2>
-            <p className="text-navy-primary/70 max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3">Certifications</h2>
+            <p className="text-sm md:text-base text-navy-primary/70 max-w-2xl mx-auto px-4 md:px-0">
               Our certifications reflect our commitment to quality, safety, and compliance.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {certifications.map((cert) => (
               <div key={cert.name} className="flex flex-col h-full bg-navy-primary border border-navy-primary/20 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-200">
                 <div className="mb-3">
@@ -297,13 +297,13 @@ export default function Home() {
       </div>
 
       {/* CTA Band */}
-      <section className="py-[4.5rem] bg-gradient-to-b from-navy-primary via-navy-alt to-navy-primary border-y border-gold-accent/15">
-        <div className="container-main text-center">
-          <div className="w-16 h-0.5 bg-gold-accent mx-auto mb-6" />
-          <h2 className="font-playfair text-2xl md:text-3xl text-off-white mb-5">
+      <section className="py-12 md:py-[4.5rem] bg-gradient-to-b from-navy-primary via-navy-alt to-navy-primary border-y border-gold-accent/15">
+        <div className="container-main text-center px-4 md:px-6">
+          <div className="w-12 md:w-16 h-0.5 bg-gold-accent mx-auto mb-5 md:mb-6" />
+          <h2 className="font-playfair text-xl md:text-2xl lg:text-3xl text-off-white mb-5 leading-snug">
             Partner with a trusted exporter for your agri-product needs.
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
             <Button href="/contact" variant="primary" size="lg">Request a Quote</Button>
             <Button href="/products" variant="secondary" size="lg">Download Catalogue</Button>
           </div>

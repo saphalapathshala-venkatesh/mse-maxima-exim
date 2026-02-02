@@ -1,0 +1,152 @@
+You are working on an existing Next.js App Router + TypeScript site for MSE – Magna SSK Exim Solutions Pvt Ltd.
+
+The previous attempt failed because the hero image did not actually change and the site is not fully polished on mobile. Fix both now.
+
+NON-NEGOTIABLE RULES
+
+Do NOT redesign the entire site
+
+Do NOT change existing hero text content
+
+Do NOT remove/rename CTAs (“View Products”, “Request Quote”)
+
+Do NOT add Tailwind or new UI libraries
+
+Keep premium enterprise look
+
+Must look excellent on mobile + desktop
+
+PART A — FORCE THE HERO IMAGE TO CHANGE (NO EXCUSES)
+Step A1: Identify the TRUE hero image source
+
+Search the project for where the hero image is coming from:
+
+Look for <img ...>, <Image ...>, background-image: url(...), heroImage, hero.jpg, spices, banner, etc.
+
+The hero may be implemented in app/page.tsx, a dedicated component (Hero.tsx), or in CSS.
+
+You must update the actual source being used.
+
+Step A2: Replace hero image with a new LOCAL file
+
+Do not rely on random remote URLs.
+
+Create a folder: public/images/
+
+Add a new hero image file name:
+public/images/hero-spices-vegetables.jpg
+
+If you cannot fetch an image automatically, create a temporary placeholder file and leave a clear TODO note asking the user to upload the image into that exact path — but still update code to use this filename.
+
+Step A3: Ensure old image cannot appear
+
+Remove any duplicate hero image references
+
+If hero uses CSS background-image, replace it with the new local path.
+
+Make sure there is exactly ONE hero image in the hero section.
+
+Ensure the app is not referencing the previous spice-only image anywhere in the hero.
+
+Step A4: Make the hero image premium + blended
+
+Use a subtle dark overlay/gradient so text area matches the navy theme.
+
+Rounded corners, high quality presentation.
+
+Image must visually represent:
+spices + fresh vegetables + export-grade cleanliness
+(tomatoes/onions/green chilies/garlic/leafy greens + turmeric/chilli/pepper/cumin etc.)
+
+PART B — MOBILE-FIRST POLISH (CRITICAL)
+Current issue
+
+Site looks okay on desktop, but not great on mobile.
+
+Required fixes
+
+Header
+
+Logo + menu icon should not overlap
+
+Add proper padding on mobile
+
+Keep nav accessible and not cramped
+
+Hero section
+
+Desktop: two-column (text left, image right)
+
+Mobile: stacked:
+
+text first
+
+CTAs next
+
+image last
+
+Reduce huge empty areas: tighten spacing
+
+Headline should wrap nicely and not look oversized
+
+Buttons
+
+Ensure buttons are not cut off on small screens
+
+Keep CTA buttons aligned and same width on mobile (or stacked)
+
+Maintain glossy premium styling
+
+Products cards
+
+On mobile: 1 card per row with consistent padding
+
+CTA buttons should appear centered inside each card and aligned consistently
+
+Certifications section
+
+Reduce to 4 cards (not 5)
+
+Ensure equal height, equal padding, and button alignment
+
+“View Certificate” buttons must be inside the card, not floating oddly
+
+Footer
+
+Must not look like a plain HTML block
+
+Add contrast and premium styling:
+
+slightly lighter panel background than main navy
+
+proper spacing
+
+colored links (subtle accent)
+
+add ONE CTA button in footer (ex: “Request Quote”) with premium styling
+
+Mobile footer should stack neatly and remain readable
+
+PART C — VERIFICATION (DO THIS BEFORE FINISHING)
+
+After making changes, verify:
+
+Hero image shown is hero-spices-vegetables.jpg
+
+No old spice-only hero image appears
+
+Mobile layout (375px width) looks premium:
+
+no overlaps
+
+no cut text
+
+no weird gaps
+
+buttons visible and tappable
+
+Desktop still looks premium
+
+OUTPUT REQUIRED
+
+Implement the changes directly in the project files and ensure the site looks premium and fully responsive.
