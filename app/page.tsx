@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Section from '@/components/Section'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
+import { Sprout, Settings, ShieldCheck, Package, Globe } from 'lucide-react'
 
 const credibilityItems = [
   'ISO/BRC/FSSC Certified',
@@ -39,11 +40,11 @@ const strengths = [
 ]
 
 const processSteps = [
-  { step: 1, title: 'Sourcing', desc: 'Careful selection from certified farms and suppliers.', color: '#6F8F72' },
-  { step: 2, title: 'Processing', desc: 'State-of-the-art cleaning, sorting, and processing.', color: '#4F8FA8' },
-  { step: 3, title: 'Testing', desc: 'Comprehensive quality and safety testing.', color: '#C8A24A' },
-  { step: 4, title: 'Packaging', desc: 'Hygienic packaging in controlled environments.', color: '#7A7FA8' },
-  { step: 5, title: 'Global Logistics', desc: 'Efficient delivery to destinations worldwide.', color: '#5C7C99' },
+  { step: 1, title: 'Sourcing', desc: 'Careful selection from certified farms and suppliers.', color: '#6F8F72', icon: Sprout },
+  { step: 2, title: 'Processing', desc: 'State-of-the-art cleaning, sorting, and processing.', color: '#4F8FA8', icon: Settings },
+  { step: 3, title: 'Testing', desc: 'Comprehensive quality and safety testing.', color: '#C8A24A', icon: ShieldCheck },
+  { step: 4, title: 'Packaging', desc: 'Hygienic packaging in controlled environments.', color: '#7A7FA8', icon: Package },
+  { step: 5, title: 'Global Logistics', desc: 'Efficient delivery to destinations worldwide.', color: '#5C7C99', icon: Globe },
 ]
 
 const certifications = [
@@ -160,21 +161,25 @@ export default function Home() {
         <div className="relative">
           <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-[1px] bg-white/25" />
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.step} className="relative text-center">
-                <div 
-                  className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center relative z-10 shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
-                  style={{ 
-                    border: `2px solid ${step.color}`,
-                    backgroundColor: `${step.color}10`
-                  }}
-                >
-                  <span className="font-semibold text-xl text-off-white">{step.step}</span>
+            {processSteps.map((step) => {
+              const IconComponent = step.icon
+              return (
+                <div key={step.step} className="relative text-center">
+                  <div 
+                    className="w-20 h-20 mx-auto mb-4 rounded-full flex flex-col items-center justify-center relative z-10 shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+                    style={{ 
+                      border: `2px solid ${step.color}`,
+                      backgroundColor: `${step.color}10`
+                    }}
+                  >
+                    <IconComponent size={28} strokeWidth={1.5} style={{ color: step.color }} />
+                    <span className="text-[10px] text-off-white/60 mt-1">{step.step}</span>
+                  </div>
+                  <h4 className="text-off-white font-medium mb-2">{step.title}</h4>
+                  <p className="text-xs text-muted-text">{step.desc}</p>
                 </div>
-                <h4 className="text-off-white font-medium mb-2">{step.title}</h4>
-                <p className="text-xs text-muted-text">{step.desc}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </Section>
