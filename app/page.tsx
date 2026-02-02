@@ -137,19 +137,20 @@ export default function Home() {
               Explore our range of premium export-quality products sourced and processed to meet the highest international standards.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {products.map((product) => (
-              <Card
-                key={product.title}
-                title={product.title}
-                description={product.description}
-                imageSrc={product.image}
-                imageAlt={product.title}
-                href={product.href}
-                buttonText="View Products"
-                tag={product.tag}
-                variant="dark"
-              />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+            {products.map((product, index) => (
+              <div key={product.title} className={`${index === 2 ? 'sm:col-span-2 sm:max-w-[50%] sm:mx-auto md:col-span-1 md:max-w-none' : ''}`}>
+                <Card
+                  title={product.title}
+                  description={product.description}
+                  imageSrc={product.image}
+                  imageAlt={product.title}
+                  href={product.href}
+                  buttonText="View Products"
+                  tag={product.tag}
+                  variant="dark"
+                />
+              </div>
             ))}
           </div>
         </div>
