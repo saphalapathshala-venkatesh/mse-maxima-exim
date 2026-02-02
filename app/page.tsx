@@ -22,7 +22,7 @@ const products = [
   {
     title: 'Oleoresins',
     description: 'Natural extracts with concentrated flavor and color for food industries.',
-    image: '/images/oleoresins.jpg',
+    image: '/images/oleoresins-new.png',
     href: '/products/oleoresins',
     tag: 'Premium Extract',
   },
@@ -55,7 +55,6 @@ const certifications = [
   { name: 'BRCGS', desc: 'Global Food Safety Standard' },
   { name: 'FSSC 22000', desc: 'Food Safety System Certification' },
   { name: 'HALAL', desc: 'Halal Certified Products' },
-  { name: 'FSSAI', desc: 'Food Safety and Standards Authority of India' },
 ]
 
 export default function Home() {
@@ -122,27 +121,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero Transition Banner */}
-      <section className="py-10">
-        <div className="relative w-full h-[180px] md:h-[240px]">
+      {/* Hero Transition Banner - Premium Export Spices */}
+      <section className="py-8">
+        <div className="container-main">
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/40 to-transparent mb-8" />
+        </div>
+        <div className="relative w-full h-[180px] md:h-[220px]">
           <Image
-            src="/images/hero-transition.png"
-            alt="Premium spices and vegetables"
+            src="/images/banner-spices-export.png"
+            alt="Premium export spices flatlay"
             fill
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-primary via-transparent to-navy-primary" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(11,27,51,0.85)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-primary/60 via-transparent to-warm-ivory/90" />
         </div>
       </section>
 
-      {/* Products Section - Slate Glass Panel */}
-      <section className="py-16 bg-navy-slate">
+      {/* Products Section - Warm Ivory Background */}
+      <section className="py-16 bg-warm-ivory">
         <div className="container-main">
           <div className="text-center mb-10">
-            <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-3">Our Products</h2>
-            <p className="text-muted-text max-w-2xl mx-auto">
+            <h2 className="font-playfair text-3xl md:text-4xl text-navy-primary mb-3">Our Products</h2>
+            <p className="text-navy-primary/70 max-w-2xl mx-auto">
               Explore our range of premium export-quality products sourced and processed to meet the highest international standards.
             </p>
           </div>
@@ -157,20 +158,19 @@ export default function Home() {
                 href={product.href}
                 buttonText="View Products"
                 tag={product.tag}
+                variant="dark"
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ivory Breathing Strip */}
-      <section className="py-6 bg-warm-ivory">
+      {/* Gold Divider */}
+      <div className="bg-warm-ivory py-4">
         <div className="container-main">
-          <p className="text-center text-navy-primary text-sm font-medium tracking-wide">
-            Trusted by importers across 50+ countries worldwide
-          </p>
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
         </div>
-      </section>
+      </div>
 
       {/* Why Choose MSE */}
       <Section>
@@ -201,6 +201,13 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      {/* Gold Divider */}
+      <div className="py-4">
+        <div className="container-main">
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/30 to-transparent" />
+        </div>
+      </div>
 
       {/* Quality Assurance Process - Slate Panel */}
       <section className="py-16 bg-navy-slate">
@@ -263,35 +270,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <Section>
-        <div className="text-center mb-10">
-          <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-3">Certifications</h2>
-          <p className="text-muted-text max-w-2xl mx-auto">
-            Our certifications reflect our commitment to quality, safety, and compliance.
+      {/* Certifications - Warm Ivory Background */}
+      <section className="py-16 bg-warm-ivory">
+        <div className="container-main">
+          <div className="text-center mb-10">
+            <h2 className="font-playfair text-3xl md:text-4xl text-navy-primary mb-3">Certifications</h2>
+            <p className="text-navy-primary/70 max-w-2xl mx-auto">
+              Our certifications reflect our commitment to quality, safety, and compliance.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {certifications.map((cert) => (
+              <div key={cert.name} className="flex flex-col h-full bg-navy-primary border border-navy-primary/20 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-200">
+                <div className="mb-3">
+                  <span className="inline-block px-3 py-1 text-[9px] uppercase tracking-wider text-gold-accent border border-gold-accent/40 rounded-full bg-gold-accent/10">
+                    Certified
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-playfair text-lg text-off-white mb-2">{cert.name}</h4>
+                  <p className="text-xs text-muted-text mb-5 leading-relaxed">{cert.desc}</p>
+                </div>
+                <div className="mt-auto">
+                  <button className="w-full py-2.5 px-4 text-sm text-off-white bg-white/[0.06] border border-gold-accent/50 rounded-lg hover:bg-white/[0.10] hover:border-gold-accent/70 transition-all duration-200">
+                    View Certificate
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* FSSAI Note */}
+          <p className="text-center text-navy-primary/60 text-sm mt-8">
+            Also certified by FSSAI (Food Safety and Standards Authority of India)
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
-          {certifications.map((cert) => (
-            <div key={cert.name} className="flex flex-col h-full slate-panel p-5 text-center hover:border-gold-accent/30 transition-all duration-200">
-              <div className="mb-3">
-                <span className="inline-block px-2 py-0.5 text-[9px] uppercase tracking-wider text-gold-accent border border-gold-accent/40 rounded-full">
-                  Certified
-                </span>
-              </div>
-              <div className="flex-1">
-                <h4 className="font-playfair text-base md:text-lg text-off-white mb-1.5">{cert.name}</h4>
-                <p className="text-[11px] text-muted-text mb-4 leading-relaxed">{cert.desc}</p>
-              </div>
-              <div className="mt-auto">
-                <Button href="#" variant="secondary" size="md">
-                  View Certificate
-                </Button>
-              </div>
-            </div>
-          ))}
+      </section>
+
+      {/* Gold Divider */}
+      <div className="bg-warm-ivory py-4">
+        <div className="container-main">
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
         </div>
-      </Section>
+      </div>
 
       {/* CTA Band */}
       <section className="py-[4.5rem] bg-gradient-to-b from-navy-primary via-navy-alt to-navy-primary border-y border-gold-accent/15">

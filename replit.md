@@ -73,16 +73,18 @@ public/images/
 8. Responsive footer
 
 ## Recent Changes
+- **Premium Corrections Update** - Enhanced contrast and visual variety
+- Products section now on warm ivory (#F5F1E8) background with navy cards
+- Certifications section on warm ivory background with 4 navy cards
+- FSSAI moved to text note below certification grid
+- New premium banner image (export-style spice flatlay on dark slate)
+- New oleoresins image (lab glassware with food-grade extracts)
+- Gold divider lines between major sections
+- Card component supports 'dark' variant for ivory backgrounds
+- Footer with gradient background (navy to darker)
+- Certification buttons full-width with glass navy + gold border style
 - **Design V2 Overhaul** - Complete agency-grade premium redesign
 - 3-surface material system: deep navy base, slate glass panels, warm ivory strips
 - Hero section with image collage (2 stacked images) and gold accent line
-- Hero spotlight radial gradient for cinematic effect
-- Cinematic hero transition banner with vignette overlay
-- Product cards with "Export Grade" category tag pills
 - QA section with side-by-side lab image card and process panel
 - Process circles with Lucide icons inside slate-panel container
-- Certification cards with "Certified" badge pills and secondary buttons
-- Footer with warm ivory gradient divider and Request Quote CTA
-- Consistent spacing: Hero pt-24 pb-16, Content py-16, CTA py-18
-- All CTAs converted to proper buttons (no text-link CTAs)
-- Equal-height cards with flex layout and mt-auto button alignment

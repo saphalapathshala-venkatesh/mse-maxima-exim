@@ -17,8 +17,8 @@ const productLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-primary">
-      <div className="h-1 bg-gradient-to-r from-transparent via-warm-ivory/30 to-transparent" />
+    <footer className="bg-gradient-to-b from-navy-primary to-[#081422]">
+      <div className="h-1 bg-gradient-to-r from-transparent via-warm-ivory/40 to-transparent" />
       
       <div className="container-main pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">

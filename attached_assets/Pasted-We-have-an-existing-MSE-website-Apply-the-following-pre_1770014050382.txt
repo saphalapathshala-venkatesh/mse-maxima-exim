@@ -1,0 +1,64 @@
+We have an existing MSE website. Apply the following premium corrections:
+
+A) IMAGES — replace low-quality / wrong-context images
+1) Replace the main banner image below header with a premium export-style spice flatlay:
+   - spices in bowls, peppercorns, turmeric, cinnamon, star anise
+   - dark wood or slate background
+   - no branded jars, no random packaging
+2) Replace Oleoresins product image:
+   - must look like food-industry extracts/oleoresins, not cosmetics/spa
+   - use lab glassware or amber food-extract bottles on industrial clean background
+
+IMPORTANT: Use local images stored in /public/images/ so nothing breaks.
+Create these filenames and use them:
+- /public/images/banner-spices-export.jpg
+- /public/images/spices.jpg
+- /public/images/oleoresins.jpg
+- /public/images/vegetables.jpg
+If real images cannot be fetched, use decent placeholders but keep the look consistent and premium.
+
+B) CONTRAST — reduce navy dominance
+The website currently looks 90% navy; introduce premium contrast:
+1) Keep deep navy background mainly for hero and major navy sections.
+2) Convert the Products section background to Warm Ivory (#F5F1E8) with navy text (#0B1B33).
+   - Product cards should become navy/slate panels sitting on ivory background.
+3) Convert Certifications section background to Warm Ivory (#F5F1E8) with navy text,
+   while keeping certification cards as refined navy/slate panels.
+4) Add thin gold divider lines (#C8A24A) between major sections (subtle, not loud).
+
+C) CERTIFICATIONS — switch from 5 to 4 cards + fix buttons
+1) Show ONLY 4 certification cards in grid (responsive: 1/2/4 columns):
+   - ISO 22000
+   - BRCGS
+   - FSSC 22000
+   - HALAL
+2) Move "FSSAI" into a small line of text below the grid (not as a card).
+3) Fix View Certificate buttons:
+   - Each card must be `flex flex-col`
+   - The content area must be `flex-1`
+   - The button must be `mt-auto`
+   - Button must not wrap, must be consistent size/shape
+   - Button style: secondary premium (glass navy) with subtle gold border
+   - Option: make button full width in the card for perfect consistency.
+
+D) FOOTER — make it premium, not HTML
+1) Footer must feel like an intentional brand section:
+   - Deep navy background with subtle gradient
+   - Add a warm ivory divider strip on top (thin)
+   - Improve typography hierarchy and spacing
+   - Use a clean 3-column layout with headings
+   - Add a small CTA button "Request Quote" inside footer (secondary style)
+   - Include social links only if needed; avoid clutter.
+
+E) KEEP THE BRAND
+- Keep fonts (Playfair for headings, Inter for body)
+- Keep primary navy and gold accents
+- No new sections/pages; only redesign the affected sections for premium contrast.
+
+DELIVERABLE:
+Update code so:
+- Images look premium and relevant
+- Products + Certifications are on ivory background (strong contrast)
+- Certifications grid is 4 cards with perfect buttons
+- Footer looks like premium brand block
+- Overall site feels more varied and agency-built.

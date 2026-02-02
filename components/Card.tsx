@@ -10,6 +10,7 @@ interface CardProps {
   buttonText?: string
   className?: string
   tag?: string
+  variant?: 'default' | 'dark'
 }
 
 export default function Card({ 
@@ -20,10 +21,15 @@ export default function Card({
   href,
   buttonText,
   className = '',
-  tag
+  tag,
+  variant = 'default'
 }: CardProps) {
+  const cardStyles = variant === 'dark' 
+    ? 'bg-navy-primary border-navy-primary/30 shadow-lg hover:shadow-xl' 
+    : 'bg-slate-glass border-slate-border hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]'
+  
   return (
-    <div className={`group flex flex-col h-full bg-slate-glass border border-slate-border rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${className}`}>
+    <div className={`group flex flex-col h-full ${cardStyles} rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:-translate-y-1 ${className}`}>
       {imageSrc && (
         <div className="relative h-52 overflow-hidden flex-shrink-0">
           <Image
