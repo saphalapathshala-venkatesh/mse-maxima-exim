@@ -1,0 +1,132 @@
+You are working on an existing Next.js (App Router) + TypeScript website for MSE – Magna SSK Exim Solutions Pvt Ltd, a premium agri-export company.
+
+Your task is to upgrade the hero section and its primary image so the site looks enterprise-grade, premium, export-focused, following the instructions strictly.
+
+🚫 STRICT RULES (NON-NEGOTIABLE)
+
+Do NOT redesign the entire website
+
+Do NOT change existing text content
+
+Do NOT remove or rename buttons
+
+Do NOT introduce Tailwind, animations, or new libraries
+
+Do NOT center-align hero text
+
+Do NOT break mobile responsiveness
+
+Think and act like a senior UI team with 20+ years experience
+
+🎯 TASK 1: FIX HERO SECTION EMPTY SPACE
+Current Issue
+
+The hero section has large unused empty space on the right, making it feel unfinished and low-density.
+
+Required Outcome
+
+Convert hero into a two-column layout
+
+Left column = existing text (headline, description, buttons)
+
+Right column = premium visual panel
+
+Layout must look balanced, intentional, and executive-grade
+
+🎯 TASK 2: REPLACE HERO IMAGE (CRITICAL)
+Problem
+
+Current image shows only spices / dehydrated items and does not fully represent MSE’s business.
+
+Required Image Direction
+
+Replace the hero image with ONE strong, premium image that clearly includes:
+
+Whole spices (turmeric, chilli, pepper, cumin, cinnamon, etc.)
+
+Fresh vegetables (tomatoes, onions, green chilies, garlic, leafy greens)
+
+Clean export-grade presentation (studio lighting, dark background)
+
+Balanced composition (not cluttered, not rustic market-style)
+
+Image MUST:
+
+Look international and export-focused
+
+Feel food-grade, hygienic, and premium
+
+Avoid factory machinery visuals
+
+Avoid plain spice-only flat lays
+
+Avoid casual kitchen photography
+
+This image should visually communicate:
+
+“Spices + Vegetables + Global Exports + Quality”
+
+🎯 TASK 3: RIGHT-SIDE VISUAL PANEL BEHAVIOR
+
+Place the new image in the right column of the hero
+
+Add a subtle dark overlay so it blends with the navy theme
+
+Use rounded corners
+
+Optionally add small trust text inside the image:
+“ISO 22000 · BRCGS · FSSC 22000 · HALAL · Global Exports”
+
+No icons required.
+
+🎯 TASK 4: KEEP HERO CONTENT UNCHANGED
+
+Headline text remains exactly the same
+
+Description text remains the same
+
+“View Products” and “Request Quote” buttons remain left-aligned
+
+No typography changes
+
+🎯 TASK 5: RESPONSIVE BEHAVIOR
+
+Desktop: two-column hero (text left, image right)
+
+Mobile: stacked layout
+
+Text first
+
+Image below
+
+Spacing must remain tight and premium on all screen sizes
+
+🎯 TASK 6: VISUAL TONE & BRAND QUALITY
+
+Hero must feel luxurious, export-oriented, and credible
+
+Avoid flat or empty areas
+
+Avoid overly dark monotony
+
+Maintain brand seriousness suitable for international buyers
+
+📂 SCOPE LIMITATION
+
+Modify only existing hero implementation
+
+Do NOT add new pages
+
+Do NOT restructure folders
+
+✅ FINAL EXPECTATION
+
+After your changes:
+
+No empty space remains in the hero
+
+Image clearly shows both spices and fresh vegetables
+
+Hero looks like it belongs to a global agri-export enterprise
+
+UI quality reflects senior-level execution

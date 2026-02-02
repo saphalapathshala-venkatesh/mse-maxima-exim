@@ -80,17 +80,23 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Single Premium Export Image */}
-            <div className="relative h-[380px] lg:h-[440px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-white/10">
+            {/* Right: Premium Visual Panel */}
+            <div className="relative h-[380px] lg:h-[460px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10">
               <Image
-                src="/images/export-spices-vegetables.png"
-                alt="Export spices and dehydrated vegetables"
+                src="/images/hero-spices-vegetables.png"
+                alt="Premium spices and fresh vegetables for global export"
                 fill
                 className="object-cover"
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-navy-primary/40 via-transparent to-navy-primary/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/70 via-navy-primary/20 to-transparent" />
+              {/* Trust Text Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
+                <p className="text-[10px] lg:text-xs text-off-white/80 tracking-wide text-center">
+                  ISO 22000 · BRCGS · FSSC 22000 · HALAL · Global Exports
+                </p>
+              </div>
             </div>
           </div>
 
