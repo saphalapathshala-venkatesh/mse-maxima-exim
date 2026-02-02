@@ -1,0 +1,101 @@
+You are building a premium export company website using Next.js 14+ App Router with TypeScript and Tailwind CSS.
+
+PROJECT NAME: MSE Website
+BRAND:
+- Text logo only (NO image logo). Left aligned brand block:
+  Line 1: "MSE" (large)
+  Line 2: "MAGNA SSK EXIM SOLUTIONS PVT LTD" (small, letter-spaced)
+- Theme must be premium exporter style, NOT plain white.
+
+DESIGN GOAL:
+- Dark premium navy textured background with vegetables + spices visuals.
+- Looks like built by an enterprise agency (10 developers, 20+ years experience).
+- High whitespace, clean typography, subtle premium motion only.
+- NO loud gradients, NO clutter, NO random icons, NO bright colors.
+
+TECH REQUIREMENTS:
+- Next.js App Router: use /app directory.
+- Tailwind CSS for styling.
+- Use next/font for Google fonts:
+  Headings: Playfair Display
+  Body: Inter
+- Use next/image for all images (with responsive sizes).
+- Create reusable components: Header, Footer, Section, Card, Button.
+- Ensure responsive design for mobile/tablet/desktop.
+- Accessibility: proper headings, contrast, alt tags, keyboard nav.
+
+COLOR SYSTEM (must match):
+- Primary Navy: #0B1B33
+- Navy Alt: #102A4C
+- Gold Accent: #C8A24A
+- Off-white: #F5F1E8
+- Muted text: #C7D2E1
+- Card surface: rgba(255,255,255,0.08)
+- Border: rgba(255,255,255,0.14)
+
+BACKGROUND:
+- Use a premium dark gradient navy background + subtle noise texture overlay.
+- Use semi-transparent section panels (very subtle glass effect).
+- Avoid plain white page backgrounds.
+
+PAGES:
+Create these routes:
+1) / (Homepage)
+2) /products (categories grid)
+3) /products/spices
+4) /products/oleoresins
+5) /products/vegetables
+6) /quality
+7) /certifications
+8) /about
+9) /contact
+
+HOMEPAGE EXACT SECTIONS (in order):
+1) Sticky Header:
+   - Left branding block: MSE + company name
+   - Nav: Products, Quality, Certifications, About, Contact
+   - CTAs: "Request Quote" (gold filled), "Download Catalogue" (outline)
+2) Hero Section:
+   - Left: Headline + short subtext about global compliance and traceability
+   - Buttons: "View Products" and "Request Quote"
+   - Right: large premium hero image showing vegetables + spices (use a placeholder image URL)
+   - Below: credibility strip with 4 items:
+     ISO/BRC/FSSC Certified, Exporting to 50+ Countries, State-of-the-Art Facilities, 100+ MT Capacity
+3) Products Section:
+   - Title "Our Products"
+   - 3 premium cards with images: Spices, Oleoresins, Vegetables
+   - Each card has: title, one-line description, button "View All Products"
+4) Why Choose MSE:
+   - Two-column layout: left bullet strengths, right image (facility/product)
+   - Bullets: Global Compliance, Quality Assurance, Full Traceability, Customized Packaging
+5) Quality Assurance Process:
+   - Timeline or stepper with 5 steps: Sourcing, Processing, Testing, Packaging, Global Logistics
+6) Certifications:
+   - Grid of 5 certification cards (ISO, BRCGS, FSSC 22000, HALAL, FSSAI)
+   - Each card has "View Certificate" button (placeholder link)
+7) CTA Band:
+   - Navy band with gold accent line
+   - Copy: "Partner with a trusted exporter for your agri-product needs."
+   - Button: "Request a Quote"
+8) Footer:
+   - Branding block + quick links + contact details
+
+CONTENT STYLE:
+- Short, factual, exporter tone (no hype).
+- Use placeholders for: countries count, capacity, addresses, emails.
+
+IMPLEMENTATION DETAILS:
+- Create a global layout with consistent container width (max-w-[1200px]).
+- Use generous section padding (py-20/py-24).
+- Use subtle hover effects: card lift, border brighten, button glow very minimal.
+- Create a clean Tailwind theme in globals.css (or tailwind config) for background + texture.
+- Must be visually polished and consistent across all pages.
+
+IMPORTANT CONSTRAINTS:
+- DO NOT invent extra sections.
+- DO NOT change theme to white.
+- DO NOT add excessive icons.
+- DO NOT create blog, careers, or unrelated pages.
+- Keep everything minimal, premium, and export-business authentic.
+
+Deliver complete code for all pages and components so the app runs without errors.
