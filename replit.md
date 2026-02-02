@@ -73,18 +73,16 @@ public/images/
 8. Responsive footer
 
 ## Recent Changes
+- **Final Visual Corrections** - Export-grade premium polish
+- New export-spices-banner.png (bulk spices in wooden bowls, no retail jars)
+- Removed factory/industrial image from Why Choose MSE section
+- Why Choose MSE now uses 2x2 slate-panel card grid layout
+- Footer upgraded: warm ivory/gold top divider, gradient body, darker base strip
+- Footer columns have border-bottom headings for hierarchy
+- Copyright section on separate darker strip (#050D18)
 - **Premium Corrections Update** - Enhanced contrast and visual variety
 - Products section now on warm ivory (#F5F1E8) background with navy cards
 - Certifications section on warm ivory background with 4 navy cards
 - FSSAI moved to text note below certification grid
-- New premium banner image (export-style spice flatlay on dark slate)
-- New oleoresins image (lab glassware with food-grade extracts)
 - Gold divider lines between major sections
 - Card component supports 'dark' variant for ivory backgrounds
-- Footer with gradient background (navy to darker)
-- Certification buttons full-width with glass navy + gold border style
-- **Design V2 Overhaul** - Complete agency-grade premium redesign
-- 3-surface material system: deep navy base, slate glass panels, warm ivory strips
-- Hero section with image collage (2 stacked images) and gold accent line
-- QA section with side-by-side lab image card and process panel
-- Process circles with Lucide icons inside slate-panel container

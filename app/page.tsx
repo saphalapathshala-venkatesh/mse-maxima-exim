@@ -122,19 +122,19 @@ export default function Home() {
       </section>
 
       {/* Hero Transition Banner - Premium Export Spices */}
-      <section className="py-8">
+      <section className="py-6">
         <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/40 to-transparent mb-8" />
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/40 to-transparent mb-6" />
         </div>
-        <div className="relative w-full h-[180px] md:h-[220px]">
+        <div className="relative w-full h-[160px] md:h-[200px]">
           <Image
-            src="/images/banner-spices-export.png"
-            alt="Premium export spices flatlay"
+            src="/images/export-spices-banner.png"
+            alt="Bulk export spices in wooden bowls"
             fill
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-primary/60 via-transparent to-warm-ivory/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-primary/50 via-transparent to-warm-ivory/80" />
         </div>
       </section>
 
@@ -174,30 +174,23 @@ export default function Home() {
 
       {/* Why Choose MSE */}
       <Section>
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-6">Why Choose MSE</h2>
-            <ul className="space-y-5">
-              {strengths.map((item) => (
-                <li key={item.title} className="flex gap-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-4">Why Choose MSE</h2>
+            <p className="text-muted-text">Trusted by global importers for quality, compliance, and reliability.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {strengths.map((item) => (
+              <div key={item.title} className="slate-panel p-6 hover:border-gold-accent/30 transition-all duration-200">
+                <div className="flex gap-4">
                   <span className="w-2 h-2 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
                   <div>
-                    <h4 className="text-off-white font-medium mb-1">{item.title}</h4>
+                    <h4 className="text-off-white font-medium mb-2">{item.title}</h4>
                     <p className="text-sm text-muted-text leading-relaxed">{item.desc}</p>
                   </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="relative h-[350px] rounded-xl overflow-hidden shadow-2xl border border-white/10">
-            <Image
-              src="/images/facility.jpg"
-              alt="MSE processing facility"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-primary/20 to-transparent" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </Section>
