@@ -227,11 +227,14 @@ export default function Home() {
               
               {/* Process Panel */}
               <div className="slate-panel p-6 md:p-8">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
-                  {processSteps.map((step) => {
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:justify-between">
+                  {processSteps.map((step, index) => {
                     const IconComponent = step.icon
                     return (
-                      <div key={step.step} className="text-center">
+                      <div 
+                        key={step.step} 
+                        className={`text-center w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-auto lg:flex-1 ${index === 4 ? 'sm:w-[calc(50%-0.75rem)]' : ''}`}
+                      >
                         <div 
                           className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 rounded-full flex flex-col items-center justify-center"
                           style={{ 
