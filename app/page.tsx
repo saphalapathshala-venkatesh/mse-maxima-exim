@@ -39,11 +39,11 @@ const strengths = [
 ]
 
 const processSteps = [
-  { step: 1, title: 'Sourcing', desc: 'Careful selection from certified farms and suppliers.' },
-  { step: 2, title: 'Processing', desc: 'State-of-the-art cleaning, sorting, and processing.' },
-  { step: 3, title: 'Testing', desc: 'Comprehensive quality and safety testing.' },
-  { step: 4, title: 'Packaging', desc: 'Hygienic packaging in controlled environments.' },
-  { step: 5, title: 'Global Logistics', desc: 'Efficient delivery to destinations worldwide.' },
+  { step: 1, title: 'Sourcing', desc: 'Careful selection from certified farms and suppliers.', color: '#6F8F72' },
+  { step: 2, title: 'Processing', desc: 'State-of-the-art cleaning, sorting, and processing.', color: '#4F8FA8' },
+  { step: 3, title: 'Testing', desc: 'Comprehensive quality and safety testing.', color: '#C8A24A' },
+  { step: 4, title: 'Packaging', desc: 'Hygienic packaging in controlled environments.', color: '#7A7FA8' },
+  { step: 5, title: 'Global Logistics', desc: 'Efficient delivery to destinations worldwide.', color: '#5C7C99' },
 ]
 
 const certifications = [
@@ -158,12 +158,18 @@ export default function Home() {
           </p>
         </div>
         <div className="relative">
-          <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-card-border" />
+          <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-[1px] bg-white/25" />
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {processSteps.map((step) => (
               <div key={step.step} className="relative text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-navy-alt border-2 border-gold-accent flex items-center justify-center relative z-10">
-                  <span className="font-playfair text-xl text-gold-accent">{step.step}</span>
+                <div 
+                  className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center relative z-10 shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+                  style={{ 
+                    border: `2px solid ${step.color}`,
+                    backgroundColor: `${step.color}10`
+                  }}
+                >
+                  <span className="font-semibold text-xl text-off-white">{step.step}</span>
                 </div>
                 <h4 className="text-off-white font-medium mb-2">{step.title}</h4>
                 <p className="text-xs text-muted-text">{step.desc}</p>
