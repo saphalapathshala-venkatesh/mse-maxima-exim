@@ -66,15 +66,15 @@ export default function Home() {
         <div className="container-main relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Left: Content */}
-            <div className="order-1">
-              <h1 className="font-playfair text-3xl md:text-4xl lg:text-[3.5rem] text-off-white leading-[1.15] mb-4">
+            <div className="order-1 text-center lg:text-left">
+              <h1 className="font-playfair text-[clamp(1.75rem,5vw,3.5rem)] text-off-white leading-[1.2] mb-4 max-w-[20ch] mx-auto lg:mx-0">
                 Premium Agri-Exports with Global Compliance
               </h1>
-              <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-gold-accent to-transparent mb-5 md:mb-6" />
-              <p className="text-base md:text-lg text-muted-text mb-6 md:mb-8 leading-relaxed max-w-lg">
+              <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-gold-accent to-transparent mb-5 md:mb-6 mx-auto lg:mx-0" />
+              <p className="text-base md:text-lg text-muted-text mb-6 md:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Your trusted partner for high-quality spices, oleoresins, and vegetables. Complete traceability and international certifications guaranteed.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Button href="/products" variant="primary" size="lg">View Products</Button>
                 <Button href="/contact" variant="secondary" size="lg">Request Quote</Button>
               </div>
@@ -137,9 +137,9 @@ export default function Home() {
               Explore our range of premium export-quality products sourced and processed to meet the highest international standards.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {products.map((product, index) => (
-              <div key={product.title} className={`${index === 2 ? 'sm:col-span-2 sm:max-w-[50%] sm:mx-auto md:col-span-1 md:max-w-none' : ''}`}>
+              <div key={product.title} className={`h-full ${index === 2 ? 'sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto lg:col-span-1 lg:max-w-none' : ''}`}>
                 <Card
                   title={product.title}
                   description={product.description}
@@ -196,11 +196,11 @@ export default function Home() {
       {/* Quality Assurance Process - Slate Panel */}
       <section className="py-16 bg-navy-slate">
         <div className="container-main">
-          <div className="grid lg:grid-cols-5 gap-8 items-start">
+          <div className="grid lg:grid-cols-5 gap-8 items-stretch">
             {/* Left: QA Image Card */}
-            <div className="lg:col-span-2">
-              <div className="slate-panel overflow-hidden">
-                <div className="relative h-[280px]">
+            <div className="lg:col-span-2 flex">
+              <div className="slate-panel overflow-hidden flex flex-col w-full">
+                <div className="relative h-[280px] lg:flex-1 lg:min-h-[280px]">
                   <Image
                     src="/images/quality-lab.png"
                     alt="Quality testing laboratory"
@@ -217,7 +217,7 @@ export default function Home() {
             </div>
             
             {/* Right: Content + Process Panel */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 flex flex-col">
               <div className="mb-6">
                 <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-3">Quality Assurance Process</h2>
                 <p className="text-muted-text max-w-xl">
@@ -226,7 +226,7 @@ export default function Home() {
               </div>
               
               {/* Process Panel */}
-              <div className="slate-panel p-6 md:p-8">
+              <div className="slate-panel p-6 md:p-8 flex-1 flex flex-col justify-center">
                 <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
                   {processSteps.map((step, index) => {
                     const IconComponent = step.icon

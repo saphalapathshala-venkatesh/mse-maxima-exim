@@ -1,0 +1,115 @@
+You are working on my Next.js App Router site (MSE Magna Exim). Do NOT change the overall design theme; only fix layout/responsiveness issues listed below. Make changes only in the relevant existing files (likely app/page.tsx + globals.css or existing CSS module). Keep everything production-ready.
+
+1) Fix HERO heading overlap (desktop + mobile)
+
+Problem: The hero H1 text “Premium Agri-Exports with Global Compliance” is overlapping lines on Vercel.
+Do this:
+
+Make the H1 responsive using clamp-based sizing so it scales correctly across screen sizes.
+
+Ensure line-height is safe (no overlap) and remove any negative margins or overly tight line-height.
+
+Constrain the H1 width so it wraps naturally and does not collide with itself.
+
+Ensure hero layout remains 2-column on desktop, stacked on mobile.
+
+On mobile, hero title should be centered or left-aligned cleanly, with proper spacing between title, paragraph, and buttons.
+
+Acceptance:
+
+No overlapping text at any screen width.
+
+Hero looks premium and balanced on desktop and mobile.
+
+2) Replace ONLY the main hero image (below header)
+
+Replace the hero image (right side of hero) with the local file already present in the project:
+Use: /mnt/data/A_digital_photograph_showcases_an_assortment_of_fr.png (or if assets are stored in public/, move it into public/images/ and reference it properly).
+Important:
+
+Only replace this hero image; do not change other section images.
+
+Ensure the hero image is responsive: fixed nice aspect ratio, no stretching, no cropping that cuts key objects.
+
+Add a subtle premium overlay if needed to match theme.
+
+3) Products section: ALL 3 cards must be in ONE row on desktop
+
+Current issue: On desktop it becomes 2 cards + 1 card with empty space (looks like a missing 4th card).
+Do this:
+
+Force exactly 3 cards in one row on desktop (>=1024px).
+
+On tablet, allow 2 per row if needed.
+
+On mobile, stack 1 per row with equal spacing and no misalignment.
+
+Ensure all product cards have equal height.
+
+Ensure the “View Products” button is visually centered within each card (consistent alignment across cards), not randomly floating.
+
+Acceptance:
+
+Desktop: 3 cards in a single row always.
+
+No “empty fourth slot” layout.
+
+Mobile: cards are clean, aligned, no overflow or odd gaps.
+
+4) Quality section: the two big boxes must be SAME HEIGHT
+
+There are two side-by-side blocks:
+
+Left: “Quality Lab” (image + text)
+
+Right: “Quality Assurance Process” (heading + description + the 5 circle steps)
+Issue: They are not equal height.
+Do this:
+
+Make the parent layout a 2-column grid on desktop where BOTH columns stretch to equal height.
+
+Make both cards stretch to full height.
+
+Inside each card, use flex layout so content is spaced and doesn’t collapse.
+
+Keep the left image card looking premium and ensure image has consistent height and doesn’t distort.
+
+Mobile: stack these two sections vertically with consistent spacing and no awkward empty space.
+
+Acceptance:
+
+Desktop: both boxes always equal height.
+
+Mobile: stacked neatly, no weird gaps.
+
+5) QA 5-circle steps: desktop MUST remain 1 row; mobile/tablet should be centered 2+2+1
+
+You previously centered it but it affected desktop too.
+Fix it correctly:
+
+Desktop (>=1024px): keep 5 in a single row, evenly spaced.
+
+Tablet/Mobile (<1024px): show 2 per row, then last one centered on its own row, WITHOUT changing desktop layout.
+
+Ensure the last circle is truly centered (not leaving visible right-side empty imbalance).
+
+Ensure no horizontal scrolling on mobile.
+
+Acceptance:
+
+Desktop unchanged: 1 row of 5.
+
+Mobile/tablet: 2 + 2 + 1 (last centered), clean spacing.
+
+6) Final checks
+
+After changes:
+
+Test responsive layout for widths: 1440, 1280, 1024, 768, 480, 375.
+
+No overlaps, no horizontal scrollbars, no misaligned buttons.
+
+Keep typography premium and spacing consistent.
+
+Now implement these fixes carefully and only where needed. Do not introduce new libraries. Do not redesign; just correct layout, responsiveness, and image replacement.
+Also tell me exactly which files you modified.
