@@ -29,9 +29,12 @@ export default function Card({
     : 'bg-slate-glass border-slate-border hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)]'
   
   return (
-    <div className={`group flex flex-col h-full ${cardStyles} rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:-translate-y-1 ${className}`}>
+    <div 
+      className={`group grid h-full ${cardStyles} rounded-xl overflow-hidden transition-all duration-300 hover:border-gold-accent/40 hover:-translate-y-1 ${className}`}
+      style={{ gridTemplateRows: 'auto 1fr auto' }}
+    >
       {imageSrc && (
-        <div className="relative h-52 overflow-hidden flex-shrink-0">
+        <div className="relative h-52 overflow-hidden">
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -49,19 +52,19 @@ export default function Card({
           )}
         </div>
       )}
-      <div className="p-6 flex flex-col flex-1">
+      <div className="px-6 pt-6 pb-2">
         <h3 className="font-playfair text-xl text-off-white mb-2">{title}</h3>
         {description && (
-          <p className="text-sm text-muted-text mb-5 leading-relaxed flex-1">{description}</p>
-        )}
-        {href && buttonText && (
-          <div className="mt-auto">
-            <Button href={href} variant="primary" size="md">
-              {buttonText}
-            </Button>
-          </div>
+          <p className="text-sm text-muted-text leading-relaxed">{description}</p>
         )}
       </div>
+      {href && buttonText && (
+        <div className="flex justify-center items-center px-6 py-5">
+          <Button href={href} variant="primary" size="md">
+            {buttonText}
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
