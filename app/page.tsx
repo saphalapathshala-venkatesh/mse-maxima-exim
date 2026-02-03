@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Section from '@/components/Section'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
+import ProductBanner from '@/components/ProductBanner'
 import { Sprout, Settings, ShieldCheck, Package, Globe } from 'lucide-react'
 
 const credibilityItems = [
@@ -61,7 +62,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-10 md:pt-24 md:pb-16 overflow-hidden">
+      <section className="relative pt-20 pb-10 md:pt-24 md:pb-16 overflow-hidden bg-navy-primary">
         <div className="absolute inset-0 hero-spotlight pointer-events-none" />
         <div className="container-main relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
@@ -111,22 +112,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero Transition Banner - Premium Export Spices */}
-      <section className="py-6">
-        <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/40 to-transparent mb-6" />
-        </div>
-        <div className="relative w-full h-[160px] md:h-[200px]">
-          <Image
-            src="/images/export-spices-banner.png"
-            alt="Bulk export spices in wooden bowls"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-primary/50 via-transparent to-warm-ivory/80" />
-        </div>
-      </section>
+      {/* Product Banners Carousel */}
+      <ProductBanner />
 
       {/* Products Section - Warm Ivory Background */}
       <section className="py-12 md:py-16 bg-warm-ivory">
@@ -156,40 +143,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="bg-warm-ivory py-4">
+      {/* Why Choose MSE - Warm Ivory Background */}
+      <section className="py-12 md:py-16 bg-warm-cream">
         <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
-        </div>
-      </div>
-
-      {/* Why Choose MSE */}
-      <Section>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 md:mb-10">
-            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-off-white mb-3 md:mb-4">Why Choose MSE</h2>
-            <p className="text-sm md:text-base text-muted-text px-4 md:px-0">Trusted by global importers for quality, compliance, and reliability.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            {strengths.map((item) => (
-              <div key={item.title} className="slate-panel p-5 md:p-6 hover:border-gold-accent/30 transition-all duration-200">
-                <div className="flex gap-3 md:gap-4">
-                  <span className="w-2 h-2 mt-1.5 md:mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                  <div>
-                    <h4 className="text-off-white font-medium mb-1 md:mb-2 text-sm md:text-base">{item.title}</h4>
-                    <p className="text-xs md:text-sm text-muted-text leading-relaxed">{item.desc}</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8 md:mb-10">
+              <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3 md:mb-4">Why Choose MSE</h2>
+              <p className="text-sm md:text-base text-navy-primary/70 px-4 md:px-0">Trusted by global importers for quality, compliance, and reliability.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              {strengths.map((item) => (
+                <div key={item.title} className="bg-white rounded-xl p-5 md:p-6 border border-navy-primary/10 shadow-sm hover:shadow-md transition-all duration-200">
+                  <div className="flex gap-3 md:gap-4">
+                    <span className="w-2 h-2 mt-1.5 md:mt-2 bg-accent-green rounded-full flex-shrink-0" />
+                    <div>
+                      <h4 className="text-navy-primary font-medium mb-1 md:mb-2 text-sm md:text-base">{item.title}</h4>
+                      <p className="text-xs md:text-sm text-navy-primary/70 leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Gold Divider */}
-      <div className="py-4">
+      <div className="bg-warm-cream py-4">
         <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/30 to-transparent" />
+          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
         </div>
       </div>
 

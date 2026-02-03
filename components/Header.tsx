@@ -29,7 +29,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm text-muted-text hover:text-off-white transition-colors duration-200"
+                className="text-sm text-muted-text hover:text-accent-green transition-colors duration-200"
               >
                 {item.name}
               </Link>
@@ -63,7 +63,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm text-muted-text hover:text-off-white transition-colors duration-200"
+                  className="text-sm text-muted-text hover:text-accent-green transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

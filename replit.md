@@ -1,7 +1,7 @@
 # MSE Website - Premium Export Company
 
 ## Overview
-A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), built with Next.js 14+ App Router, TypeScript, and Tailwind CSS. The website showcases their products (spices, oleoresins, vegetables), quality assurance process, certifications, and company information.
+A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), built with Next.js 14+ App Router, TypeScript, and Tailwind CSS. The website showcases their products (spices, oleoresins, vegetables, cocoa beans, millets & grains), quality assurance process, certifications, and company information.
 
 ## Tech Stack
 - **Framework**: Next.js 14 with App Router
@@ -10,14 +10,15 @@ A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), bui
 - **Fonts**: Playfair Display (headings), Inter (body) via next/font
 - **Images**: Local images in /public/images/
 
-## Design System
-- **Primary Navy**: #0B1B33
+## Design System (Updated Feb 2026)
+- **Primary Navy**: #0B1F3B (header, footer, hero, select feature blocks)
 - **Navy Alt**: #102A4C
-- **Gold Accent**: #C8A24A (gradient: #D1AE57 to #B8892E)
+- **Gold Accent**: #D6A84A (CTA buttons, highlights)
+- **Accent Green**: #2E7D32 (links, small highlights)
+- **Warm Ivory**: #F7F3EA (main body background)
+- **Warm Cream**: #FBF9F4 (alternate sections)
 - **Off-white**: #F5F1E8
 - **Muted text**: #C7D2E1
-- **Card surface**: rgba(255,255,255,0.08)
-- **Border**: rgba(255,255,255,0.14)
 
 ## Button Styles
 - **Primary**: Glossy gold gradient with shadow and hover lift
@@ -27,7 +28,7 @@ A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), bui
 ```
 app/
 ├── layout.tsx          # Root layout with fonts, Header, Footer
-├── page.tsx            # Homepage with 8 sections
+├── page.tsx            # Homepage with sections
 ├── globals.css         # Global styles, Tailwind, theme
 ├── products/
 │   ├── page.tsx        # Products overview
@@ -40,22 +41,24 @@ app/
 └── contact/page.tsx    # Contact page with form
 
 components/
-├── Header.tsx          # Sticky header with navigation
-├── Footer.tsx          # Footer with links and contact
+├── Header.tsx          # Sticky header with navigation (navy bg, green hover links)
+├── Footer.tsx          # Footer with links and contact (3-layer navy design)
 ├── Button.tsx          # Glossy button component (primary/secondary)
 ├── Section.tsx         # Reusable section wrapper
-└── Card.tsx            # Premium card component
+├── Card.tsx            # Premium card component
+└── ProductBanner.tsx   # 5-banner carousel for products (NEW)
 
 public/images/
-├── export-bulk-spices.png  # Hero single image (bulk spices in burlap sacks)
-├── export-spices-banner.png # Transition banner (spices in wooden bowls)
-├── hero-spices.jpg     # Legacy hero spices image
-├── hero-vegetables.jpg # Legacy hero vegetables image
-├── facility.jpg        # Processing facility image (unused)
-├── quality-lab.png     # Quality testing laboratory image
-├── spices.jpg          # Spices category image
-├── oleoresins-new.png  # Oleoresins product image (lab glassware)
-└── vegetables.jpg      # Vegetables category image
+├── hero-spices-vegetables.png # Main hero image
+├── export-bulk-spices.png     # Banner image
+├── export-spices-banner.png   # Banner image
+├── banner-spices-export.png   # Banner image
+├── hero-spices.jpg            # Spices banner image
+├── hero-vegetables.jpg        # Vegetables banner image
+├── quality-lab.png            # Quality testing laboratory image
+├── spices.jpg                 # Spices category image
+├── oleoresins-new.png         # Oleoresins product image
+└── vegetables.jpg             # Vegetables category image
 ```
 
 ## Running the Project
@@ -64,31 +67,37 @@ public/images/
 - Start: `npm start`
 
 ## Key Features
-1. Sticky header with navigation and CTAs
-2. Hero section with headline, glossy buttons, and credibility strip
-3. Products section with premium cards
-4. Why Choose MSE section with strengths
-5. Quality assurance timeline
-6. Certifications grid with View Certificate buttons
-7. CTA band
-8. Responsive footer
+1. Sticky navy header with navigation (accent green hover states) and gold CTAs
+2. Hero section with headline, glossy buttons, and credibility strip on navy background
+3. **5-Banner Product Carousel** with auto-play (NEW):
+   - Banner 1: Spices (Whole) - Dry Red Chilies, Turmeric, Black Pepper, Cardamom, Cinnamon
+   - Banner 2: Spices (Powders) - Chilli Powder, Turmeric Powder
+   - Banner 3: Vegetables - Onions, Green Chilies
+   - Banner 4: Cocoa Beans
+   - Banner 5: Millets & Grains - Ragi, Bajra, Jowar
+4. Products section on warm ivory with navy cards (3-col desktop)
+5. Why Choose MSE section on warm cream with white cards and green accents
+6. Quality assurance section with 5-step process (navy background)
+7. Certifications grid on warm ivory with navy cards
+8. CTA band with navy gradient
+9. 3-layer premium footer (ivory divider, navy body, dark navy bottom)
 
-## Recent Changes
-- **Hero Image Upgrade** - Single premium export image (no collage)
-- New export-bulk-spices.png (bulk spices in burlap sacks, wooden bowls, dark slate)
-- Replaced image collage with single rounded image + dark overlay gradient
-- **Footer 3-Layer Premium Design**
-- Top divider strip: warm ivory/gold gradient (8px)
-- Body: deep navy gradient (#07162C to #0B1B33) with subtle noise texture
-- Bottom bar: darker navy (#061225) for copyright
-- Glossy gold CTA button in footer
-- Links: soft ivory default, gold hover with underline
-- **Previous: Final Visual Corrections**
-- Removed factory/industrial image from Why Choose MSE section
-- Why Choose MSE now uses 2x2 slate-panel card grid layout
-- **Premium Corrections Update** - Enhanced contrast and visual variety
-- Products section now on warm ivory (#F5F1E8) background with navy cards
-- Certifications section on warm ivory background with 4 navy cards
-- FSSAI moved to text note below certification grid
-- Gold divider lines between major sections
-- Card component supports 'dark' variant for ivory backgrounds
+## Recent Changes (Feb 2026)
+- **Color Scheme Update** - Reduced navy dominance, added warm backgrounds
+  - Body background changed to warm ivory (#F7F3EA)
+  - Added accent green (#2E7D32) for links and highlights
+  - Updated gold accent to #D6A84A
+- **5-Banner Product Carousel** - New ProductBanner.tsx component
+  - Full-width responsive banners with dark gradient overlays
+  - Auto-play with 5-second intervals
+  - Manual navigation with arrows and dots
+  - Green "Export Quality" badges
+  - Responsive for all screen sizes
+- **Section Backgrounds Updated**
+  - Products section: warm ivory background
+  - Why Choose MSE: warm cream background with white cards
+  - Quality Assurance: navy slate background (preserved)
+  - Certifications: warm ivory background
+- **Header Updated** - Links now hover to accent green
+- **Hero Responsiveness** - clamp() sizing for H1, centered on mobile
+- **Layout Fixes** - Products 3-col desktop, QA steps responsive grid

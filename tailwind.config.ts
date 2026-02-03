@@ -9,14 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'navy-primary': '#0B1B33',
+        'navy-primary': '#0B1F3B',
         'navy-alt': '#102A4C',
         'navy-slate': '#0F2847',
         'panel-slate': '#162D4A',
-        'gold-accent': '#C8A24A',
+        'gold-accent': '#D6A84A',
         'off-white': '#F5F1E8',
-        'warm-ivory': '#F5F1E8',
+        'warm-ivory': '#F7F3EA',
+        'warm-cream': '#FBF9F4',
         'muted-text': '#C7D2E1',
+        'accent-green': '#2E7D32',
         'card-surface': 'rgba(255,255,255,0.07)',
         'card-border': 'rgba(255,255,255,0.12)',
         'slate-glass': 'rgba(255,255,255,0.07)',
