@@ -11,8 +11,8 @@ const quickLinks = [
 
 const productLinks = [
   { name: 'Spices', href: '/products/spices' },
-  { name: 'Oleoresins', href: '/products/oleoresins' },
   { name: 'Vegetables', href: '/products/vegetables' },
+  { name: 'Grains & Cocoa', href: '/products' },
 ]
 
 export default function Footer() {

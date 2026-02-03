@@ -2,43 +2,38 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Button from './Button'
+import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const banners = [
   {
     id: 1,
     title: 'Spices (Whole)',
-    subtitle: 'Dry Red Chilies, Turmeric Rhizomes, Black Pepper, Cardamom, Cinnamon',
-    description: 'Export-grade whole spices with complete traceability and compliance.',
+    subtitle: 'Dry Red Chilies • Turmeric • Black Pepper • Cardamom • Cinnamon',
     image: '/images/spices.jpg',
   },
   {
     id: 2,
     title: 'Spices (Powders)',
-    subtitle: 'Chilli Powder, Turmeric Powder',
-    description: 'Premium ground spices meeting international quality standards.',
+    subtitle: 'Chilli Powder • Turmeric Powder',
     image: '/images/hero-spices.jpg',
   },
   {
     id: 3,
     title: 'Vegetables',
-    subtitle: 'Onions, Green Chilies',
-    description: 'Fresh and dehydrated vegetables for global markets.',
+    subtitle: 'Onions • Green Chilies',
     image: '/images/vegetables.jpg',
   },
   {
     id: 4,
     title: 'Cocoa Beans',
-    subtitle: 'Premium Cocoa Beans',
-    description: 'High-quality cocoa beans sourced from certified farms.',
+    subtitle: 'Premium Export Quality',
     image: '/images/export-bulk-spices.png',
   },
   {
     id: 5,
     title: 'Millets & Grains',
-    subtitle: 'Ragi (Finger Millet), Bajra (Pearl Millet), Jowar (Sorghum)',
-    description: 'Nutritious ancient grains for health-conscious markets.',
+    subtitle: 'Ragi • Bajra • Jowar',
     image: '/images/banner-spices-export.png',
   },
 ]
@@ -72,13 +67,13 @@ export default function ProductBanner() {
 
   return (
     <section 
-      className="relative w-full bg-navy-primary"
+      className="relative w-full"
       aria-roledescription="carousel"
       aria-label="Product showcase carousel"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] overflow-hidden">
+      <div className="relative h-[350px] sm:h-[400px] lg:h-[480px] overflow-hidden">
         {banners.map((banner, index) => (
           <div
             key={banner.id}
@@ -98,32 +93,29 @@ export default function ProductBanner() {
               priority={index === 0}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-primary/90 via-navy-primary/60 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/80 via-transparent to-navy-primary/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             
-            <div className="absolute inset-0 flex items-center">
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-12">
               <div className="container-main">
-                <div className="max-w-xl">
-                  <span className="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase bg-accent-green/90 text-white rounded-full">
-                    Export Quality
-                  </span>
-                  <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-white mb-3 leading-tight">
-                    {banner.title}
-                  </h2>
-                  <p className="text-gold-accent font-medium mb-2 text-sm sm:text-base">
-                    {banner.subtitle}
-                  </p>
-                  <p className="text-white/80 mb-6 text-sm sm:text-base leading-relaxed">
-                    {banner.description}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Button href="/products" variant="primary" size="md">
-                      View Products
-                    </Button>
-                    <Button href="/contact" variant="secondary" size="md">
-                      Request Quote
-                    </Button>
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                  <div>
+                    <span className="inline-block px-3 py-1 mb-3 text-[10px] font-medium tracking-wider uppercase bg-accent-green text-white rounded-full">
+                      Export Quality
+                    </span>
+                    <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-white mb-2 leading-tight">
+                      {banner.title}
+                    </h2>
+                    <p className="text-white/80 text-sm sm:text-base">
+                      {banner.subtitle}
+                    </p>
                   </div>
+                  <Link 
+                    href="/products"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold-accent hover:bg-gold-accent/90 text-navy-primary font-medium text-sm rounded-lg transition-all shadow-lg hover:shadow-xl self-start sm:self-auto"
+                  >
+                    View Products
+                    <ChevronRight size={16} />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -132,29 +124,29 @@ export default function ProductBanner() {
 
         <button
           onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white transition-all"
+          className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-all"
           aria-label="Previous slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={22} />
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white transition-all"
+          className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-all"
           aria-label="Next slide"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={22} />
         </button>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
+        <div className="absolute bottom-6 sm:bottom-8 lg:bottom-12 right-6 sm:right-8 lg:right-12 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
           {banners.map((banner, index) => (
             <button
               key={index}
               role="tab"
               onClick={() => goToSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${
                 index === currentIndex
-                  ? 'bg-gold-accent w-8'
-                  : 'bg-white/40 hover:bg-white/60'
+                  ? 'bg-gold-accent w-6 sm:w-8'
+                  : 'bg-white/50 hover:bg-white/70'
               }`}
               aria-label={`Go to ${banner.title}`}
               aria-selected={index === currentIndex}

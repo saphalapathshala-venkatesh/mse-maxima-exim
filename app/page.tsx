@@ -15,24 +15,24 @@ const credibilityItems = [
 const products = [
   {
     title: 'Spices',
-    description: 'Premium whole and ground spices sourced from the finest farms across India.',
+    description: 'Dry Red Chilies, Chilli Powder, Turmeric Rhizomes, Turmeric Powder, Black Pepper, Cardamom, Cinnamon',
     image: '/images/spices.jpg',
     href: '/products/spices',
     tag: 'Export Grade',
   },
   {
-    title: 'Oleoresins',
-    description: 'Natural extracts with concentrated flavor and color for food industries.',
-    image: '/images/oleoresins-new.png',
-    href: '/products/oleoresins',
-    tag: 'Premium Extract',
-  },
-  {
     title: 'Vegetables',
-    description: 'Dehydrated and fresh vegetables meeting international quality standards.',
+    description: 'Premium Onions and Green Chilies meeting international quality standards.',
     image: '/images/vegetables.jpg',
     href: '/products/vegetables',
     tag: 'Export Grade',
+  },
+  {
+    title: 'Grains & Cocoa',
+    description: 'Cocoa Beans, Ragi (Finger Millet), Bajra (Pearl Millet), Jowar (Sorghum)',
+    image: '/images/export-bulk-spices.png',
+    href: '/products',
+    tag: 'Premium Quality',
   },
 ]
 

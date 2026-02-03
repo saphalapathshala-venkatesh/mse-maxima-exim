@@ -1,0 +1,173 @@
+You are working inside my existing Next.js website project “MSE Magna Exim” (already running). Do NOT create a new app. Do NOT change the tech stack. Only improve UI/UX + responsiveness and update images/content as per instructions below.
+
+1) Global Look: Reduce “90% Navy” & Improve Contrast
+
+Keep the premium navy identity, but reduce single-color dominance.
+
+Use a 2–3 tone layout:
+
+Navy for header/hero overlay + premium sections
+
+Warm light background (cream/ivory) for product cards section and spacing areas
+
+Subtle accent colors: gold (CTAs), green (tags/pills/quality cues)
+
+Ensure good contrast and readable typography.
+
+2) HERO Section Fixes (Text Overlap + Empty Space)
+
+Fix heading overlap issue completely:
+
+Use responsive font sizing (clamp-style approach conceptually) and proper line-height so words never overlap.
+
+Ensure the hero title/subtitle never collide on any screen size.
+
+Address the “empty space on right side” properly:
+
+On desktop: use a balanced 2-column hero layout (text left + hero image right) OR keep centered but ensure the layout looks intentional.
+
+On mobile: hero becomes single-column with clean spacing.
+
+3) HERO Image Replacement (Only Below Header Main Image)
+
+Replace the current hero image (below header) with this file that already exists in the project:
+
+/mnt/data/A_digital_photograph_showcases_an_assortment_of_fr.png
+
+Make the image look premium:
+
+Rounded corners
+
+Subtle shadow
+
+Correct cropping (no stretching)
+
+Add a soft overlay if needed so text remains readable but image remains dominant.
+
+4) “5 Banners” Showcase (Image-Dominant, Minimal Text)
+
+Create a banner/slider section showing 5 image banners for all product groups.
+
+The banners must be image-dominant (no heavy text blocks covering the image).
+
+Use a small label/pill + a short title + 1 short line only (optional), placed neatly with minimal overlay.
+
+Use arrows/dots, smooth transitions.
+
+The 5 banners should represent:
+
+Spices (Whole)
+
+Spices (Powders)
+
+Vegetables (Onions, Green chilies)
+
+Cocoa beans
+
+Grains (Ragi, Bajra, Jowar)
+
+If existing banner images are weak/irrelevant, replace them with better export-grade images (from existing assets if available; if not, add new images into public/ and reference them properly).
+
+Ensure banners look great on mobile (no text crowding, proper padding).
+
+5) Product Category Cards: Must Be 3 Cards in One Row (Desktop)
+
+Update the “Our Products” category cards:
+
+Must show exactly 3 cards in one row on desktop (≥1024px).
+
+Must NOT create a second row with empty space.
+
+On tablet: can be 2 + 1, but the last one must be centered nicely (no awkward empty space).
+
+On mobile: stack 1 per row with clean spacing and no misalignment.
+
+Card titles and product coverage must match latest products:
+
+Card 1: Spices
+
+Dry Red chilies, Chilli powder, Turmeric rhizomes, Turmeric powder, Black pepper, Cardamom, Cinnamon
+
+Card 2: Vegetables
+
+Onions, Green chilies
+
+Card 3: Grains & Cocoa
+
+Cocoa beans, Ragi (Finger Millet), Bajra (Pearl Millets), Jowar (Sorghum)
+
+Buttons inside each card:
+
+Must be visually aligned and placed consistently (middle/lower-middle region), not floating differently per card.
+
+All cards should have equal height in a row.
+
+6) Quality Section: Two Boxes Must Be Same Height
+
+In the “Quality Lab” (left) and “Quality Assurance Process” (right) area:
+
+Ensure both boxes/cards become exactly the same height on desktop.
+
+Use a layout approach where both columns stretch equally.
+
+On mobile: stack them neatly with consistent margins.
+
+7) Process Steps (5 Circles) Behavior Must Be Correct
+
+Desktop/Web: all 5 steps must remain in one row (clean, evenly spaced).
+
+Tablet/Mobile: if it becomes 2+2+1, the last item must be perfectly centered AND this behavior must apply ONLY on tablet/mobile, NOT desktop.
+
+8) Footer: More Premium + Colored Links + One Button
+
+Footer improvements:
+
+Reduce plain single color block.
+
+Add a premium gradient or texture-like subtle background.
+
+Hyperlinks must have a distinct elegant color (gold/blue/green—choose what fits).
+
+Add one clear footer button (e.g., “Request Quote” or “Download Catalogue”) with brand accent color.
+
+Make spacing, alignment, and typography look polished (no “HTML document” look).
+
+9) Mobile First: No Misalignment Anywhere
+
+Make sure:
+
+No horizontal scrolling on mobile.
+
+Buttons don’t overflow.
+
+Cards align perfectly.
+
+Text never overlaps.
+
+Images remain crisp and do not stretch.
+
+10) Output Requirements
+
+After changes:
+
+Tell me exactly which files you edited.
+
+Give me a short checklist confirming:
+
+Hero overlap fixed
+
+Hero image replaced
+
+5 banners added and image-dominant
+
+Product cards: 3 in one row on desktop
+
+Equal height quality boxes
+
+Steps correct on desktop + centered last item only on mobile/tablet
+
+Footer improved with colored links + one button
+
+Mobile responsiveness verified
+
+Do the updates now and ensure the site still builds and runs successfully.
