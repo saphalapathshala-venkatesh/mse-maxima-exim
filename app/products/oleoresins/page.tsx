@@ -12,7 +12,7 @@ const oleoresins = [
 
 export default function OleoresinsPage() {
   return (
-    <div className="pt-[72px] bg-white">
+    <div className="pt-[74px] bg-white">
       <section className="relative py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/oleoresins-new.png" alt="Oleoresins background" fill className="object-cover opacity-20" priority />

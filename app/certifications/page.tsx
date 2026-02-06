@@ -11,7 +11,7 @@ const certifications = [
 
 export default function CertificationsPage() {
   return (
-    <div className="pt-[72px] bg-white">
+    <div className="pt-[74px] bg-white">
       <div className="container-main py-10 sm:py-14">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">

@@ -33,11 +33,30 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-[72px] bg-white">
-        <div className="container-main py-12 sm:py-16 lg:py-20">
+      {/* Banner Carousel — immediately below header */}
+      <div className="pt-[74px]">
+        <ProductBanner onGetQuote={openQuote} />
+      </div>
+
+      {/* Credibility Strip */}
+      <section className="py-8 sm:py-10 bg-surface">
+        <div className="container-main">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {credibilityItems.map((item) => (
+              <div key={item.label} className="text-center">
+                <p className="font-playfair text-2xl sm:text-3xl text-primary font-bold">{item.value}</p>
+                <p className="text-xs sm:text-sm text-text-muted mt-1">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hero / About Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="order-2 lg:order-1 text-center lg:text-left">
+            <div className="text-center lg:text-left">
               <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-5">
                 Trusted Global Exporter
               </span>
@@ -53,7 +72,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative order-1 lg:order-2">
+            <div className="relative">
               <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/banners/hero-spices-vegetables.png"
@@ -66,23 +85,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-10 border-t border-border-light">
-            {credibilityItems.map((item) => (
-              <div key={item.label} className="text-center">
-                <p className="font-playfair text-2xl sm:text-3xl text-primary font-bold">{item.value}</p>
-                <p className="text-xs sm:text-sm text-text-muted mt-1">{item.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Banner Carousel */}
-      <ProductBanner onGetQuote={openQuote} />
-
       {/* All Products Grid */}
-      <section className="py-14 sm:py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-surface">
         <div className="container-main">
           <div className="text-center mb-10">
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/10 rounded-full mb-3">
@@ -98,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* Trust / Certifications Strip */}
-      <section className="py-14 sm:py-16 bg-surface">
+      <section className="py-14 sm:py-16 bg-white">
         <div className="container-main">
           <div className="text-center mb-10">
             <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Why Choose MSE</h2>
@@ -110,7 +117,7 @@ export default function Home() {
             {trustPoints.map((item) => {
               const IconComp = item.icon
               return (
-                <div key={item.title} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 border border-border-light hover:border-primary/20 hover:-translate-y-1">
+                <div key={item.title} className="bg-surface rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 border border-border-light hover:border-primary/20 hover:-translate-y-1">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <IconComp size={22} className="text-primary" />
                   </div>

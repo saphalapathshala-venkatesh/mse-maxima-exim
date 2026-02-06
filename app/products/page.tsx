@@ -19,7 +19,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <div className="pt-[72px] bg-white min-h-screen">
+      <div className="pt-[74px] bg-white min-h-screen">
         <div className="container-main py-10 sm:py-14">
           <div className="text-center mb-8">
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">

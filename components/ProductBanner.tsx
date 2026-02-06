@@ -89,7 +89,7 @@ export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       <div
-        className="relative h-[320px] sm:h-[400px] lg:h-[500px] overflow-hidden"
+        className="relative h-[280px] sm:h-[380px] lg:h-[480px] overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -112,29 +112,30 @@ export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
               priority={index === 0}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-black/10" />
 
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10">
+            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
+              <button
+                onClick={() => onGetQuote?.(banner.title)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-saffron hover:bg-saffron-dark text-white font-semibold text-xs sm:text-sm rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Get Quote
+                <ChevronRight size={16} />
+              </button>
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
               <div className="container-main">
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-5xl">
-                  <div>
-                    <span className="inline-block px-3 py-1 mb-3 text-[10px] font-bold tracking-[0.15em] uppercase bg-primary text-white rounded-full">
-                      {banner.badge}
-                    </span>
-                    <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-white mb-1.5 leading-tight">
-                      {banner.title}
-                    </h2>
-                    <p className="text-white/80 text-sm sm:text-base">
-                      {banner.subtitle}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => onGetQuote?.(banner.title)}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-saffron hover:bg-saffron-dark text-white font-semibold text-sm rounded-full transition-all shadow-lg hover:shadow-xl self-start sm:self-auto hover:-translate-y-0.5"
-                  >
-                    Get Quote
-                    <ChevronRight size={16} />
-                  </button>
+                <div className="max-w-2xl">
+                  <span className="inline-block px-3 py-1 mb-2 text-[10px] font-bold tracking-[0.15em] uppercase bg-primary text-white rounded-full">
+                    {banner.badge}
+                  </span>
+                  <h2 className="font-playfair text-xl sm:text-2xl lg:text-3xl text-white mb-1 leading-tight">
+                    {banner.title}
+                  </h2>
+                  <p className="text-white/80 text-xs sm:text-sm">
+                    {banner.subtitle}
+                  </p>
                 </div>
               </div>
             </div>
@@ -143,20 +144,20 @@ export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
 
         <button
           onClick={() => { setIsAutoPlaying(false); goToPrevious() }}
-          className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
+          className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
           aria-label="Previous slide"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={18} />
         </button>
         <button
           onClick={() => { setIsAutoPlaying(false); goToNext() }}
-          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
+          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
           aria-label="Next slide"
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={18} />
         </button>
 
-        <div className="absolute bottom-5 sm:bottom-8 lg:bottom-10 right-5 sm:right-8 lg:right-10 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
+        <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
           {banners.map((banner, index) => (
             <button
               key={index}

@@ -13,7 +13,7 @@ const spices = [
 
 export default function SpicesPage() {
   return (
-    <div className="pt-[72px] bg-white">
+    <div className="pt-[74px] bg-white">
       <section className="relative py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/banners/spices.jpg" alt="Spices background" fill className="object-cover opacity-20" priority />

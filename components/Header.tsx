@@ -84,6 +84,11 @@ export default function Header() {
           </div>
         )}
       </div>
+      <div className="w-full flex justify-center">
+        <div className="container-main">
+          <div className="h-[2px] bg-gradient-to-r from-primary via-saffron to-primary rounded-full" />
+        </div>
+      </div>
     </header>
   )
 }

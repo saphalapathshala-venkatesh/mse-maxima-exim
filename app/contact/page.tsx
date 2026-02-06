@@ -29,7 +29,7 @@ export default function ContactPage() {
   const inputClass = 'w-full px-4 py-3 bg-white border border-border-light rounded-xl text-text-main placeholder-text-light focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm'
 
   return (
-    <div className="pt-[72px] bg-white min-h-screen">
+    <div className="pt-[74px] bg-white min-h-screen">
       <div className="container-main py-10 sm:py-14">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14">
           <div className="lg:col-span-2">

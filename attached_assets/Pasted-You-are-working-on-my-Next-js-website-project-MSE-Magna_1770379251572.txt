@@ -1,0 +1,79 @@
+You are working on my Next.js website project “MSE – Magna SSK Exim Solutions Pvt Ltd” already present in this Replit workspace. Do NOT change tech stack. Do NOT rewrite the entire UI. Make only the layout/UI fixes below, keeping the current white, clean, premium style.
+
+Goal
+
+Make the homepage look fancy, image-dominant, premium, with banners immediately below the header, clear separation between header and content, and perfectly aligned product cards.
+
+A) Header → Hero separation (must be visible)
+
+Add a thin colored divider line between the Header and the section that starts below it.
+
+Divider should be elegant and premium (example: a 2–3px line or subtle gradient line).
+
+It must span the container width and clearly differentiate the header from the banners.
+
+B) Banners placement and CTA positioning
+
+The banner/carousel section must start immediately below the header (no large empty gap).
+
+On every banner slide:
+
+The image must remain dominant.
+
+Text must be minimal and should not block the image heavily.
+
+The “Get Quote” button must be placed at the TOP RIGHT of the banner (inside the banner, not outside).
+
+Ensure button is readable on all slides (use subtle overlay only behind the button if needed).
+
+Keep left/right navigation arrows neat and aligned.
+
+C) Product cards: alignment + same dimensions (critical)
+
+On the “Products” section (Pinterest-style image cards):
+
+All product cards must have exactly the same dimensions (same height and width within their grid).
+
+Images should fill uniformly (use consistent aspect ratio; no awkward stretching).
+
+Titles/subtitles must align consistently (same spacing/padding).
+
+Ensure grid alignment is perfect:
+
+Desktop: clean grid with equal gaps.
+
+Tablet: balanced columns, no odd empty spaces.
+
+Mobile: 1 column stacked neatly, no misalignment, no overflow.
+
+Important: Remove any layout where a row looks incomplete with an “empty space” effect. The grid should always feel intentional.
+
+D) Responsiveness rules (must test)
+
+After implementing:
+
+Test and ensure:
+
+Mobile (360px / 390px): header + divider + banners + product cards look clean.
+
+Tablet (768px / 820px): no awkward spacing or centered single leftover card.
+
+Desktop (>=1024px): premium balanced layout.
+
+Fix any text overlap issues and ensure no horizontal scrolling.
+
+E) Output required
+
+Tell me exactly which files you edited.
+
+Summarize what you changed under each section (A, B, C, D).
+
+If any image styles/aspect ratios were adjusted, clearly mention the rule used.
+
+Constraints
+
+Do not introduce new heavy libraries.
+
+Do not redesign the whole site.
+
+Keep the visual theme premium, bright, and image-forward.

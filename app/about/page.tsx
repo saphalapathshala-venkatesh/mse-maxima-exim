@@ -17,7 +17,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-[72px] bg-white">
+    <div className="pt-[74px] bg-white">
       <div className="container-main py-10 sm:py-14">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
