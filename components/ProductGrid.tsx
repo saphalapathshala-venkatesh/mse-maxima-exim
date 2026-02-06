@@ -3,19 +3,19 @@
 import Image from 'next/image'
 
 const allProducts = [
-  { name: 'Dry Red Chilies', caption: 'Premium dried chilies for global markets', image: '/images/spices.jpg', category: 'Spices' },
-  { name: 'Chilli Powder', caption: 'Finely ground, vibrant red chilli powder', image: '/images/hero-spices.jpg', category: 'Spices' },
-  { name: 'Turmeric Rhizomes', caption: 'High-curcumin turmeric rhizomes', image: '/images/export-spices-banner.png', category: 'Spices' },
-  { name: 'Turmeric Powder', caption: 'Golden turmeric powder, lab-tested', image: '/images/banner-spices-export.png', category: 'Spices' },
-  { name: 'Black Pepper', caption: 'Bold, aromatic black peppercorns', image: '/images/spices.jpg', category: 'Spices' },
-  { name: 'Cardamom', caption: 'Fragrant green cardamom pods', image: '/images/hero-spices.jpg', category: 'Spices' },
-  { name: 'Cinnamon', caption: 'Premium cinnamon sticks and quills', image: '/images/export-spices-banner.png', category: 'Spices' },
-  { name: 'Cocoa Beans', caption: 'Export-grade fermented cocoa beans', image: '/images/export-bulk-spices.png', category: 'Cocoa' },
-  { name: 'Onions', caption: 'Fresh red and white onions', image: '/images/vegetables.jpg', category: 'Vegetables' },
-  { name: 'Green Chilies', caption: 'Farm-fresh spicy green chilies', image: '/images/hero-vegetables.jpg', category: 'Vegetables' },
-  { name: 'Ragi (Finger Millet)', caption: 'Nutritious ragi for health markets', image: '/images/banner-spices-export.png', category: 'Grains' },
-  { name: 'Bajra (Pearl Millet)', caption: 'Wholesome pearl millet grains', image: '/images/export-bulk-spices.png', category: 'Grains' },
-  { name: 'Jowar (Sorghum)', caption: 'Gluten-free sorghum grains', image: '/images/export-spices-banner.png', category: 'Grains' },
+  { name: 'Dry Red Chilies', caption: 'Premium dried chilies for global markets', image: '/images/banners/spices.jpg', category: 'Spices' },
+  { name: 'Chilli Powder', caption: 'Finely ground, vibrant red chilli powder', image: '/images/banners/hero-spices.jpg', category: 'Spices' },
+  { name: 'Turmeric Rhizomes', caption: 'High-curcumin turmeric rhizomes', image: '/images/banners/export-spices-banner.png', category: 'Spices' },
+  { name: 'Turmeric Powder', caption: 'Golden turmeric powder, lab-tested', image: '/images/banners/banner-spices-export.png', category: 'Spices' },
+  { name: 'Black Pepper', caption: 'Bold, aromatic black peppercorns', image: '/images/banners/spices.jpg', category: 'Spices' },
+  { name: 'Cardamom', caption: 'Fragrant green cardamom pods', image: '/images/banners/hero-spices.jpg', category: 'Spices' },
+  { name: 'Cinnamon', caption: 'Premium cinnamon sticks and quills', image: '/images/banners/export-spices-banner.png', category: 'Spices' },
+  { name: 'Cocoa Beans', caption: 'Export-grade fermented cocoa beans', image: '/images/banners/export-bulk-spices.png', category: 'Cocoa' },
+  { name: 'Onions', caption: 'Fresh red and white onions', image: '/images/banners/vegetables.jpg', category: 'Vegetables' },
+  { name: 'Green Chilies', caption: 'Farm-fresh spicy green chilies', image: '/images/banners/hero-vegetables.jpg', category: 'Vegetables' },
+  { name: 'Ragi (Finger Millet)', caption: 'Nutritious ragi for health markets', image: '/images/banners/banner-spices-export.png', category: 'Grains' },
+  { name: 'Bajra (Pearl Millet)', caption: 'Wholesome pearl millet grains', image: '/images/banners/export-bulk-spices.png', category: 'Grains' },
+  { name: 'Jowar (Sorghum)', caption: 'Gluten-free sorghum grains', image: '/images/banners/export-spices-banner.png', category: 'Grains' },
 ]
 
 const tileHeights = [260, 300, 240, 280, 260, 320, 240, 300, 260, 280, 240, 260, 300]

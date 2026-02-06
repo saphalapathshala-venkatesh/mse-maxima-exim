@@ -37,7 +37,7 @@ export default function AboutPage() {
           </div>
           <div className="relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/facility.jpg"
+              src="/images/site/facility.jpg"
               alt="MSE processing facility"
               fill
               className="object-cover"

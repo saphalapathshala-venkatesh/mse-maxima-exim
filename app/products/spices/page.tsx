@@ -16,7 +16,7 @@ export default function SpicesPage() {
     <div className="pt-[72px] bg-white">
       <section className="relative py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/spices.jpg" alt="Spices background" fill className="object-cover opacity-20" priority />
+          <Image src="/images/banners/spices.jpg" alt="Spices background" fill className="object-cover opacity-20" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
         </div>
         <div className="container-main relative z-10">

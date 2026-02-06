@@ -53,17 +53,23 @@ components/
 └── QuoteModal.tsx      # Quote modal with calculator + contact form
 
 public/images/
-├── hero-spices-vegetables.png # Main hero image
-├── spices.jpg                 # Spices product image
-├── hero-spices.jpg            # Spices banner image
-├── vegetables.jpg             # Vegetables product image
-├── hero-vegetables.jpg        # Vegetables banner image
-├── export-bulk-spices.png     # Banner/product image
-├── export-spices-banner.png   # Banner/product image
-├── banner-spices-export.png   # Banner/product image
-├── quality-lab.png            # Quality lab image
-├── oleoresins-new.png         # Oleoresins product image
-└── facility.jpg               # Facility/about image
+├── oleoresins-new.png              # Oleoresins image (needs manual decision)
+├── site/
+│   ├── facility.jpg                # Facility/about image
+│   └── quality-lab.png             # Quality lab image
+├── banners/
+│   ├── hero-spices-vegetables.png  # Main hero image
+│   ├── hero-spices.jpg             # Spices banner image
+│   ├── hero-vegetables.jpg         # Vegetables banner image
+│   ├── hero-transition.png         # Hero transition overlay
+│   ├── spices.jpg                  # Spices category banner
+│   ├── vegetables.jpg              # Vegetables category banner
+│   ├── oleoresins.jpg              # Oleoresins category banner
+│   ├── export-bulk-spices.png      # Export banner image
+│   ├── export-spices-banner.png    # Export banner image
+│   ├── export-spices-vegetables.png# Export banner image
+│   └── banner-spices-export.png    # Banner image
+└── products/                       # (empty - ready for individual product images)
 ```
 
 ## Running the Project

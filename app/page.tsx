@@ -56,7 +56,7 @@ export default function Home() {
             <div className="relative order-1 lg:order-2">
               <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/hero-spices-vegetables.png"
+                  src="/images/banners/hero-spices-vegetables.png"
                   alt="Premium spices and fresh vegetables for global export"
                   fill
                   className="object-cover"
