@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Section from '@/components/Section'
 import Button from '@/components/Button'
 
 const oleoresins = [
@@ -13,71 +12,53 @@ const oleoresins = [
 
 export default function OleoresinsPage() {
   return (
-    <div className="pt-20">
-      <section className="relative py-24 overflow-hidden">
+    <div className="pt-[72px] bg-white">
+      <section className="relative py-16 sm:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/images/oleoresins.jpg"
-            alt="Oleoresins background"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-primary via-navy-primary/90 to-navy-primary/70" />
+          <Image src="/images/oleoresins-new.png" alt="Oleoresins background" fill className="object-cover opacity-20" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
         </div>
         <div className="container-main relative z-10">
-          <h1 className="font-playfair text-4xl md:text-5xl text-off-white mb-4">Oleoresins</h1>
-          <p className="text-lg text-muted-text max-w-2xl">
+          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">Premium Extract</span>
+          <h1 className="font-playfair text-3xl sm:text-4xl text-white mb-3">Oleoresins</h1>
+          <p className="text-base text-white/80 max-w-2xl">
             Natural spice extracts with concentrated flavor, aroma, and color. Ideal for food processing, pharmaceutical, and cosmetic applications.
           </p>
         </div>
       </section>
 
-      <Section>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="container-main py-10 sm:py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {oleoresins.map((item) => (
-            <div key={item.name} className="bg-white/[0.08] border border-white/[0.14] rounded-xl p-6 hover:border-gold-accent/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
-              <h3 className="font-playfair text-lg text-off-white mb-2">{item.name}</h3>
-              <p className="text-sm text-muted-text">{item.desc}</p>
+            <div key={item.name} className="bg-white border border-border-light rounded-xl p-6 hover:border-primary/30 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+              <h3 className="font-playfair text-lg text-text-main mb-2">{item.name}</h3>
+              <p className="text-sm text-text-muted">{item.desc}</p>
             </div>
           ))}
         </div>
-      </Section>
+      </div>
 
-      <Section className="bg-navy-alt/30">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-playfair text-2xl md:text-3xl text-off-white mb-6">Applications</h2>
-            <ul className="space-y-4 text-muted-text">
-              <li className="flex gap-3">
-                <span className="w-1.5 h-1.5 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                Food and beverage flavoring
-              </li>
-              <li className="flex gap-3">
-                <span className="w-1.5 h-1.5 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                Natural food coloring
-              </li>
-              <li className="flex gap-3">
-                <span className="w-1.5 h-1.5 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                Pharmaceutical formulations
-              </li>
-              <li className="flex gap-3">
-                <span className="w-1.5 h-1.5 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                Nutraceutical supplements
-              </li>
-              <li className="flex gap-3">
-                <span className="w-1.5 h-1.5 mt-2 bg-gold-accent rounded-full flex-shrink-0" />
-                Cosmetic and personal care products
-              </li>
-            </ul>
-          </div>
-          <div className="text-center bg-white/[0.08] border border-white/[0.14] rounded-xl p-8">
-            <h3 className="font-playfair text-xl text-off-white mb-4">Technical Specifications</h3>
-            <p className="text-sm text-muted-text mb-6">Request detailed technical data sheets, samples, and custom formulation options.</p>
-            <Button href="/contact" variant="primary" size="lg">Request Specs</Button>
+      <div className="bg-surface py-10 sm:py-14">
+        <div className="container-main">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-5">Applications</h2>
+              <ul className="space-y-3 text-text-muted text-sm">
+                <li className="flex gap-3"><span className="w-1.5 h-1.5 mt-2 bg-primary rounded-full flex-shrink-0" />Food and beverage flavoring</li>
+                <li className="flex gap-3"><span className="w-1.5 h-1.5 mt-2 bg-primary rounded-full flex-shrink-0" />Natural food coloring</li>
+                <li className="flex gap-3"><span className="w-1.5 h-1.5 mt-2 bg-primary rounded-full flex-shrink-0" />Pharmaceutical formulations</li>
+                <li className="flex gap-3"><span className="w-1.5 h-1.5 mt-2 bg-primary rounded-full flex-shrink-0" />Nutraceutical supplements</li>
+                <li className="flex gap-3"><span className="w-1.5 h-1.5 mt-2 bg-primary rounded-full flex-shrink-0" />Cosmetic and personal care products</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl p-8 text-center shadow-sm border border-border-light">
+              <h3 className="font-playfair text-xl text-text-main mb-3">Technical Specifications</h3>
+              <p className="text-sm text-text-muted mb-5">Request detailed technical data sheets, samples, and custom formulation options.</p>
+              <Button href="/contact" variant="primary" size="lg">Request Specs</Button>
+            </div>
           </div>
         </div>
-      </Section>
+      </div>
     </div>
   )
 }

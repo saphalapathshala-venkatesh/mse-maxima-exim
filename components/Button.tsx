@@ -3,8 +3,8 @@ import Link from 'next/link'
 interface ButtonProps {
   children: React.ReactNode
   href?: string
-  variant?: 'primary' | 'secondary'
-  size?: 'md' | 'lg'
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit'
@@ -19,28 +19,31 @@ export default function Button({
   className = '',
   type = 'button'
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-xl relative overflow-hidden'
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap'
   
   const sizeStyles = {
+    sm: 'px-4 py-2 text-xs',
     md: 'px-6 py-3 text-sm',
-    lg: 'px-8 py-4 text-base',
+    lg: 'px-8 py-3.5 text-base',
   }
 
   const variants = {
     primary: `
-      bg-gradient-to-b from-[#D1AE57] to-[#B8892E] 
-      text-navy-primary font-semibold
-      shadow-[0_4px_14px_rgba(200,162,74,0.35)]
-      before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/25 before:to-transparent before:pointer-events-none
-      hover:shadow-[0_6px_20px_rgba(200,162,74,0.45)] hover:-translate-y-0.5
-      active:translate-y-0 active:shadow-[0_2px_8px_rgba(200,162,74,0.3)]
+      bg-saffron text-white font-semibold
+      shadow-[0_2px_12px_rgba(224,159,62,0.3)]
+      hover:bg-saffron-dark hover:shadow-[0_4px_16px_rgba(224,159,62,0.4)] hover:-translate-y-0.5
+      active:translate-y-0
     `,
     secondary: `
-      bg-white/[0.06] 
-      border border-[rgba(200,162,74,0.55)] 
-      text-off-white
-      backdrop-blur-sm
-      hover:bg-white/[0.10] hover:-translate-y-0.5
+      bg-primary text-white font-semibold
+      shadow-[0_2px_12px_rgba(45,106,79,0.25)]
+      hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5
+      active:translate-y-0
+    `,
+    outline: `
+      bg-transparent
+      border-2 border-primary text-primary font-semibold
+      hover:bg-primary hover:text-white hover:-translate-y-0.5
       active:translate-y-0
     `,
   }

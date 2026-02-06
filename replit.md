@@ -1,64 +1,69 @@
 # MSE Website - Premium Export Company
 
 ## Overview
-A premium export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), built with Next.js 14+ App Router, TypeScript, and Tailwind CSS. The website showcases their products (spices, oleoresins, vegetables, cocoa beans, millets & grains), quality assurance process, certifications, and company information.
+A premium, bright, image-first export company website for Magna SSK Exim Solutions Pvt Ltd (MSE), built with Next.js 14+ App Router, TypeScript, and Tailwind CSS. The website showcases spices, vegetables, grains, and cocoa beans with a white/bright modern design, Pinterest-style product grid, and interactive quote modal.
 
 ## Tech Stack
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Fonts**: Playfair Display (headings), Inter (body) via next/font
+- **Icons**: lucide-react
 - **Images**: Local images in /public/images/
 
 ## Design System (Updated Feb 2026)
-- **Primary Navy**: #0B1F3B (header, footer, hero, select feature blocks)
-- **Navy Alt**: #102A4C
-- **Gold Accent**: #D6A84A (CTA buttons, highlights)
-- **Accent Green**: #2E7D32 (links, small highlights)
-- **Warm Ivory**: #F7F3EA (main body background)
-- **Warm Cream**: #FBF9F4 (alternate sections)
-- **Off-white**: #F5F1E8
-- **Muted text**: #C7D2E1
+- **Background**: #FFFFFF (white)
+- **Surface**: #EEF1F4 (light gray for alternate sections)
+- **Primary (Green)**: #2D6A4F (buttons, links, accents)
+- **CTA (Saffron)**: #E09F3E (primary CTA buttons, highlights)
+- **Text Main**: #343A40 (body text)
+- **Text Muted**: #6C757D (secondary text)
+- **Chili Red**: #C0392B (small accents only)
+- **Border Light**: #DEE2E6
 
 ## Button Styles
-- **Primary**: Glossy gold gradient with shadow and hover lift
-- **Secondary**: Glass effect with gold border outline
+- **Primary**: Saffron (#E09F3E) with white text, rounded-full
+- **Secondary**: Green (#2D6A4F) with white text, rounded-full
+- **Outline**: Transparent with green border, fills on hover
 
 ## Project Structure
 ```
 app/
-├── layout.tsx          # Root layout with fonts, Header, Footer
-├── page.tsx            # Homepage with sections
-├── globals.css         # Global styles, Tailwind, theme
+├── layout.tsx              # Root layout with fonts, Header, Footer
+├── page.tsx                # Homepage (client component with quote modal)
+├── globals.css             # Global styles, Tailwind, animations
 ├── products/
-│   ├── page.tsx        # Products overview
-│   ├── spices/page.tsx # Spices category
+│   ├── page.tsx            # Products overview with filters
+│   ├── spices/page.tsx     # Spices category
 │   ├── oleoresins/page.tsx # Oleoresins category
 │   └── vegetables/page.tsx # Vegetables category
-├── quality/page.tsx    # Quality assurance page
+├── quality/page.tsx        # Quality assurance page
 ├── certifications/page.tsx # Certifications page
-├── about/page.tsx      # About page
-└── contact/page.tsx    # Contact page with form
+├── about/page.tsx          # About page
+└── contact/page.tsx        # Contact page with full form
 
 components/
-├── Header.tsx          # Sticky header with navigation (navy bg, green hover links)
-├── Footer.tsx          # Footer with links and contact (3-layer navy design)
-├── Button.tsx          # Glossy button component (primary/secondary)
+├── Header.tsx          # Sticky white header with scroll effect
+├── Footer.tsx          # White footer with colored links
+├── Button.tsx          # Rounded button component (primary/secondary/outline)
 ├── Section.tsx         # Reusable section wrapper
-├── Card.tsx            # Premium card component
-└── ProductBanner.tsx   # 5-banner carousel for products (NEW)
+├── Card.tsx            # Card component (legacy)
+├── ProductBanner.tsx   # 5-banner carousel with touch/swipe support
+├── ProductGrid.tsx     # Pinterest-style masonry grid (13 products)
+└── QuoteModal.tsx      # Quote modal with calculator + contact form
 
 public/images/
 ├── hero-spices-vegetables.png # Main hero image
-├── export-bulk-spices.png     # Banner image
-├── export-spices-banner.png   # Banner image
-├── banner-spices-export.png   # Banner image
+├── spices.jpg                 # Spices product image
 ├── hero-spices.jpg            # Spices banner image
+├── vegetables.jpg             # Vegetables product image
 ├── hero-vegetables.jpg        # Vegetables banner image
-├── quality-lab.png            # Quality testing laboratory image
-├── spices.jpg                 # Spices category image
+├── export-bulk-spices.png     # Banner/product image
+├── export-spices-banner.png   # Banner/product image
+├── banner-spices-export.png   # Banner/product image
+├── quality-lab.png            # Quality lab image
 ├── oleoresins-new.png         # Oleoresins product image
-└── vegetables.jpg             # Vegetables category image
+└── facility.jpg               # Facility/about image
 ```
 
 ## Running the Project
@@ -67,37 +72,51 @@ public/images/
 - Start: `npm start`
 
 ## Key Features
-1. Sticky navy header with navigation (accent green hover states) and gold CTAs
-2. Hero section with headline, glossy buttons, and credibility strip on navy background
-3. **5-Banner Product Carousel** with auto-play (NEW):
-   - Banner 1: Spices (Whole) - Dry Red Chilies, Turmeric, Black Pepper, Cardamom, Cinnamon
-   - Banner 2: Spices (Powders) - Chilli Powder, Turmeric Powder
-   - Banner 3: Vegetables - Onions, Green Chilies
-   - Banner 4: Cocoa Beans
-   - Banner 5: Millets & Grains - Ragi, Bajra, Jowar
-4. Products section on warm ivory with navy cards (3-col desktop)
-5. Why Choose MSE section on warm cream with white cards and green accents
-6. Quality assurance section with 5-step process (navy background)
-7. Certifications grid on warm ivory with navy cards
-8. CTA band with navy gradient
-9. 3-layer premium footer (ivory divider, navy body, dark navy bottom)
+1. **White/Bright Theme** - Clean, modern international exporter feel
+2. **Sticky Header** - White with scroll shadow effect, hamburger mobile menu
+3. **Hero Section** - 2-column layout (text left, image right), responsive
+4. **5-Banner Carousel** - Image-dominant with minimal text overlay, touch/swipe
+5. **Pinterest Product Grid** - 13 individual product tiles with masonry layout
+6. **Quote Modal** - 2-step flow:
+   - Step 1: Product selection, quantity picker, auto-calculated total
+   - Step 2: Contact form with all fields pre-filled
+7. **Filter System** - Category filters on /products page (All, Spices, Vegetables, Cocoa, Grains)
+8. **Trust Strip** - 4 trust points with icons
+9. **Contact Page** - Full form with all fields
+10. **Colored Footer Links** - Green links with saffron hover
+
+## Products (13 individual items)
+- Dry Red Chilies, Chilli Powder, Turmeric Rhizomes, Turmeric Powder
+- Black Pepper, Cardamom, Cinnamon
+- Cocoa Beans
+- Onions, Green Chilies
+- Ragi (Finger Millet), Bajra (Pearl Millet), Jowar (Sorghum)
+
+## Image Replacement Guide
+To replace placeholder images with actual product photos:
+1. Save new images to `/public/images/`
+2. Use filenames like: `product-turmeric-rhizomes.jpg`, `banner-spices-whole.jpg`
+3. Update references in `components/ProductGrid.tsx` (for product tiles)
+4. Update references in `components/ProductBanner.tsx` (for banner carousel)
+5. Recommended image sizes:
+   - Banner images: 1920x800px (landscape)
+   - Product tiles: 600x400px minimum
+   - Hero image: 1200x800px
 
 ## Recent Changes (Feb 2026)
-- **Color Scheme Update** - Reduced navy dominance, added warm backgrounds
-  - Body background changed to warm ivory (#F7F3EA)
-  - Added accent green (#2E7D32) for links and highlights
-  - Updated gold accent to #D6A84A
-- **5-Banner Product Carousel** - New ProductBanner.tsx component
-  - Full-width responsive banners with dark gradient overlays
-  - Auto-play with 5-second intervals
-  - Manual navigation with arrows and dots
-  - Green "Export Quality" badges
-  - Responsive for all screen sizes
-- **Section Backgrounds Updated**
-  - Products section: warm ivory background
-  - Why Choose MSE: warm cream background with white cards
-  - Quality Assurance: navy slate background (preserved)
-  - Certifications: warm ivory background
-- **Header Updated** - Links now hover to accent green
-- **Hero Responsiveness** - clamp() sizing for H1, centered on mobile
-- **Layout Fixes** - Products 3-col desktop, QA steps responsive grid
+- **Complete Theme Overhaul** - Switched from navy to white/bright theme
+  - Removed all navy backgrounds, replaced with white (#FFFFFF)
+  - New primary green (#2D6A4F) and saffron (#E09F3E) accent colors
+  - All text uses dark (#343A40) for readability on white
+- **Pinterest Product Grid** - New ProductGrid.tsx with masonry layout
+  - 13 individual product tiles (not grouped by category)
+  - 4-column desktop, 2-3 column tablet, 1 column mobile
+  - Hover zoom effect with shadow
+- **Quote Modal** - New QuoteModal.tsx component
+  - Auto-calculated pricing with quantity selection
+  - 2-step flow (product selection → contact details)
+  - Opens from banner "Get Quote" and product tile clicks
+- **Updated All Pages** - Quality, Certifications, About, Contact
+  - All pages now use white/bright theme consistently
+  - Contact page has comprehensive form with all fields
+  - Products page has category filter buttons

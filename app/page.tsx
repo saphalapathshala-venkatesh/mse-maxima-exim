@@ -1,300 +1,155 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
-import Section from '@/components/Section'
 import Button from '@/components/Button'
-import Card from '@/components/Card'
 import ProductBanner from '@/components/ProductBanner'
-import { Sprout, Settings, ShieldCheck, Package, Globe } from 'lucide-react'
+import ProductGrid from '@/components/ProductGrid'
+import QuoteModal from '@/components/QuoteModal'
+import { Shield, Truck, FlaskConical, Globe } from 'lucide-react'
+
+const trustPoints = [
+  { icon: Shield, title: 'Traceability', desc: 'Complete supply chain transparency from farm to port.' },
+  { icon: Globe, title: 'Export Standards', desc: 'Meeting FDA, EU, and international regulatory standards.' },
+  { icon: FlaskConical, title: 'Quality Testing', desc: 'Rigorous lab testing at every stage of production.' },
+  { icon: Truck, title: 'Global Logistics', desc: 'Efficient, reliable delivery to 50+ countries worldwide.' },
+]
 
 const credibilityItems = [
-  'ISO/BRC/FSSC Certified',
-  'Exporting to 50+ Countries',
-  'State-of-the-Art Facilities',
-  '100+ MT Capacity',
-]
-
-const products = [
-  {
-    title: 'Spices',
-    description: 'Dry Red Chilies, Chilli Powder, Turmeric Rhizomes, Turmeric Powder, Black Pepper, Cardamom, Cinnamon',
-    image: '/images/spices.jpg',
-    href: '/products/spices',
-    tag: 'Export Grade',
-  },
-  {
-    title: 'Vegetables',
-    description: 'Premium Onions and Green Chilies meeting international quality standards.',
-    image: '/images/vegetables.jpg',
-    href: '/products/vegetables',
-    tag: 'Export Grade',
-  },
-  {
-    title: 'Grains & Cocoa',
-    description: 'Cocoa Beans, Ragi (Finger Millet), Bajra (Pearl Millet), Jowar (Sorghum)',
-    image: '/images/export-bulk-spices.png',
-    href: '/products',
-    tag: 'Premium Quality',
-  },
-]
-
-const strengths = [
-  { title: 'Global Compliance', desc: 'Meeting FDA, EU, and international regulatory standards.' },
-  { title: 'Quality Assurance', desc: 'Rigorous testing at every stage of production.' },
-  { title: 'Full Traceability', desc: 'Complete supply chain transparency from farm to port.' },
-  { title: 'Customized Packaging', desc: 'Flexible packaging solutions for diverse market needs.' },
-]
-
-const processSteps = [
-  { step: 1, title: 'Sourcing', desc: 'Careful selection from certified farms.', color: '#6F8F72', icon: Sprout },
-  { step: 2, title: 'Processing', desc: 'State-of-the-art cleaning and sorting.', color: '#4F8FA8', icon: Settings },
-  { step: 3, title: 'Testing', desc: 'Comprehensive quality testing.', color: '#C8A24A', icon: ShieldCheck },
-  { step: 4, title: 'Packaging', desc: 'Hygienic controlled environments.', color: '#7A7FA8', icon: Package },
-  { step: 5, title: 'Logistics', desc: 'Efficient global delivery.', color: '#5C7C99', icon: Globe },
-]
-
-const certifications = [
-  { name: 'ISO 22000', desc: 'Food Safety Management System' },
-  { name: 'BRCGS', desc: 'Global Food Safety Standard' },
-  { name: 'FSSC 22000', desc: 'Food Safety System Certification' },
-  { name: 'HALAL', desc: 'Halal Certified Products' },
+  { value: '50+', label: 'Countries Served' },
+  { value: '100+ MT', label: 'Monthly Capacity' },
+  { value: '13+', label: 'Product Lines' },
+  { value: '4', label: 'Certifications' },
 ]
 
 export default function Home() {
+  const [quoteOpen, setQuoteOpen] = useState(false)
+  const [quoteProduct, setQuoteProduct] = useState('')
+
+  const openQuote = (productName: string) => {
+    setQuoteProduct(productName)
+    setQuoteOpen(true)
+  }
+
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-10 md:pt-24 md:pb-16 overflow-hidden bg-navy-primary">
-        <div className="absolute inset-0 hero-spotlight pointer-events-none" />
-        <div className="container-main relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-            {/* Left: Content */}
-            <div className="order-1 text-center lg:text-left">
-              <h1 className="font-playfair text-[clamp(1.75rem,5vw,3.5rem)] text-off-white leading-[1.2] mb-4 max-w-[20ch] mx-auto lg:mx-0">
+      <section className="pt-[72px] bg-white">
+        <div className="container-main py-12 sm:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-5">
+                Trusted Global Exporter
+              </span>
+              <h1 className="font-playfair text-[clamp(2rem,5vw,3.25rem)] text-text-main leading-[1.15] mb-5">
                 Premium Agri-Exports with Global Compliance
               </h1>
-              <div className="w-16 md:w-20 h-0.5 bg-gradient-to-r from-gold-accent to-transparent mb-5 md:mb-6 mx-auto lg:mx-0" />
-              <p className="text-base md:text-lg text-muted-text mb-6 md:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Your trusted partner for high-quality spices, oleoresins, and vegetables. Complete traceability and international certifications guaranteed.
+              <p className="text-base sm:text-lg text-text-muted mb-7 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                Your trusted partner for high-quality spices, vegetables, grains and cocoa beans. Complete traceability and international certifications guaranteed.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Button href="/products" variant="primary" size="lg">View Products</Button>
-                <Button href="/contact" variant="secondary" size="lg">Request Quote</Button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <Button href="/products" variant="secondary" size="lg">View Products</Button>
+                <Button href="/contact" variant="primary" size="lg">Request Quote</Button>
               </div>
             </div>
 
-            {/* Right: Premium Visual Panel */}
-            <div className="relative h-[280px] sm:h-[340px] lg:h-[460px] rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 order-2 mt-6 lg:mt-0">
-              <Image
-                src="/images/hero-spices-vegetables.png"
-                alt="Premium spices and fresh vegetables for global export"
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-primary/70 via-navy-primary/20 to-transparent" />
-              {/* Trust Text Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 lg:p-5">
-                <p className="text-[10px] lg:text-xs text-off-white/80 tracking-wide text-center">
-                  ISO 22000 · BRCGS · FSSC 22000 · HALAL · Global Exports
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Credibility Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-8 md:pt-10 mt-6 border-t border-white/10">
-            {credibilityItems.map((item) => (
-              <div key={item} className="text-center">
-                <p className="text-xs md:text-sm text-muted-text">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Banners Carousel */}
-      <ProductBanner />
-
-      {/* Products Section - Warm Ivory Background */}
-      <section className="py-12 md:py-16 bg-warm-ivory">
-        <div className="container-main">
-          <div className="text-center mb-8 md:mb-10">
-            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3">Our Products</h2>
-            <p className="text-sm md:text-base text-navy-primary/70 max-w-2xl mx-auto px-4 md:px-0">
-              Explore our range of premium export-quality products sourced and processed to meet the highest international standards.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {products.map((product, index) => (
-              <div key={product.title} className={`h-full ${index === 2 ? 'sm:col-span-2 sm:max-w-[calc(50%-0.75rem)] sm:mx-auto lg:col-span-1 lg:max-w-none' : ''}`}>
-                <Card
-                  title={product.title}
-                  description={product.description}
-                  imageSrc={product.image}
-                  imageAlt={product.title}
-                  href={product.href}
-                  buttonText="View Products"
-                  tag={product.tag}
-                  variant="dark"
+            <div className="relative order-1 lg:order-2">
+              <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/hero-spices-vegetables.png"
+                  alt="Premium spices and fresh vegetables for global export"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-10 border-t border-border-light">
+            {credibilityItems.map((item) => (
+              <div key={item.label} className="text-center">
+                <p className="font-playfair text-2xl sm:text-3xl text-primary font-bold">{item.value}</p>
+                <p className="text-xs sm:text-sm text-text-muted mt-1">{item.label}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose MSE - Warm Ivory Background */}
-      <section className="py-12 md:py-16 bg-warm-cream">
-        <div className="container-main">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8 md:mb-10">
-              <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3 md:mb-4">Why Choose MSE</h2>
-              <p className="text-sm md:text-base text-navy-primary/70 px-4 md:px-0">Trusted by global importers for quality, compliance, and reliability.</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              {strengths.map((item) => (
-                <div key={item.title} className="bg-white rounded-xl p-5 md:p-6 border border-navy-primary/10 shadow-sm hover:shadow-md transition-all duration-200">
-                  <div className="flex gap-3 md:gap-4">
-                    <span className="w-2 h-2 mt-1.5 md:mt-2 bg-accent-green rounded-full flex-shrink-0" />
-                    <div>
-                      <h4 className="text-navy-primary font-medium mb-1 md:mb-2 text-sm md:text-base">{item.title}</h4>
-                      <p className="text-xs md:text-sm text-navy-primary/70 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Banner Carousel */}
+      <ProductBanner onGetQuote={openQuote} />
 
-      {/* Gold Divider */}
-      <div className="bg-warm-cream py-4">
+      {/* All Products Grid */}
+      <section className="py-14 sm:py-20 bg-white">
         <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
-        </div>
-      </div>
-
-      {/* Quality Assurance Process - Slate Panel */}
-      <section className="py-16 bg-navy-slate">
-        <div className="container-main">
-          <div className="grid lg:grid-cols-5 gap-8 items-stretch">
-            {/* Left: QA Image Card */}
-            <div className="lg:col-span-2 flex">
-              <div className="slate-panel overflow-hidden flex flex-col w-full">
-                <div className="relative h-[280px] lg:flex-1 lg:min-h-[280px]">
-                  <Image
-                    src="/images/quality-lab.png"
-                    alt="Quality testing laboratory"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h4 className="font-playfair text-lg text-off-white mb-2">Quality Lab</h4>
-                  <p className="text-sm text-muted-text">State-of-the-art testing facilities ensuring every batch meets global standards.</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Right: Content + Process Panel */}
-            <div className="lg:col-span-3 flex flex-col">
-              <div className="mb-6">
-                <h2 className="font-playfair text-3xl md:text-4xl text-off-white mb-3">Quality Assurance Process</h2>
-                <p className="text-muted-text max-w-xl">
-                  Our comprehensive quality control ensures every product meets international export standards.
-                </p>
-              </div>
-              
-              {/* Process Panel */}
-              <div className="slate-panel p-6 md:p-8 flex-1 flex flex-col justify-center">
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-                  {processSteps.map((step, index) => {
-                    const IconComponent = step.icon
-                    return (
-                      <div 
-                        key={step.step} 
-                        className={`text-center ${index === 4 ? 'col-span-2 lg:col-span-1 max-w-[50%] mx-auto lg:max-w-none' : ''}`}
-                      >
-                        <div 
-                          className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 rounded-full flex flex-col items-center justify-center"
-                          style={{ 
-                            border: `2px solid ${step.color}`,
-                            backgroundColor: `${step.color}12`
-                          }}
-                        >
-                          <IconComponent size={22} strokeWidth={1.5} style={{ color: step.color }} />
-                          <span className="text-[9px] text-off-white/50 mt-0.5">{step.step}</span>
-                        </div>
-                        <h4 className="text-off-white font-medium text-xs md:text-sm mb-1">{step.title}</h4>
-                        <p className="text-[10px] md:text-[11px] text-muted-text leading-tight hidden sm:block">{step.desc}</p>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications - Warm Ivory Background */}
-      <section className="py-12 md:py-16 bg-warm-ivory">
-        <div className="container-main">
-          <div className="text-center mb-8 md:mb-10">
-            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl text-navy-primary mb-3">Certifications</h2>
-            <p className="text-sm md:text-base text-navy-primary/70 max-w-2xl mx-auto px-4 md:px-0">
-              Our certifications reflect our commitment to quality, safety, and compliance.
+          <div className="text-center mb-10">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/10 rounded-full mb-3">
+              Our Range
+            </span>
+            <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-3">All Products</h2>
+            <p className="text-text-muted max-w-xl mx-auto text-sm sm:text-base">
+              Click any product to get an instant quote with pricing and quantity options.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-            {certifications.map((cert) => (
-              <div key={cert.name} className="flex flex-col h-full bg-navy-primary border border-navy-primary/20 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-200">
-                <div className="mb-3">
-                  <span className="inline-block px-3 py-1 text-[9px] uppercase tracking-wider text-gold-accent border border-gold-accent/40 rounded-full bg-gold-accent/10">
-                    Certified
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-playfair text-lg text-off-white mb-2">{cert.name}</h4>
-                  <p className="text-xs text-muted-text mb-5 leading-relaxed">{cert.desc}</p>
-                </div>
-                <div className="mt-auto">
-                  <button className="w-full py-2.5 px-4 text-sm text-off-white bg-white/[0.06] border border-gold-accent/50 rounded-lg hover:bg-white/[0.10] hover:border-gold-accent/70 transition-all duration-200">
-                    View Certificate
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* FSSAI Note */}
-          <p className="text-center text-navy-primary/60 text-sm mt-8">
-            Also certified by FSSAI (Food Safety and Standards Authority of India)
-          </p>
+          <ProductGrid onProductClick={openQuote} />
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="bg-warm-ivory py-4">
+      {/* Trust / Certifications Strip */}
+      <section className="py-14 sm:py-16 bg-surface">
         <div className="container-main">
-          <div className="h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent" />
+          <div className="text-center mb-10">
+            <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Why Choose MSE</h2>
+            <p className="text-text-muted max-w-xl mx-auto text-sm sm:text-base">
+              Trusted by global importers for quality, compliance, and reliability.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {trustPoints.map((item) => {
+              const IconComp = item.icon
+              return (
+                <div key={item.title} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 border border-border-light hover:border-primary/20 hover:-translate-y-1">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <IconComp size={22} className="text-primary" />
+                  </div>
+                  <h4 className="font-semibold text-text-main mb-2">{item.title}</h4>
+                  <p className="text-xs sm:text-sm text-text-muted leading-relaxed">{item.desc}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Band */}
-      <section className="py-12 md:py-[4.5rem] bg-gradient-to-b from-navy-primary via-navy-alt to-navy-primary border-y border-gold-accent/15">
-        <div className="container-main text-center px-4 md:px-6">
-          <div className="w-12 md:w-16 h-0.5 bg-gold-accent mx-auto mb-5 md:mb-6" />
-          <h2 className="font-playfair text-xl md:text-2xl lg:text-3xl text-off-white mb-5 leading-snug">
-            Partner with a trusted exporter for your agri-product needs.
+      <section className="py-14 sm:py-20 bg-primary">
+        <div className="container-main text-center">
+          <h2 className="font-playfair text-2xl sm:text-3xl text-white mb-4 leading-snug">
+            Partner with a trusted exporter for your agri-product needs
           </h2>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+          <p className="text-white/80 mb-7 max-w-xl mx-auto text-sm sm:text-base">
+            Get competitive pricing, reliable supply, and full quality assurance for your import requirements.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button href="/contact" variant="primary" size="lg">Request a Quote</Button>
-            <Button href="/products" variant="secondary" size="lg">Download Catalogue</Button>
+            <button
+              onClick={() => openQuote('')}
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white border-2 border-white/40 rounded-full hover:bg-white/10 transition-all hover:-translate-y-0.5"
+            >
+              Quick Quote
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Quote Modal */}
+      <QuoteModal
+        isOpen={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+        productName={quoteProduct}
+      />
     </>
   )
 }

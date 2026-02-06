@@ -3,13 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --navy-primary: #0B1F3B;
-  --navy-alt: #102A4C;
-  --gold-accent: #D6A84A;
-  --off-white: #F5F1E8;
-  --warm-ivory: #F7F3EA;
-  --accent-green: #2E7D32;
-  --muted-text: #C7D2E1;
+  --primary: #2D6A4F;
+  --saffron: #E09F3E;
+  --text-main: #343A40;
+  --surface: #EEF1F4;
 }
 
 html {
@@ -17,31 +14,9 @@ html {
 }
 
 body {
-  background: #F7F3EA;
+  background: #FFFFFF;
+  color: #343A40;
   min-height: 100vh;
-  position: relative;
-}
-
-
-.glass-panel {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.slate-panel {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 1rem;
-}
-
-.ivory-strip {
-  background: #F5F1E8;
-  color: #0B1B33;
-}
-
-.hero-spotlight {
-  background: radial-gradient(ellipse 80% 50% at 30% 40%, rgba(200,162,74,0.08) 0%, transparent 70%);
 }
 
 .container-main {
@@ -55,4 +30,31 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.6s ease-out both;
+}
+
+.animate-reveal-delay-1 {
+  animation: reveal 0.6s ease-out 0.1s both;
+}
+
+.animate-reveal-delay-2 {
+  animation: reveal 0.6s ease-out 0.2s both;
+}
+
+.animate-reveal-delay-3 {
+  animation: reveal 0.6s ease-out 0.3s both;
 }

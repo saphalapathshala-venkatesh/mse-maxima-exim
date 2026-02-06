@@ -1,65 +1,71 @@
-import Section from '@/components/Section'
-import Card from '@/components/Card'
+'use client'
+
+import { useState } from 'react'
+import ProductGrid from '@/components/ProductGrid'
+import QuoteModal from '@/components/QuoteModal'
 import Button from '@/components/Button'
 
-const products = [
-  {
-    title: 'Spices',
-    description: 'Premium whole and ground spices including turmeric, chili, cumin, coriander, and more. Sourced from the finest farms across India.',
-    image: '/images/spices.jpg',
-    href: '/products/spices',
-  },
-  {
-    title: 'Oleoresins',
-    description: 'Natural extracts with concentrated flavor, aroma, and color. Perfect for food processing, pharmaceuticals, and cosmetics industries.',
-    image: '/images/oleoresins.jpg',
-    href: '/products/oleoresins',
-  },
-  {
-    title: 'Vegetables',
-    description: 'Dehydrated and fresh vegetables processed in state-of-the-art facilities. Meeting international quality and safety standards.',
-    image: '/images/vegetables.jpg',
-    href: '/products/vegetables',
-  },
-]
+const categories = ['All', 'Spices', 'Vegetables', 'Cocoa', 'Grains']
 
 export default function ProductsPage() {
+  const [filter, setFilter] = useState('All')
+  const [quoteOpen, setQuoteOpen] = useState(false)
+  const [quoteProduct, setQuoteProduct] = useState('')
+
+  const openQuote = (productName: string) => {
+    setQuoteProduct(productName)
+    setQuoteOpen(true)
+  }
+
   return (
-    <div className="pt-20">
-      <Section>
-        <div className="text-center mb-12">
-          <h1 className="font-playfair text-4xl md:text-5xl text-off-white mb-4">Our Products</h1>
-          <p className="text-muted-text max-w-2xl mx-auto">
-            We export a comprehensive range of agri-products, each meeting the highest international quality standards and certifications.
-          </p>
-        </div>
+    <>
+      <div className="pt-[72px] bg-white min-h-screen">
+        <div className="container-main py-10 sm:py-14">
+          <div className="text-center mb-8">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">
+              Our Range
+            </span>
+            <h1 className="font-playfair text-3xl sm:text-4xl text-text-main mb-3">All Products</h1>
+            <p className="text-text-muted max-w-xl mx-auto text-sm sm:text-base">
+              Browse our complete range of export-quality products. Click any product to request a quote.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <Card
-              key={product.title}
-              title={product.title}
-              description={product.description}
-              imageSrc={product.image}
-              imageAlt={product.title}
-              href={product.href}
-              buttonText="Explore Category"
-            />
-          ))}
-        </div>
-      </Section>
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                  filter === cat
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'bg-surface text-text-main hover:bg-primary/10'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-      <Section className="bg-navy-alt/30">
-        <div className="text-center">
-          <h2 className="font-playfair text-2xl md:text-3xl text-off-white mb-6">Custom Requirements?</h2>
-          <p className="text-muted-text max-w-2xl mx-auto mb-8">
-            We offer customized solutions for specific product requirements, packaging needs, and volume specifications.
-          </p>
-          <Button href="/contact" variant="primary" size="lg">
-            Request Custom Quote
-          </Button>
+          <ProductGrid onProductClick={openQuote} filter={filter} />
+
+          <div className="mt-14 text-center bg-surface rounded-2xl p-8 sm:p-12">
+            <h2 className="font-playfair text-xl sm:text-2xl text-text-main mb-3">Custom Requirements?</h2>
+            <p className="text-text-muted max-w-xl mx-auto mb-6 text-sm sm:text-base">
+              We offer customized solutions for specific product requirements, packaging needs, and volume specifications.
+            </p>
+            <Button href="/contact" variant="primary" size="lg">
+              Request Custom Quote
+            </Button>
+          </div>
         </div>
-      </Section>
-    </div>
+      </div>
+
+      <QuoteModal
+        isOpen={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+        productName={quoteProduct}
+      />
+    </>
   )
 }

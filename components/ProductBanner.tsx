@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const banners = [
@@ -10,70 +9,90 @@ const banners = [
     id: 1,
     title: 'Spices (Whole)',
     subtitle: 'Dry Red Chilies • Turmeric • Black Pepper • Cardamom • Cinnamon',
+    badge: 'EXPORT GRADE',
     image: '/images/spices.jpg',
   },
   {
     id: 2,
     title: 'Spices (Powders)',
     subtitle: 'Chilli Powder • Turmeric Powder',
+    badge: 'PREMIUM QUALITY',
     image: '/images/hero-spices.jpg',
   },
   {
     id: 3,
-    title: 'Vegetables',
+    title: 'Vegetables (Fresh)',
     subtitle: 'Onions • Green Chilies',
+    badge: 'FARM FRESH',
     image: '/images/vegetables.jpg',
   },
   {
     id: 4,
     title: 'Cocoa Beans',
-    subtitle: 'Premium Export Quality',
+    subtitle: 'Premium Export Quality Cocoa',
+    badge: 'CERTIFIED',
     image: '/images/export-bulk-spices.png',
   },
   {
     id: 5,
     title: 'Millets & Grains',
     subtitle: 'Ragi • Bajra • Jowar',
+    badge: 'ORGANIC',
     image: '/images/banner-spices-export.png',
   },
 ]
 
-export default function ProductBanner() {
+interface ProductBannerProps {
+  onGetQuote?: (productName: string) => void
+}
+
+export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % banners.length)
+  }, [])
+
+  const goToPrevious = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + banners.length) % banners.length)
+  }, [])
 
   useEffect(() => {
     if (!isAutoPlaying) return
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % banners.length)
-    }, 5000)
+    const interval = setInterval(goToNext, 5000)
     return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  }, [isAutoPlaying, goToNext])
 
-  const goToPrevious = () => {
-    setIsAutoPlaying(false)
-    setCurrentIndex((prev) => (prev - 1 + banners.length) % banners.length)
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX)
   }
 
-  const goToNext = () => {
-    setIsAutoPlaying(false)
-    setCurrentIndex((prev) => (prev + 1) % banners.length)
-  }
-
-  const goToSlide = (index: number) => {
-    setIsAutoPlaying(false)
-    setCurrentIndex(index)
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return
+    const diff = touchStart - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 50) {
+      setIsAutoPlaying(false)
+      if (diff > 0) goToNext()
+      else goToPrevious()
+    }
+    setTouchStart(null)
   }
 
   return (
-    <section 
+    <section
       className="relative w-full"
       aria-roledescription="carousel"
       aria-label="Product showcase carousel"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      <div className="relative h-[350px] sm:h-[400px] lg:h-[480px] overflow-hidden">
+      <div
+        className="relative h-[320px] sm:h-[400px] lg:h-[500px] overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {banners.map((banner, index) => (
           <div
             key={banner.id}
@@ -81,8 +100,8 @@ export default function ProductBanner() {
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${banners.length}: ${banner.title}`}
             aria-hidden={index !== currentIndex}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+              index === currentIndex ? 'opacity-100 z-10 scale-100' : 'opacity-0 z-0 scale-105'
             }`}
           >
             <Image
@@ -93,29 +112,29 @@ export default function ProductBanner() {
               priority={index === 0}
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-12">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-10">
               <div className="container-main">
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-5xl">
                   <div>
-                    <span className="inline-block px-3 py-1 mb-3 text-[10px] font-medium tracking-wider uppercase bg-accent-green text-white rounded-full">
-                      Export Quality
+                    <span className="inline-block px-3 py-1 mb-3 text-[10px] font-bold tracking-[0.15em] uppercase bg-primary text-white rounded-full">
+                      {banner.badge}
                     </span>
-                    <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-white mb-2 leading-tight">
+                    <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-white mb-1.5 leading-tight">
                       {banner.title}
                     </h2>
                     <p className="text-white/80 text-sm sm:text-base">
                       {banner.subtitle}
                     </p>
                   </div>
-                  <Link 
-                    href="/products"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold-accent hover:bg-gold-accent/90 text-navy-primary font-medium text-sm rounded-lg transition-all shadow-lg hover:shadow-xl self-start sm:self-auto"
+                  <button
+                    onClick={() => onGetQuote?.(banner.title)}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-saffron hover:bg-saffron-dark text-white font-semibold text-sm rounded-full transition-all shadow-lg hover:shadow-xl self-start sm:self-auto hover:-translate-y-0.5"
                   >
-                    View Products
+                    Get Quote
                     <ChevronRight size={16} />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -123,30 +142,30 @@ export default function ProductBanner() {
         ))}
 
         <button
-          onClick={goToPrevious}
-          className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-all"
+          onClick={() => { setIsAutoPlaying(false); goToPrevious() }}
+          className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
           aria-label="Previous slide"
         >
-          <ChevronLeft size={22} />
+          <ChevronLeft size={20} />
         </button>
         <button
-          onClick={goToNext}
-          className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-all"
+          onClick={() => { setIsAutoPlaying(false); goToNext() }}
+          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-full bg-white/90 hover:bg-white text-text-main shadow-md transition-all hover:scale-105"
           aria-label="Next slide"
         >
-          <ChevronRight size={22} />
+          <ChevronRight size={20} />
         </button>
 
-        <div className="absolute bottom-6 sm:bottom-8 lg:bottom-12 right-6 sm:right-8 lg:right-12 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
+        <div className="absolute bottom-5 sm:bottom-8 lg:bottom-10 right-5 sm:right-8 lg:right-10 z-20 flex gap-2" role="tablist" aria-label="Slide navigation">
           {banners.map((banner, index) => (
             <button
               key={index}
               role="tab"
-              onClick={() => goToSlide(index)}
-              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${
+              onClick={() => { setIsAutoPlaying(false); setCurrentIndex(index) }}
+              className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-gold-accent w-6 sm:w-8'
-                  : 'bg-white/50 hover:bg-white/70'
+                  ? 'bg-saffron w-7'
+                  : 'bg-white/60 hover:bg-white/80 w-2'
               }`}
               aria-label={`Go to ${banner.title}`}
               aria-selected={index === currentIndex}

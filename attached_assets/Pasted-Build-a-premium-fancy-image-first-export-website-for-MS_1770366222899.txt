@@ -1,0 +1,266 @@
+Build a premium, fancy, image-first export website for MSE (Magna SSK Exim Solutions Pvt Ltd) using Next.js App Router (TypeScript) + Tailwind CSS. The site must be white-background, bright, modern, “international exporter” feel. Remove navy as primary. Use a clean product-first layout with Pinterest-style images and a rotating banner carousel.
+
+0) Hard requirements
+
+App Router only: /app directory (no pages router)
+
+Tailwind CSS only (no CSS modules unless absolutely needed)
+
+Fully responsive: mobile-first, no overflow, no misalignment, no overlapping text
+
+Performance: images lazy-load, banners optimized, avoid huge page weight
+
+Use only local assets in /public (no external image URLs)
+
+Ensure next/image is used for all images
+
+1) Color + UI direction (NO navy)
+
+White / light theme, fancy and bright.
+Use this palette:
+
+Background: #FFFFFF
+
+Light surface: #EEF1F4
+
+Primary accent (green): #2D6A4F
+
+CTA accent (saffron): #E09F3E
+
+Text: #343A40
+
+Optional highlight: #C0392B (chili red) only for small accents
+
+Design style:
+
+Spacious, premium
+
+Product images dominate (Pinterest-like)
+
+Buttons rounded, subtle shadows, smooth hover transitions
+
+2) Pages (routes)
+
+Create these routes:
+
+/ Home
+
+/products (same grid but with filters and all products)
+
+/contact dedicated contact page with full form
+
+3) Home page sections (in this order)
+A) Header (sticky)
+
+Left: MSE logo/wordmark
+
+Right: nav links: Products, Quality, Certifications, About, Contact
+
+CTA buttons: “Request Quote” (primary saffron), “Download Catalogue” (outline)
+
+Mobile: hamburger menu opens drawer; CTA buttons stack neatly (no overlap)
+
+B) Hero (white background)
+
+Large headline + subtext (no overlap on any screen)
+
+One big hero image to the right on desktop, below text on mobile
+
+Add 2 CTAs: “View Products” + “Request Quote”
+
+Must not leave awkward empty space; layout must adapt:
+
+Desktop: 2-column
+
+Tablet: balanced
+
+Mobile: stacked with proper spacing
+
+C) Featured Product Banner Carousel (5 banners)
+
+This is the “fancy” section.
+
+A carousel with 5 slides, each slide is a large banner image with minimal text overlay (image remains dominant).
+
+Slide content includes:
+
+Tag badge (e.g., “EXPORT GRADE”)
+
+Product name
+
+Short one-liner
+
+CTA button: “Get Quote”
+
+Add left/right arrows + dots
+
+Must be touch-friendly on mobile (swipe)
+
+Text overlay must never dominate image; keep it small and readable
+
+Banners should represent:
+
+Spices (Whole)
+
+Spices (Powders)
+
+Vegetables (Fresh)
+
+Cocoa Beans
+
+Millets/Grains
+
+D) “All Products” Section (Pinterest grid, all items separately)
+
+IMPORTANT: Home page must list every product item as its own tile (not grouped).
+Products list (each must be its own product card):
+
+Dry Red Chilies
+
+Chilli Powder
+
+Turmeric Rhizomes
+
+Turmeric Powder
+
+Black Pepper
+
+Cardamom
+
+Cinnamon
+
+Cocoa Beans
+
+Onions
+
+Green Chilies
+
+Ragi (Finger Millet)
+
+Bajra (Pearl Millets)
+
+Jowar (Sorghum)
+
+Grid behavior:
+
+Desktop: 4 columns masonry/pinterest feel (variable heights allowed)
+
+Tablet: 2–3 columns
+
+Mobile: 1 column (or 2 if space allows), perfectly aligned, no odd gaps
+
+Each tile shows: image + product name + short caption
+
+Hover (desktop): subtle zoom + shadow
+
+Tap (mobile): opens product quote modal (see section 4)
+
+E) Trust / Certifications strip
+
+Show icons and short points: Traceability, Export Standards, Quality Testing, Global Logistics
+
+Clean light background block
+
+F) Footer (white/light, premium)
+
+Columns: Products, Company, Contact
+
+Colored link styling (green accent), hover saffron underline
+
+Add one colored CTA button “Request a Quote”
+
+Include address, email, phone
+
+Bottom line copyright
+
+4) Quote flow (must work from banners AND product tiles)
+
+When user clicks “Get Quote” on a banner OR clicks any product tile:
+Open a modal drawer (center modal on desktop, bottom-sheet on mobile) showing:
+
+Product name (pre-filled)
+
+Quantity dropdown options: 10 KG, 25 KG, 50 KG, 100 KG, Custom
+
+If Custom: show number input in KG
+
+“Price per KG” displayed (use placeholder values for now but structure must exist)
+
+Auto-calculated total amount displayed live
+
+Button: “Get Quote” (primary saffron)
+
+On clicking “Get Quote” inside modal:
+Open the contact form modal (or step 2 in same modal) asking:
+
+Name
+
+Company
+
+Email
+
+Phone
+
+Country
+
+Delivery Port/City
+
+Product (pre-filled)
+
+Quantity (pre-filled)
+
+Message/Requirements
+
+Submit button
+
+On submit:
+
+Show success confirmation (no backend needed now)
+
+Also provide a “Contact Page” link in footer and header that opens /contact page with same form
+
+5) Assets (images)
+
+Create /public/images/ and add placeholder images for:
+
+5 banner images (high quality, bright, product-dominant)
+
+12 product tile images (one per product)
+Use meaningful filenames like:
+banner-spices-whole.jpg, product-turmeric-rhizomes.jpg, etc.
+If exact images are not available, generate clean placeholders or use consistent local placeholder images — but keep structure ready to replace later.
+
+6) Animations (light but fancy)
+
+Use subtle scroll reveal on sections (fade/slide)
+
+Product tiles hover zoom
+
+Carousel slide transition smooth
+
+Modal open/close smooth
+Keep it premium (no excessive motion)
+
+7) QA checklist you must satisfy before finishing
+
+No text overlap anywhere (especially hero and banner)
+
+Mobile view: no empty spaces, no misalignment
+
+Carousel works with arrows + dots + swipe
+
+Product grid shows ALL items separately
+
+Quote modal works end-to-end with auto calculation
+
+Footer links are colored and CTA button exists
+
+Lighthouse-friendly: avoid huge images; lazy load
+
+Deliverable:
+
+Update project files accordingly
+
+Explain where to replace images in /public/images/
+
+Provide exact run steps and confirm responsive behavior

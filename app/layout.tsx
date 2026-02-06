@@ -18,7 +18,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'MSE - Magna SSK Exim Solutions Pvt Ltd',
-  description: 'Premium exporter of spices, oleoresins, and vegetables. Global compliance, quality assurance, and full traceability.',
+  description: 'Premium exporter of spices, vegetables, grains and cocoa beans. Global compliance, quality assurance, and full traceability.',
 }
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-inter text-off-white antialiased relative z-10">
+      <body className="font-inter text-text-main antialiased">
         <Header />
         <main>{children}</main>
         <Footer />
