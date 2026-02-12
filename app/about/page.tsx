@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Button from '@/components/Button'
+import { site } from '@/data/assets'
 
 const stats = [
   { value: '50+', label: 'Countries Served' },
@@ -37,7 +38,7 @@ export default function AboutPage() {
           </div>
           <div className="relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="/images/site/facility.jpg"
+              src={site.facility}
               alt="MSE processing facility"
               fill
               className="object-cover"

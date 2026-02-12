@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Button from '@/components/Button'
+import { site } from '@/data/assets'
 import ProductBanner from '@/components/ProductBanner'
 import ProductGrid from '@/components/ProductGrid'
 import QuoteModal from '@/components/QuoteModal'
@@ -75,7 +76,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/banners/hero-spices-vegetables.png"
+                  src={site.heroMain}
                   alt="Premium spices and fresh vegetables for global export"
                   fill
                   className="object-cover"

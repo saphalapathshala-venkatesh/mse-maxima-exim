@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { banners as bannerImages } from '@/data/assets'
 
 const banners = [
   {
@@ -10,35 +11,35 @@ const banners = [
     title: 'Spices (Whole)',
     subtitle: 'Dry Red Chilies • Turmeric • Black Pepper • Cardamom • Cinnamon',
     badge: 'EXPORT GRADE',
-    image: '/images/banners/spices.jpg',
+    image: bannerImages.spices,
   },
   {
     id: 2,
     title: 'Spices (Powders)',
     subtitle: 'Chilli Powder • Turmeric Powder',
     badge: 'PREMIUM QUALITY',
-    image: '/images/banners/hero-spices.jpg',
+    image: bannerImages.quality,
   },
   {
     id: 3,
     title: 'Vegetables (Fresh)',
     subtitle: 'Onions • Green Chilies',
     badge: 'FARM FRESH',
-    image: '/images/banners/vegetables.jpg',
+    image: bannerImages.vegetables,
   },
   {
     id: 4,
     title: 'Cocoa Beans',
     subtitle: 'Premium Export Quality Cocoa',
     badge: 'CERTIFIED',
-    image: '/images/banners/export-bulk-spices.png',
+    image: bannerImages.cocoa,
   },
   {
     id: 5,
     title: 'Millets & Grains',
     subtitle: 'Ragi • Bajra • Jowar',
     badge: 'ORGANIC',
-    image: '/images/banners/banner-spices-export.png',
+    image: bannerImages.grains,
   },
 ]
 
