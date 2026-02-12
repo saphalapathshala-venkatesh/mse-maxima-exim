@@ -56,10 +56,20 @@ data/
 └── assets.ts           # Central image path registry (single source of truth)
 
 public/images/
-├── banners/            # Banner/carousel images (banner-spices.jpg, etc.)
-├── categories/         # Category page header images (category-spices.jpg, etc.)
-├── products/           # Individual product images (dry-red-chillies.jpg, etc.)
-└── site/               # Facility, quality lab, and general site images
+├── banners/            # Homepage carousel banners (hero-*.jpg)
+│   ├── hero-spices.jpg
+│   ├── hero-vegetables.jpg
+│   ├── hero-cocoa.jpg
+│   ├── hero-grains.jpg
+│   └── hero-quality.jpg
+├── categories/         # Category page header images
+│   ├── spices.jpg
+│   ├── vegetables.jpg
+│   ├── cocoa.jpg
+│   ├── grains.jpg
+│   └── oleoresins.jpg
+├── products/           # Individual product images (EMPTY — awaiting uploads)
+└── site/
     ├── facility.jpg
     └── quality-lab.png
 ```
@@ -69,20 +79,51 @@ All image paths are centralized in `data/assets.ts`. Components import from this
 1. Upload the file to the correct folder with the exact filename from the registry
 2. No code changes needed — the registry already points to the correct path
 
-### Expected Files:
+### Canonical Filenames (Locked Standard):
 **Banners** (`public/images/banners/`):
-- banner-spices.jpg, banner-vegetables.jpg, banner-cocoa.jpg, banner-grains.jpg, banner-quality.jpg
+- hero-spices.jpg, hero-vegetables.jpg, hero-cocoa.jpg, hero-grains.jpg, hero-quality.jpg
 
 **Categories** (`public/images/categories/`):
-- category-spices.jpg, category-vegetables.jpg, category-cocoa.jpg, category-grains.jpg
+- spices.jpg, vegetables.jpg, cocoa.jpg, grains.jpg, oleoresins.jpg
 
 **Products** (`public/images/products/`):
-- dry-red-chillies.jpg, chilli-powder.jpg, turmeric-rhizomes.jpg, turmeric-powder.jpg
+- dry-red-chilli.jpg, chilli-powder.jpg, turmeric-rhizomes.jpg, turmeric-powder.jpg
 - black-pepper.jpg, cardamom.jpg, cinnamon.jpg, cocoa-beans.jpg
 - onions.jpg, green-chillies.jpg, ragi.jpg, bajra.jpg, jowar.jpg
 
 **Site** (`public/images/site/`):
 - facility.jpg (exists), quality-lab.png (exists)
+
+## Image Cleanup Log (Feb 2026)
+
+### Renamed Files (old → new):
+- `banners/spices.jpg` → kept as `banners/hero-spices.jpg` (already existed)
+- `banners/hero-spices.jpg` → `banners/hero-spices.jpg` (no change)
+- `banners/vegetables.jpg` → kept as `banners/hero-vegetables.jpg` (already existed)
+- `banners/hero-vegetables.jpg` → `banners/hero-vegetables.jpg` (no change)
+- `banners/export-bulk-spices.png` → copied to `banners/hero-cocoa.jpg`
+- `banners/banner-spices-export.png` → copied to `banners/hero-grains.jpg`
+- `banners/export-spices-banner.png` → copied to `banners/hero-quality.jpg`
+- `banners/spices.jpg` → copied to `categories/spices.jpg`
+- `banners/vegetables.jpg` → copied to `categories/vegetables.jpg`
+- `banners/export-bulk-spices.png` → copied to `categories/cocoa.jpg`
+- `banners/banner-spices-export.png` → copied to `categories/grains.jpg`
+- `banners/oleoresins-new.png` → copied to `categories/oleoresins.jpg`
+
+### Deleted Files:
+- `banners/banner-spices-export.png`
+- `banners/export-bulk-spices.png`
+- `banners/export-spices-banner.png`
+- `banners/export-spices-vegetables.png`
+- `banners/hero-spices-vegetables.png`
+- `banners/hero-transition.png`
+- `banners/oleoresins.jpg`
+- `banners/oleoresins-new.png`
+- `banners/spices.jpg`
+- `banners/vegetables.jpg`
+
+### Still Missing (awaiting manual upload):
+- All 13 product images in `public/images/products/`
 
 ## Running the Project
 - Development: `npm run dev` (runs on port 5000)
@@ -109,13 +150,3 @@ All image paths are centralized in `data/assets.ts`. Components import from this
 - Cocoa Beans
 - Onions, Green Chilies
 - Ragi (Finger Millet), Bajra (Pearl Millet), Jowar (Sorghum)
-
-## Recent Changes (Feb 2026)
-- **Image Registry** - Created `data/assets.ts` as single source of truth for all image paths
-  - All components now import paths from registry instead of hardcoding
-  - Folder structure: banners/, categories/, products/, site/
-  - No code changes needed when uploading images — just use exact filenames
-- **Header Divider** - 2px gradient line (green→saffron→green) container-width
-- **Banner Carousel** - Renders immediately below header, Get Quote button top-right
-- **Uniform Product Grid** - Fixed aspect-[4/3] cards, 14th CTA card fills last row
-- **Complete Theme Overhaul** - White/bright theme with green + saffron accents

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { products } from '@/data/assets'
 
 const allProducts = [
-  { name: 'Dry Red Chilies', caption: 'Premium dried chilies for global markets', image: products.dryRedChillies, category: 'Spices' },
+  { name: 'Dry Red Chilies', caption: 'Premium dried chilies for global markets', image: products.dryRedChilli, category: 'Spices' },
   { name: 'Chilli Powder', caption: 'Finely ground, vibrant red chilli powder', image: products.chilliPowder, category: 'Spices' },
   { name: 'Turmeric Rhizomes', caption: 'High-curcumin turmeric rhizomes', image: products.turmericRhizomes, category: 'Spices' },
   { name: 'Turmeric Powder', caption: 'Golden turmeric powder, lab-tested', image: products.turmericPowder, category: 'Spices' },

@@ -1,20 +1,21 @@
 export const banners = {
-  spices: "/images/banners/banner-spices.jpg",
-  vegetables: "/images/banners/banner-vegetables.jpg",
-  cocoa: "/images/banners/banner-cocoa.jpg",
-  grains: "/images/banners/banner-grains.jpg",
-  quality: "/images/banners/banner-quality.jpg"
+  spices: "/images/banners/hero-spices.jpg",
+  vegetables: "/images/banners/hero-vegetables.jpg",
+  cocoa: "/images/banners/hero-cocoa.jpg",
+  grains: "/images/banners/hero-grains.jpg",
+  quality: "/images/banners/hero-quality.jpg"
 };
 
 export const categories = {
-  spices: "/images/categories/category-spices.jpg",
-  vegetables: "/images/categories/category-vegetables.jpg",
-  cocoa: "/images/categories/category-cocoa.jpg",
-  grains: "/images/categories/category-grains.jpg"
+  spices: "/images/categories/spices.jpg",
+  vegetables: "/images/categories/vegetables.jpg",
+  cocoa: "/images/categories/cocoa.jpg",
+  grains: "/images/categories/grains.jpg",
+  oleoresins: "/images/categories/oleoresins.jpg"
 };
 
 export const products = {
-  dryRedChillies: "/images/products/dry-red-chillies.jpg",
+  dryRedChilli: "/images/products/dry-red-chilli.jpg",
   chilliPowder: "/images/products/chilli-powder.jpg",
   turmericRhizomes: "/images/products/turmeric-rhizomes.jpg",
   turmericPowder: "/images/products/turmeric-powder.jpg",
@@ -32,7 +33,7 @@ export const products = {
 export const site = {
   facility: "/images/site/facility.jpg",
   qualityLab: "/images/site/quality-lab.png",
-  heroMain: "/images/banners/banner-spices.jpg"
+  heroMain: "/images/banners/hero-spices.jpg"
 };
 
 export const allImagePaths = [
