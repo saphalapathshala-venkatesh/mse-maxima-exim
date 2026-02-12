@@ -1,0 +1,94 @@
+You are working inside my Next.js project on Replit.
+
+GOAL:
+Clean up image assets so there are NO duplicates and NO naming mismatches.
+Each visual slot must have exactly ONE image file. The site must not break.
+
+IMPORTANT RULES:
+- Do NOT change layout/styling/UI. Only assets + references.
+- Do NOT delete any image until you confirm it is NOT referenced anywhere.
+- All image references must be controlled from a single registry file (data/assets.ts). No hardcoded /images paths in components.
+- After cleanup, the app must run with no 404 image requests for the required slots.
+
+CURRENT FOLDERS (must exist):
+public/images/banners/
+public/images/products/
+public/images/site/
+(Optional: public/images/categories/ ONLY if already used in registry)
+
+TASKS:
+
+1) INVENTORY
+- List all files under public/images/** (recursive) with paths.
+- Search entire codebase for "/images/" references and list them.
+
+2) SINGLE SOURCE OF TRUTH (REGISTRY)
+- Ensure data/assets.ts exists and is the ONLY place that defines image paths.
+- Update all components/pages to import from data/assets.ts.
+- After this step, there must be ZERO hardcoded "/images/" references outside data/assets.ts.
+
+3) CANONICAL NAMING (LOCKED STANDARD)
+Use exactly these canonical filenames:
+BANNERS (homepage slider):
+- hero-spices.jpg
+- hero-vegetables.jpg
+- hero-cocoa.jpg
+- hero-grains.jpg
+- hero-quality.jpg
+
+CATEGORY (category header images):
+- spices.jpg
+- vegetables.jpg
+- cocoa.jpg
+- grains.jpg
+- oleoresins.jpg (only if used)
+
+SITE (about/quality/facility):
+- facility.jpg
+- quality-lab.png
+
+PRODUCTS (13 items) under public/images/products/:
+- dry-red-chilli.jpg
+- chilli-powder.jpg
+- turmeric-rhizomes.jpg
+- turmeric-powder.jpg
+- black-pepper.jpg
+- cardamom.jpg
+- cinnamon.jpg
+- cocoa-beans.jpg
+- onions.jpg
+- green-chillies.jpg
+- ragi.jpg
+- bajra.jpg
+- jowar.jpg
+
+4) DEDUPLICATION PLAN (SAFE)
+For every existing non-canonical image (like export-*.png, banner-*.png, hero-transition.png, etc):
+- Decide if it maps to one of the canonical slots above.
+- If yes: KEEP the best-quality file and RENAME it to the canonical filename (same folder).
+- If no: mark it as "unused candidate".
+
+5) REFERENCE UPDATE
+- Update data/assets.ts to use ONLY canonical filenames (with correct folders).
+- Ensure pages/components show the correct images using registry.
+
+6) SAFE DELETE
+- After updating registry, re-scan project for references to any "unused candidate".
+- ONLY delete files that have ZERO references.
+- Keep a short "deleted files list" in replit.md.
+
+7) VERIFY
+- Run the dev server and confirm:
+  - App loads
+  - No broken images
+  - No 404s for images
+  - No console errors due to missing files
+
+OUTPUT REQUIRED:
+- Final folder tree under public/images/ with ONLY canonical files
+- Confirmed statement: "No hardcoded /images paths exist outside data/assets.ts"
+- List of renamed files (old -> new)
+- List of deleted files
+- Any remaining missing files (if some canonical slots have no image yet)
+
+Proceed carefully and do NOT break the site.
