@@ -64,7 +64,7 @@ export default function QualityPage() {
                 Our Process
               </span>
               <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-text-main mb-4 leading-tight break-normal" style={{ textWrap: 'balance' } as React.CSSProperties}>
-                From Source to Shipment — Quality at Every Step
+                From Source to Shipment:<br />Quality at every step
               </h1>
               <p className="text-text-muted leading-relaxed mb-6 text-sm sm:text-base break-normal">
                 Quality is not just a checkpoint — it is embedded into every stage of our operations. From sourcing raw materials to final shipment, we maintain rigorous controls that meet the highest international standards.

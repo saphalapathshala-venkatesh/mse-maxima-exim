@@ -125,7 +125,7 @@ export default function Home() {
                 Our Process
               </span>
               <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-4 leading-snug break-normal hyphens-none">
-                From Source to Shipment — Quality at Every Step
+                From Source to Shipment:<br />Quality at every step
               </h2>
               <p className="text-text-muted leading-relaxed mb-8 text-sm sm:text-base break-normal hyphens-none">
                 We follow a structured quality process to ensure consistency, compliance, and reliability for global buyers. Every product is traced from origin, tested in our in-house laboratory, and inspected before shipment.
