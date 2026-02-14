@@ -120,14 +120,14 @@ export default function Home() {
       <section className="py-16 sm:py-24 bg-white">
         <div className="container-main">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
+            <div className="text-left">
               <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-4">
                 Our Process
               </span>
-              <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-4 leading-snug">
+              <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-4 leading-snug break-normal hyphens-none">
                 From Source to Shipment — Quality at Every Step
               </h2>
-              <p className="text-text-muted leading-relaxed mb-8 text-sm sm:text-base">
+              <p className="text-text-muted leading-relaxed mb-8 text-sm sm:text-base break-normal hyphens-none">
                 We follow a structured quality process to ensure consistency, compliance, and reliability for global buyers. Every product is traced from origin, tested in our in-house laboratory, and inspected before shipment.
               </p>
               <Button href="/quality" variant="secondary" size="lg">Explore Our Process</Button>
