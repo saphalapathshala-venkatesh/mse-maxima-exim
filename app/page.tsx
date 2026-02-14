@@ -132,25 +132,14 @@ export default function Home() {
               </p>
               <Button href="/quality" variant="secondary" size="lg">Explore Our Process</Button>
             </div>
-            <div className="relative">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={site.qualityLab}
-                  alt="MSE Quality Laboratory"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white hidden sm:block">
-                <Image
-                  src={site.facility}
-                  alt="MSE Processing Facility"
-                  fill
-                  className="object-cover"
-                  sizes="128px"
-                />
-              </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src={site.qualityLab}
+                alt="MSE Quality Laboratory"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

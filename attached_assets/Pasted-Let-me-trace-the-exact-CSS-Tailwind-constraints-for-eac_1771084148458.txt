@@ -1,0 +1,88 @@
+Let me trace the exact CSS/Tailwind constraints for each image on the homepage.
+
+Now let me check the Tailwind config for any custom breakpoints:
+
+I now have all the data. Here's the complete report:
+
+HOME PAGE IMAGE DIMENSION AUDIT
+A) BANNERS (Hero Carousel)
+Component: components/ProductBanner.tsx
+Container CSS: h-[280px] sm:h-[380px] lg:h-[480px] with w-full (100% viewport width)
+Image rendering: fill + object-cover, sizes="100vw"
+
+Breakpoint	Container Width	Container Height	Aspect Ratio
+Mobile (<640px)	~375–639px	280px	~1.34:1 to ~2.28:1
+Tablet (640–1023px)	~640–1023px	380px	~1.68:1 to ~2.69:1
+Desktop (1024px+)	~1024–1920px+	480px	~2.13:1 to ~4:1
+Key insight: The container is full-viewport-width but fixed height, so the effective aspect ratio is not fixed — it varies from roughly 1.3:1 on small phones to 4:1 on ultrawide monitors. object-cover will crop the image to fit.
+
+Recommended upload size: 1920 x 960 px (2:1 ratio)
+
+At 2x DPR on a 1920px-wide screen: ideal would be 3840 x 960, but file size matters. 1920×960 is the practical sweet spot.
+If you want retina-sharpness on large desktop screens: 2880 x 1080 px or 3840 x 960 px.
+Keep the "subject/text-safe area" in the center-bottom third, since object-cover crops from the edges and text overlays sit at bottom-left.
+Files (5 banners):
+
+Slide	Registry Key	File Path	Purpose
+1 – Spices (Whole)	banners.spices	public/images/banners/hero-spices.jpg	Hero slide 1
+2 – Spices (Powders)	banners.quality	public/images/banners/hero-quality.jpg	Hero slide 2
+3 – Vegetables	banners.vegetables	public/images/banners/hero-vegetables.jpg	Hero slide 3
+4 – Cocoa	banners.cocoa	public/images/banners/hero-cocoa.jpg	Hero slide 4
+5 – Grains	banners.grains	public/images/banners/hero-grains.jpg	Hero slide 5
+B) CATEGORY CARD IMAGES
+Component: app/page.tsx (category cards grid)
+Container CSS: aspect-[4/3] inside a grid: sm:grid-cols-2 lg:grid-cols-4 gap-5
+Parent: .container-main = max-width: 1200px, padding: 0 1.5rem → max content width = 1152px
+Image rendering: fill + object-cover, sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+
+Breakpoint	Grid Cols	Card Width (approx.)	Card Height (4:3)
+Mobile (<640px)	1	~327–591px	~245–443px
+Tablet (640–1023px)	2	~298–486px	~224–365px
+Desktop (1024px+)	4	~273px (at max 1200px container)	~205px
+Recommended upload size: 800 x 600 px (exactly 4:3)
+
+At 2x DPR for the largest single-column mobile view (~591px wide): 1182×887 needed. 800×600 is adequate for most screens.
+For full retina sharpness: 1200 x 900 px.
+Files (4 category images):
+
+Card	Registry Key	File Path
+Spices	categories.spices	public/images/categories/spices.jpg
+Vegetables	categories.vegetables	public/images/categories/vegetables.jpg
+Cocoa	categories.cocoa	public/images/categories/cocoa.jpg
+Grains	categories.grains	public/images/categories/grains.jpg
+C) QUALITY/PROCESS SECTION IMAGES ON HOME
+Component: app/page.tsx — "From Source to Shipment" section
+Layout: lg:grid-cols-2 inside .container-main (max 1152px usable)
+
+Image 1: Quality Lab (main)
+Container CSS: aspect-[4/3] inside a 2-col grid (50% of container on desktop)
+Image rendering: fill + object-cover, sizes="(max-width: 1024px) 100vw, 50vw"
+
+Breakpoint	Image Container Width	Image Container Height
+Mobile (<1024px)	Full width (~327–975px)	75% of width (4:3)
+Desktop (1024px+)	~536px (half of 1152px minus gap)	~402px
+Recommended upload size: 1200 x 900 px (4:3 ratio)
+
+Covers 2x DPR at the ~536px desktop container size (1072px needed).
+On mobile full-width at 2x: up to ~1950px, but the visual quality difference above 1200px is minimal for this section image.
+Registry Key	File Path
+site.qualityLab	public/images/site/quality-lab.png
+Image 2: Facility (overlay thumbnail)
+Container CSS: w-24 h-24 sm:w-32 sm:h-32 (fixed square), hidden sm:block (hidden on mobile)
+Image rendering: fill + object-cover, sizes="128px"
+
+Breakpoint	Container Size
+Mobile (<640px)	Hidden (not rendered)
+Tablet/Desktop (640px+)	128 x 128 px
+Recommended upload size: 256 x 256 px (1:1 square)
+
+Only ever displayed at 128×128 CSS px. 256×256 covers 2x DPR perfectly.
+Registry Key	File Path
+site.facility	public/images/site/facility.jpg
+QUICK SUMMARY TABLE
+Image Type	Count	Aspect Ratio	Recommended Upload Size	Retina-Safe Size
+Hero Banners	5	~2:1 (variable height)	1920 x 960 px	2880 x 1080 px
+Category Cards	4	4:3 (fixed)	800 x 600 px	1200 x 900 px
+Quality Lab (main)	1	4:3 (fixed)	1200 x 900 px	1200 x 900 px
+Facility (thumbnail)	1	1:1 (fixed)	256 x 256 px	256 x 256 px
+Total home page images: 11 (5 banners + 4 category + 1 quality lab + 1 facility thumbnail)
