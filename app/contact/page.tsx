@@ -131,8 +131,12 @@ function ContactPageInner() {
                 <div>
                   <h3 className="font-semibold text-text-main text-sm mb-1">Registered Office</h3>
                   <p className="text-sm text-text-muted">
-                    123 Export Avenue, Industrial Area<br />
-                    City, State 000000, India
+                    1-26-4/E, 4th Floor,<br />
+                    Sri Sahithi Krishna Hospital,<br />
+                    Necklace Road, SVR Circle,<br />
+                    Kadakatla Street, Tadepalligudem,<br />
+                    West Godavari,<br />
+                    Andhra Pradesh - 534101
                   </p>
                 </div>
               </div>
@@ -143,8 +147,8 @@ function ContactPageInner() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-text-main text-sm mb-1">Email</h3>
-                  <a href="mailto:info@mseexports.com" className="text-sm text-primary hover:text-saffron transition-colors">
-                    info@mseexports.com
+                  <a href="mailto:we@magnasskexim.in" className="text-sm text-primary hover:text-saffron transition-colors">
+                    we@magnasskexim.in
                   </a>
                 </div>
               </div>
@@ -155,8 +159,8 @@ function ContactPageInner() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-text-main text-sm mb-1">Phone</h3>
-                  <a href="tel:+910000000000" className="text-sm text-primary hover:text-saffron transition-colors">
-                    +91 00000 00000
+                  <a href="tel:+919281437604" className="text-sm text-primary hover:text-saffron transition-colors">
+                    +91 9281437604
                   </a>
                 </div>
               </div>
@@ -236,7 +240,7 @@ function ContactPageInner() {
                   </div>
 
                   <button type="submit" className="w-full py-3.5 bg-saffron text-white font-semibold rounded-full hover:bg-saffron-dark transition-all shadow-md text-sm">
-                    Submit Inquiry
+                    Get in Touch with Us
                   </button>
                 </form>
               </div>

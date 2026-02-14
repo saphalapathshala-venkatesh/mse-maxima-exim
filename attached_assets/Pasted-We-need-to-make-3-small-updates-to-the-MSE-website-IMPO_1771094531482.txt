@@ -1,0 +1,75 @@
+We need to make 3 small updates to the MSE website.
+IMPORTANT: Do NOT modify layout structure, styling system, or any other logic. Only implement exactly what is requested below.
+
+--------------------------------------------------
+1️⃣ REPLACE "Download Catalogue" NAV BUTTON → "WhatsApp"
+--------------------------------------------------
+
+Locate the "Download Catalogue" button in the Navbar component.
+
+Replace it with a WhatsApp contact button:
+
+- Button text: "WhatsApp"
+- On click, open this link in a NEW TAB:
+  https://chat.whatsapp.com/ wa.link/j2fx0w
+
+Implementation requirements:
+- Keep the exact same styling/classes as the current "Download Catalogue" button.
+- Use an <a> tag with:
+  target="_blank"
+  rel="noopener noreferrer"
+- Do NOT change spacing, colors, borders, or hover styles.
+
+Example structure (keep existing classes):
+<a href="https://chat.whatsapp.com/PASTE_YOUR_GROUP_INVITE_LINK_HERE" target="_blank" rel="noopener noreferrer" className="(if link uses class)">
+  <button className="existing-classes-here">WhatsApp</button>
+</a>
+
+If the button is not inside a <button>, adjust accordingly but preserve the visual style exactly.
+
+--------------------------------------------------
+2️⃣ CHANGE CONTACT PAGE CTA BUTTON TEXT
+--------------------------------------------------
+
+On the Contact page, find the main CTA button.
+
+Change its text to exactly:
+"Get in Touch with Us"
+
+Do NOT change button styling.
+
+--------------------------------------------------
+3️⃣ REPLACE DUMMY CONTACT DETAILS (Contact Page)
+--------------------------------------------------
+
+On the Contact page, replace all placeholder/dummy contact details with:
+
+Address:
+1-26-4/E, 4th Floor,
+Sri Sahithi Krishna Hospital,
+Necklace Road,
+SVR Circle, Kadakatla Street,
+Tadepalligudem,
+West Godavari,
+Andhra Pradesh - 534101
+
+Email:
+we@magnasskexim.in
+
+Mobile Number:
++91 9281437604
+
+If mailto or tel links exist, update them:
+mailto:we@magnasskexim.in
+tel:+919281437604
+
+Do NOT alter layout.
+Do NOT alter spacing.
+Do NOT modify any other page.
+Only update this Navbar button and Contact page text/content.
+
+After implementation, confirm:
+- Navbar WhatsApp button opens the link in a new tab
+- Contact page shows updated details
+- CTA text is updated
+- No other file changes were made

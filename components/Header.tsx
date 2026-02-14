@@ -79,7 +79,7 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-3">
             <Button href="/contact" variant="primary" size="sm">Request Quote</Button>
-            <Button href="#" variant="outline" size="sm">Download Catalogue</Button>
+            <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-4 py-2 text-xs bg-transparent border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
           </div>
 
           <button
@@ -140,7 +140,7 @@ export default function Header() {
               ))}
               <div className="flex flex-col gap-2 pt-4 px-4">
                 <Button href="/contact" variant="primary" size="md">Request Quote</Button>
-                <Button href="#" variant="outline" size="md">Download Catalogue</Button>
+                <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-6 py-3 text-sm bg-transparent border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
               </div>
             </nav>
           </div>

@@ -70,23 +70,25 @@ export default function Footer() {
           <div>
             <h4 className="font-playfair text-base text-text-main font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-text-muted leading-relaxed">
-              <li>123 Export Avenue, Industrial Area</li>
-              <li>City, State 000000</li>
-              <li>India</li>
+              <li>1-26-4/E, 4th Floor,</li>
+              <li>Sri Sahithi Krishna Hospital,</li>
+              <li>Necklace Road, SVR Circle,</li>
+              <li>Tadepalligudem, West Godavari,</li>
+              <li>Andhra Pradesh - 534101</li>
               <li className="pt-3">
                 <a
-                  href="mailto:info@mseexports.com"
+                  href="mailto:we@magnasskexim.in"
                   className="text-primary hover:text-saffron hover:underline underline-offset-4 transition-colors duration-200"
                 >
-                  info@mseexports.com
+                  we@magnasskexim.in
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+910000000000"
+                  href="tel:+919281437604"
                   className="text-primary hover:text-saffron hover:underline underline-offset-4 transition-colors duration-200"
                 >
-                  +91 00000 00000
+                  +91 9281437604
                 </a>
               </li>
             </ul>
