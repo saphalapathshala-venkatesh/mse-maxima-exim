@@ -84,7 +84,7 @@ export default function QualityPage() {
                 })}
               </div>
 
-              <Button href="/contact" variant="secondary" size="lg">Explore Our Process</Button>
+              <Button href="/contact" variant="secondary" size="lg">Get in Touch with Us</Button>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
               <Image
