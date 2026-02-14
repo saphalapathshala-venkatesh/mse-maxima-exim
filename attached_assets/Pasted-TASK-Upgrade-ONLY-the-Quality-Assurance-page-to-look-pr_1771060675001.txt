@@ -1,0 +1,67 @@
+TASK: Upgrade ONLY the Quality Assurance page to look premium, modern, and credible (NK Agro-like quality page structure), WITHOUT changing anything else in the website.
+
+STRICT RULES:
+- Modify ONLY the Quality page route file(s) and page-local components created ONLY for this page.
+- DO NOT change Header/Nav, Footer, Home page, Products pages, Contact page, assets registry, or global styles.
+- DO NOT add new dependencies.
+- Keep existing theme colors and typography system.
+
+GOAL:
+The current Quality hero section and the right-side visuals look generic and do not improve credibility. Fix the structure, layout, and visuals placement.
+
+REQUIREMENTS:
+
+1) HERO SECTION (TOP) — PREMIUM SPLIT LAYOUT
+- Keep left: badge ("OUR PROCESS"), H1 ("From Source to Shipment — Quality at Every Step"), paragraph, CTA button ("Explore Our Process").
+- Fix text wrapping: no awkward hyphenation, clean breaks, aligned properly on all screen sizes.
+  Apply:
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+- Keep right: ONE main high-quality lab image (not washed out), with premium styling:
+  - Rounded-2xl
+  - subtle shadow
+  - image must fill the container (object-cover), not look boxed
+  - size should match left block height aesthetically
+- REMOVE the small irrelevant overlay/thumbnail image completely (the current grey/industrial thumbnail looks unrelated and reduces trust).
+- Add 1 subtle "credibility strip" under the paragraph OR near CTA (choose best spot) with 3 small items:
+  - "In-house Testing"
+  - "Traceability"
+  - "Export Compliance"
+  Use small icons already available (lucide if present) or simple dots; no new libs.
+
+2) PROCESS STEPS SECTION — FIX EMPTY WHITESPACE + ADD LOGICAL MINI IMAGES
+- For each step card/row (Step 1 Raw Material Sourcing, Step 2 Incoming Inspection, Step 3 Processing Control, Step 4 Laboratory Testing, etc.):
+  - Keep left: step icon + title + description (existing)
+  - Add right-side small image thumbnail that matches the step (NOT icons, actual small photos/visuals).
+  - Thumbnail styling:
+    width: 180–220px desktop, smaller on mobile
+    rounded-xl, subtle border, shadow-sm
+    object-cover, aligned center vertically
+  - Ensure the layout remains clean and not cluttered; on mobile, the thumbnail should stack below text.
+
+3) IMAGE PATHS (DO NOT BREAK BUILD)
+- Use these exact image paths so user can upload later:
+  Hero image:
+    /images/site/quality-hero-lab.jpg
+  Step thumbnails:
+    /images/site/qa-step-1.jpg
+    /images/site/qa-step-2.jpg
+    /images/site/qa-step-3.jpg
+    /images/site/qa-step-4.jpg
+  If images are missing, the page should still render without crashing:
+  - Use next/image with proper width/height
+  - Provide a neutral placeholder background block if not found (no runtime errors).
+
+4) OPTIONAL MICRO-ENHANCEMENT (ONLY IF IT IMPROVES PREMIUM LOOK)
+- Add one mid-page section after steps:
+  Title: "Quality Controls We Follow"
+  3 columns bullets: "Moisture & Purity", "Microbiology", "Residue & Contaminants"
+  Keep it compact.
+
+DELIVERABLE:
+- List exactly which file(s) you edited.
+- Confirm no other pages/components were changed.
+- Output the final list of required image filenames (5 total) again at the end.
+
+IMPORTANT: Do NOT implement anything unrelated (no refactors, no redesign of other pages).

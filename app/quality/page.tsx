@@ -1,7 +1,15 @@
 import Image from 'next/image'
 import Button from '@/components/Button'
 import { site, banners } from '@/data/assets'
-import { Sprout, Search, Settings, FlaskConical, PackageCheck, CheckCircle } from 'lucide-react'
+import { Sprout, Search, Settings, FlaskConical, PackageCheck, CheckCircle, Shield, ScanLine, FileCheck, Droplets, Bug, Beaker } from 'lucide-react'
+
+const stepImages = [
+  '/images/site/qa-step-1.jpg',
+  '/images/site/qa-step-2.jpg',
+  '/images/site/qa-step-3.jpg',
+  '/images/site/qa-step-4.jpg',
+  '/images/site/qa-step-4.jpg',
+]
 
 const qualitySteps = [
   { step: 1, title: 'Raw Material Sourcing', desc: 'Careful selection from certified farms and approved suppliers with complete traceability documentation.', icon: Sprout, color: '#2D6A4F' },
@@ -9,6 +17,12 @@ const qualitySteps = [
   { step: 3, title: 'Processing Control', desc: 'State-of-the-art processing with continuous monitoring of temperature, humidity, and hygiene standards.', icon: Settings, color: '#2D6A4F' },
   { step: 4, title: 'Laboratory Testing', desc: 'Comprehensive testing for microbiological, chemical, and physical parameters in our in-house lab.', icon: FlaskConical, color: '#E09F3E' },
   { step: 5, title: 'Final Quality Check', desc: 'Pre-shipment verification ensuring all products meet customer specifications and regulatory requirements.', icon: PackageCheck, color: '#2D6A4F' },
+]
+
+const credibilityStrip = [
+  { icon: FlaskConical, label: 'In-house Testing' },
+  { icon: ScanLine, label: 'Traceability' },
+  { icon: FileCheck, label: 'Export Compliance' },
 ]
 
 const commitmentPoints = [
@@ -29,28 +43,86 @@ const infrastructurePoints = [
   'Pest control and allergen management protocols',
 ]
 
+const qualityControls = [
+  {
+    title: 'Moisture & Purity',
+    icon: Droplets,
+    points: ['Moisture content analysis', 'Foreign matter detection', 'Purity percentage verification', 'Ash content testing'],
+  },
+  {
+    title: 'Microbiology',
+    icon: Bug,
+    points: ['Total plate count (TPC)', 'Yeast & mold analysis', 'E. coli / Salmonella screening', 'Coliform count testing'],
+  },
+  {
+    title: 'Residue & Contaminants',
+    icon: Beaker,
+    points: ['Pesticide residue analysis', 'Heavy metal screening', 'Aflatoxin level testing', 'Sulphur dioxide limits'],
+  },
+]
+
+function StepThumbnail({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative w-full sm:w-[200px] h-[140px] sm:h-[130px] flex-shrink-0 rounded-xl overflow-hidden border border-border-light shadow-sm bg-surface">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="200px"
+      />
+    </div>
+  )
+}
+
 export default function QualityPage() {
   return (
     <div className="pt-[74px] bg-white">
-      <section className="relative py-16 sm:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={site.qualityLab} alt="Quality Assurance" fill className="object-cover opacity-15" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
-        </div>
-        <div className="container-main relative z-10">
-          <div className="max-w-2xl">
-            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">
-              Our Process
-            </span>
-            <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-white mb-4 leading-tight">Quality Assurance</h1>
-            <p className="text-base sm:text-lg text-white/85 leading-relaxed">
-              Quality is not just a checkpoint — it is embedded into every stage of our operations. From sourcing raw materials to final shipment, we maintain rigorous controls that meet the highest international standards.
-            </p>
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
+        <div className="container-main">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="text-left" style={{ hyphens: 'none', wordBreak: 'normal', overflowWrap: 'normal' }}>
+              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">
+                Our Process
+              </span>
+              <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-text-main mb-4 leading-tight break-normal">
+                From Source to Shipment — Quality at Every Step
+              </h1>
+              <p className="text-text-muted leading-relaxed mb-6 text-sm sm:text-base break-normal">
+                Quality is not just a checkpoint — it is embedded into every stage of our operations. From sourcing raw materials to final shipment, we maintain rigorous controls that meet the highest international standards.
+              </p>
+
+              <div className="flex flex-wrap gap-4 sm:gap-6 mb-8">
+                {credibilityStrip.map((item) => {
+                  const IconComp = item.icon
+                  return (
+                    <div key={item.label} className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <IconComp size={15} className="text-primary" />
+                      </div>
+                      <span className="text-xs font-semibold text-text-main tracking-wide">{item.label}</span>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <Button href="/contact" variant="secondary" size="lg">Explore Our Process</Button>
+            </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/site/quality-hero-lab.jpg"
+                alt="MSE Quality Laboratory"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-surface">
         <div className="container-main">
           <div className="text-center mb-12">
             <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">5-Step Quality Process</h2>
@@ -63,17 +135,55 @@ export default function QualityPage() {
             {qualitySteps.map((item, index) => {
               const IconComp = item.icon
               return (
-                <div key={item.step} className="flex gap-5 items-start group">
-                  <div className="w-14 h-14 flex-shrink-0 rounded-full flex items-center justify-center border-2 transition-all group-hover:scale-110" style={{ borderColor: item.color, backgroundColor: `${item.color}10` }}>
-                    <IconComp size={22} style={{ color: item.color }} />
-                  </div>
-                  <div className={`flex-1 pb-6 ${index < qualitySteps.length - 1 ? 'border-b border-border-light' : ''}`}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs font-bold text-text-light">STEP {item.step}</span>
+                <div key={item.step} className={`flex flex-col sm:flex-row gap-5 items-start sm:items-center group bg-white rounded-xl p-5 sm:p-6 border border-border-light shadow-sm hover:shadow-md transition-all`}>
+                  <div className="flex gap-4 items-start flex-1 min-w-0">
+                    <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center border-2 transition-all group-hover:scale-110" style={{ borderColor: item.color, backgroundColor: `${item.color}10` }}>
+                      <IconComp size={20} style={{ color: item.color }} />
                     </div>
-                    <h3 className="font-playfair text-lg text-text-main mb-1.5">{item.title}</h3>
-                    <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] font-bold text-text-light tracking-wider">STEP {item.step}</span>
+                      </div>
+                      <h3 className="font-playfair text-lg text-text-main mb-1">{item.title}</h3>
+                      <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
+                  <StepThumbnail src={stepImages[index]} alt={item.title} />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="container-main">
+          <div className="text-center mb-10">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">
+              Testing Standards
+            </span>
+            <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Quality Controls We Follow</h2>
+            <p className="text-text-muted max-w-2xl mx-auto text-sm sm:text-base">
+              Every consignment is tested across three critical quality dimensions.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {qualityControls.map((ctrl) => {
+              const IconComp = ctrl.icon
+              return (
+                <div key={ctrl.title} className="bg-surface rounded-xl p-6 border border-border-light hover:border-primary/20 hover:shadow-md transition-all">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <IconComp size={18} className="text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-text-main mb-3">{ctrl.title}</h3>
+                  <ul className="space-y-2">
+                    {ctrl.points.map((pt) => (
+                      <li key={pt} className="flex gap-2 items-start text-sm text-text-muted">
+                        <span className="w-1.5 h-1.5 mt-1.5 bg-primary rounded-full flex-shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )
             })}
