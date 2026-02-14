@@ -1,0 +1,97 @@
+TASK: Implement two structured improvements without affecting other pages or global styling.
+
+SCOPE CONTROL:
+- Modify ONLY:
+  1) Home page (app/page.tsx)
+  2) Quality Assurance page (app/quality/page.tsx)
+- Do NOT change header, footer, navbar, routing, product pages, or theme.
+- Do NOT modify assets registry structure.
+- Use only images already available in data/assets.ts.
+
+---------------------------------------------------
+PART 1 — HOME PAGE ENHANCEMENT
+---------------------------------------------------
+
+Enhance the existing "Why Choose MSE" section.
+
+Keep the 4 credibility cards exactly as they are.
+
+Add a new full-width premium section immediately BELOW those cards:
+
+SECTION STRUCTURE:
+
+Title:
+"From Source to Shipment — Quality at Every Step"
+
+Subtitle:
+"We follow a structured quality process to ensure consistency, compliance, and reliability for global buyers."
+
+Add ONE high-quality image:
+Use: site.qualityLab (primary)
+OR site.facility (if better visually)
+
+Layout:
+- Two-column on desktop (Text left, Image right)
+- Stacked on mobile
+- Image must be:
+  - Large
+  - Rounded corners
+  - Subtle shadow
+  - Responsive
+
+Add CTA button:
+Text: "Explore Our Process"
+Route: /quality
+
+Button styling:
+- Premium
+- Same brand color
+- Rounded
+- Medium-large size
+
+Do NOT clutter.
+Keep spacing generous.
+Keep it corporate and clean.
+
+---------------------------------------------------
+PART 2 — REDESIGN QUALITY ASSURANCE PAGE
+---------------------------------------------------
+
+Redesign ONLY the Quality Assurance page with premium structured layout.
+
+IMAGE USAGE:
+Use exactly 3 images from registry:
+1) site.qualityLab (Hero)
+2) site.facility (Infrastructure section)
+3) banners.heroQuality OR categories.spices (Support visual)
+
+STRUCTURE:
+
+SECTION 1 — HERO
+Title: "Quality Assurance"
+Short strong statement paragraph.
+Large hero image below.
+
+SECTION 2 — Quality Commitment
+Convert existing content into 4–6 bullet points.
+Two-column layout with supporting image.
+
+SECTION 3 — Infrastructure & Testing
+Bullet list (structured, crisp).
+Image on opposite side (alternating layout).
+
+SECTION 4 — Our Promise
+Short closing statement.
+CTA block:
+Title: "Looking for a Reliable Supply Partner?"
+Button: "Contact Us" → /contact
+
+---------------------------------------------------
+CONSTRAINTS
+---------------------------------------------------
+- No new claims or certifications beyond existing content.
+- No hardcoded /images paths.
+- No impact on other pages.
+- Ensure mobile responsive.
+- Build must pass.
+- Output summary of modified files and image keys used.

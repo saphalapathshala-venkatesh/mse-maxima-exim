@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Button from '@/components/Button'
 import ProductBanner from '@/components/ProductBanner'
-import { categories } from '@/data/assets'
+import { categories, site } from '@/data/assets'
 import { categoryInfo } from '@/data/products'
 import { Shield, Truck, FlaskConical, Globe, Award, FileCheck } from 'lucide-react'
 
@@ -117,7 +117,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container-main">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-4">
+                Our Process
+              </span>
+              <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-4 leading-snug">
+                From Source to Shipment — Quality at Every Step
+              </h2>
+              <p className="text-text-muted leading-relaxed mb-8 text-sm sm:text-base">
+                We follow a structured quality process to ensure consistency, compliance, and reliability for global buyers. Every product is traced from origin, tested in our in-house laboratory, and inspected before shipment.
+              </p>
+              <Button href="/quality" variant="secondary" size="lg">Explore Our Process</Button>
+            </div>
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={site.qualityLab}
+                  alt="MSE Quality Laboratory"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white hidden sm:block">
+                <Image
+                  src={site.facility}
+                  alt="MSE Processing Facility"
+                  fill
+                  className="object-cover"
+                  sizes="128px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 sm:py-16 bg-surface">
         <div className="container-main">
           <div className="text-center mb-8">
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">
@@ -129,7 +168,7 @@ export default function Home() {
             {certList.map((cert) => {
               const IconComp = cert.icon
               return (
-                <div key={cert.name} className="bg-surface rounded-xl p-4 text-center border border-border-light hover:border-primary/20 transition-all">
+                <div key={cert.name} className="bg-white rounded-xl p-4 text-center border border-border-light hover:border-primary/20 transition-all">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
                     <IconComp size={18} className="text-primary" />
                   </div>
