@@ -33,7 +33,12 @@ export const products = {
 export const site = {
   facility: "/images/site/facility.jpg",
   qualityLab: "/images/site/quality-lab.png",
-  heroMain: "/images/banners/hero-spices.jpg"
+  heroMain: "/images/banners/hero-spices.jpg",
+  qualityHeroLab: "/images/site/quality-hero-lab.jpg",
+  qaStepSourcing: "/images/site/qa-step-sourcing.jpg",
+  qaStepInspection: "/images/site/qa-step-inspection.jpg",
+  qaStepProcessing: "/images/site/qa-step-processing.jpg",
+  qaStepLabTesting: "/images/site/qa-step-labtesting.jpg",
 };
 
 export const allImagePaths = [

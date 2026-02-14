@@ -1,22 +1,14 @@
 import Image from 'next/image'
 import Button from '@/components/Button'
 import { site, banners } from '@/data/assets'
-import { Sprout, Search, Settings, FlaskConical, PackageCheck, CheckCircle, Shield, ScanLine, FileCheck, Droplets, Bug, Beaker } from 'lucide-react'
-
-const stepImages = [
-  '/images/site/qa-step-1.jpg',
-  '/images/site/qa-step-2.jpg',
-  '/images/site/qa-step-3.jpg',
-  '/images/site/qa-step-4.jpg',
-  '/images/site/qa-step-4.jpg',
-]
+import { Sprout, Search, Settings, FlaskConical, PackageCheck, CheckCircle, ScanLine, FileCheck, Droplets, Bug, Beaker } from 'lucide-react'
 
 const qualitySteps = [
-  { step: 1, title: 'Raw Material Sourcing', desc: 'Careful selection from certified farms and approved suppliers with complete traceability documentation.', icon: Sprout, color: '#2D6A4F' },
-  { step: 2, title: 'Incoming Inspection', desc: 'Every batch undergoes rigorous inspection for quality parameters, foreign matter, and contamination.', icon: Search, color: '#E09F3E' },
-  { step: 3, title: 'Processing Control', desc: 'State-of-the-art processing with continuous monitoring of temperature, humidity, and hygiene standards.', icon: Settings, color: '#2D6A4F' },
-  { step: 4, title: 'Laboratory Testing', desc: 'Comprehensive testing for microbiological, chemical, and physical parameters in our in-house lab.', icon: FlaskConical, color: '#E09F3E' },
-  { step: 5, title: 'Final Quality Check', desc: 'Pre-shipment verification ensuring all products meet customer specifications and regulatory requirements.', icon: PackageCheck, color: '#2D6A4F' },
+  { step: 1, title: 'Raw Material Sourcing', desc: 'Certified farms and approved suppliers with full traceability from origin to warehouse.', icon: Sprout, color: '#2D6A4F', image: site.qaStepSourcing },
+  { step: 2, title: 'Incoming Inspection', desc: 'Rigorous batch inspection for quality parameters, foreign matter, and contamination.', icon: Search, color: '#E09F3E', image: site.qaStepInspection },
+  { step: 3, title: 'Processing Control', desc: 'Continuous monitoring of temperature, humidity, and hygiene throughout processing.', icon: Settings, color: '#2D6A4F', image: site.qaStepProcessing },
+  { step: 4, title: 'Laboratory Testing', desc: 'Comprehensive microbiological, chemical, and physical parameter testing in-house.', icon: FlaskConical, color: '#E09F3E', image: site.qaStepLabTesting },
+  { step: 5, title: 'Final Quality Check', desc: 'Pre-shipment verification to meet customer specs and regulatory requirements.', icon: PackageCheck, color: '#2D6A4F', image: site.qaStepLabTesting },
 ]
 
 const credibilityStrip = [
@@ -61,20 +53,6 @@ const qualityControls = [
   },
 ]
 
-function StepThumbnail({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="relative w-full sm:w-[200px] h-[140px] sm:h-[130px] flex-shrink-0 rounded-xl overflow-hidden border border-border-light shadow-sm bg-surface">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="200px"
-      />
-    </div>
-  )
-}
-
 export default function QualityPage() {
   return (
     <div className="pt-[74px] bg-white">
@@ -85,7 +63,7 @@ export default function QualityPage() {
               <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">
                 Our Process
               </span>
-              <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-text-main mb-4 leading-tight break-normal">
+              <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-text-main mb-4 leading-tight break-normal" style={{ textWrap: 'balance' } as React.CSSProperties}>
                 From Source to Shipment — Quality at Every Step
               </h1>
               <p className="text-text-muted leading-relaxed mb-6 text-sm sm:text-base break-normal">
@@ -110,7 +88,7 @@ export default function QualityPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/site/quality-hero-lab.jpg"
+                src={site.qualityHeroLab}
                 alt="MSE Quality Laboratory"
                 fill
                 className="object-cover"
@@ -131,24 +109,30 @@ export default function QualityPage() {
             </p>
           </div>
 
-          <div className="space-y-6">
-            {qualitySteps.map((item, index) => {
+          <div className="space-y-5">
+            {qualitySteps.map((item) => {
               const IconComp = item.icon
               return (
-                <div key={item.step} className={`flex flex-col sm:flex-row gap-5 items-start sm:items-center group bg-white rounded-xl p-5 sm:p-6 border border-border-light shadow-sm hover:shadow-md transition-all`}>
-                  <div className="flex gap-4 items-start flex-1 min-w-0">
-                    <div className="w-12 h-12 flex-shrink-0 rounded-full flex items-center justify-center border-2 transition-all group-hover:scale-110" style={{ borderColor: item.color, backgroundColor: `${item.color}10` }}>
-                      <IconComp size={20} style={{ color: item.color }} />
+                <div key={item.step} className="flex flex-col sm:flex-row gap-5 items-stretch group bg-white rounded-xl border border-border-light shadow-sm hover:shadow-md transition-all overflow-hidden">
+                  <div className="flex gap-4 items-start flex-1 min-w-0 p-5 sm:p-6">
+                    <div className="w-11 h-11 flex-shrink-0 rounded-full flex items-center justify-center border-2 transition-all group-hover:scale-110" style={{ borderColor: item.color, backgroundColor: `${item.color}10` }}>
+                      <IconComp size={18} style={{ color: item.color }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-bold text-text-light tracking-wider">STEP {item.step}</span>
-                      </div>
+                      <span className="text-[10px] font-bold text-text-light tracking-wider">STEP {item.step}</span>
                       <h3 className="font-playfair text-lg text-text-main mb-1">{item.title}</h3>
                       <p className="text-sm text-text-muted leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
-                  <StepThumbnail src={stepImages[index]} alt={item.title} />
+                  <div className="relative w-full sm:w-[220px] h-[160px] sm:h-auto flex-shrink-0 bg-surface">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="220px"
+                    />
+                  </div>
                 </div>
               )
             })}
@@ -199,19 +183,19 @@ export default function QualityPage() {
                 Commitment
               </span>
               <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-6">Our Quality Commitment</h2>
-              <ul className="space-y-3">
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                 {commitmentPoints.map((point) => (
-                  <li key={point} className="flex gap-3 items-start">
-                    <CheckCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                  <div key={point} className="flex gap-3 items-start">
+                    <CheckCircle size={16} className="text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-text-muted leading-relaxed">{point}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src={site.facility}
-                alt="MSE Processing Facility"
+                src={site.qualityLab}
+                alt="MSE Quality Lab"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -238,14 +222,14 @@ export default function QualityPage() {
                 Infrastructure
               </span>
               <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-6">Infrastructure & Testing</h2>
-              <ul className="space-y-3">
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                 {infrastructurePoints.map((point) => (
-                  <li key={point} className="flex gap-3 items-start">
-                    <CheckCircle size={18} className="text-saffron flex-shrink-0 mt-0.5" />
+                  <div key={point} className="flex gap-3 items-start">
+                    <CheckCircle size={16} className="text-saffron flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-text-muted leading-relaxed">{point}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>

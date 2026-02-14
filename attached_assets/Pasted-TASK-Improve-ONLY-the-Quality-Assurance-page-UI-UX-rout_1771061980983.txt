@@ -1,0 +1,70 @@
+TASK: Improve ONLY the Quality Assurance page UI/UX (route: /quality). Fix text wrapping/hyphenation issues, replace the low-quality factory image, and add small relevant images for each QA step on the right side.
+
+STRICT CONSTRAINTS:
+- Do NOT change any other pages, routes, components, or global styling unless absolutely required for text wrapping.
+- Do NOT alter navbar, homepage, products pages, or contact page.
+- Keep theme/colors as-is.
+- Use the existing assets registry pattern (data/assets.ts) for images.
+- No breaking changes.
+
+IMAGE PLAN (add these NEW files; use these exact paths):
+1) public/images/site/quality-hero-lab.jpg
+   - Premium modern lab photo (professionals working, clean, corporate, bright)
+   - Used in the top hero section right-side image.
+
+2) public/images/site/qa-step-sourcing.jpg
+3) public/images/site/qa-step-inspection.jpg
+4) public/images/site/qa-step-processing.jpg
+5) public/images/site/qa-step-labtesting.jpg
+   - Small, clean, relevant images for each step, modern corporate style (no clutter, no rural sacks, no watermark).
+   - These will appear on the RIGHT side of each step card/row.
+
+ASSETS REGISTRY UPDATE:
+- In data/assets.ts add:
+  site.qualityHeroLab -> "/images/site/quality-hero-lab.jpg"
+  site.qaStepSourcing -> "/images/site/qa-step-sourcing.jpg"
+  site.qaStepInspection -> "/images/site/qa-step-inspection.jpg"
+  site.qaStepProcessing -> "/images/site/qa-step-processing.jpg"
+  site.qaStepLabTesting -> "/images/site/qa-step-labtesting.jpg"
+
+PAGE UI UPDATES (ONLY /quality page code):
+A) HERO SECTION (green banner):
+- Keep left text and CTA "Explore Our Process" unchanged.
+- Replace the current right-side image with site.qualityHeroLab.
+- Remove/disable the small picture-in-picture overlay if it looks poor.
+- Ensure the hero image is crisp, rounded corners, fits nicely, no grayscale, no dullness.
+
+B) FIX TEXT WRAPPING + REMOVE HYPHENATION:
+- The heading “From Source to Shipment — Quality at Every Step” must wrap cleanly with NO awkward hyphenation.
+- Apply CSS (scoped to this page/section) such as:
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal; (or anywhere only if needed)
+  text-wrap: balance; (if supported)
+- Ensure the heading wraps into 2–3 lines naturally without inserting hyphens or ugly breaks.
+
+C) QA STEPS SECTION (Step 1–4 list):
+- Current issue: right side looks empty/vague.
+- Change each step row into a 2-column layout:
+  LEFT: icon + step title + short 1–2 line description (rewrite text to be tighter if needed)
+  RIGHT: a small engaging image relevant to the step (use the new site.qaStep* images)
+- The right image must be subtle and premium (not too large), aligned center vertically, rounded corners.
+- Ensure no excessive blank space remains. The row height should match content.
+
+D) REMOVE THE FACTORY IMAGE:
+- Replace the large black/white factory tanks image with a modern clean image consistent with “quality & compliance”.
+- If needed reuse site.qualityHeroLab OR add ONE more optional image:
+  public/images/site/quality-modern.jpg  (only if absolutely necessary)
+  and register as site.qualityModern.
+- Prefer not adding extra unless needed.
+
+E) CONTENT TUNING TO AVOID BLANK SPACE:
+- If any card has too much empty space, shorten bullet points or convert to 2-column bullets on desktop.
+- Keep meaning same: traceability, inspection, processing control, lab testing, compliance.
+
+DONE CHECKS:
+- Only /quality page & data/assets.ts are modified (plus any new images referenced).
+- Text no longer shows awkward hyphenation.
+- The hero right image is premium and sharp.
+- Each step has a right-side image and no odd white gaps.
+- No other page changes.
