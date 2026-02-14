@@ -1,0 +1,44 @@
+TASK: Home page image dimension audit (ONLY Home page). Do NOT change any UI/code behavior. Do NOT rename files. Output only a report.
+
+Goal:
+Give exact image dimension requirements (recommended upload pixel sizes) for ONLY the images used on the Home page:
+1) Banners (hero carousel)
+2) Category cards on Home
+3) Any Quality/Process section image(s) shown on Home (if present)
+Ignore images used on other pages.
+
+Steps:
+1) Locate the Home page file(s) (likely app/page.tsx or app/(site)/page.tsx) and any components it imports (HeroCarousel, CategoryGrid, WhyChoose/Process section, etc).
+2) Identify every image referenced on Home via the assets registry (data/assets.ts) and list:
+   - registry key (e.g., banners.grains / categories.spices / site.qualityHeroLab etc)
+   - file path in /public (e.g., /images/banners/hero-grains.jpg)
+   - where it appears on Home (Hero slide 1/2/3, category card, QA section, etc)
+
+3) For each image type, compute the “exact intended dimensions” using:
+   - Next/Image props: width/height, fill, sizes
+   - CSS constraints: container aspect ratio, fixed heights (e.g., h-[...], min-h, max-h), responsive breakpoints
+   - If it uses `fill + object-cover`, report:
+       a) the container’s intended aspect ratio
+       b) the container’s effective height on desktop/tablet/mobile breakpoints
+       c) the recommended upload size (pixels) that avoids blur on common screens (assume up to 2x DPR)
+
+4) Output a concise report with 3 sections:
+   A) BANNERS (Home hero)
+      - exact container ratio
+      - height/width at key breakpoints
+      - recommended upload pixel size
+      - exact filenames used (hero-*.jpg)
+   B) CATEGORY IMAGES (Home category cards)
+      - card image container ratio
+      - recommended upload pixel size
+      - exact filenames used (spices.jpg, vegetables.jpg, etc)
+   C) QUALITY/PROCESS IMAGE(S) ON HOME (if any)
+      - container ratio and recommended upload pixel size
+      - exact filenames used
+
+Important rules:
+- DO NOT modify any code, styles, registry, or images.
+- DO NOT audit other pages.
+- If any size is ambiguous due to dynamic layout, state the ambiguity and compute using the actual Tailwind classes / CSS values you find, plus give a safe recommended size.
+Deliverable:
+Paste the report in the chat output.
