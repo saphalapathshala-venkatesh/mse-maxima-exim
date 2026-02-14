@@ -1,0 +1,35 @@
+Task: Update ONLY the About page UI (route: app/about/page.tsx). Do NOT modify any other pages, components, or global styles. Do NOT change the overall structure/layout/sections — only apply the styling/wrapping changes described below.
+
+A) "About MSE" Intro Block (Image 1 requirement)
+1) Keep the existing heading text "About MSE" on a white background, but make the heading color Dark Green (use the site’s existing dark green tone; do not introduce a new palette).
+2) Wrap ONLY the introductory About text content (the 3 paragraphs under "About MSE") inside a clean box/card.
+3) The card should have:
+   - Mild/light green or teal background ONLY for the text area (not for the heading area)
+   - Rounded corners and subtle border (very light)
+   - Good padding (at least py-6 px-6 on mobile, py-10 px-10 on desktop)
+4) Improve paragraph readability:
+   - Use a max readable line width (e.g., max-w-3xl) so lines don’t stretch too wide
+   - Use comfortable leading (leading-relaxed)
+   - Ensure paragraphs look like coherent blocks with spacing between them (space-y-5 or similar)
+   - Do NOT reword the text; only style/wrap it.
+
+B) "Our Values" Section (Image 2 requirement)
+1) Keep the existing "Our Values" section structure exactly the same:
+   - Same grid, same number of cards, same order, same spacing layout behavior
+   - Do NOT change content, icons, or add/remove cards
+2) Update styling so that:
+   - Each card header/title (e.g., "Quality First", "Customer Focus", "Integrity", "Innovation") appears on a WHITE background with Dark Green text.
+   - The description/body text area below the title should have a mild green or teal background (light, subtle), with readable text color.
+3) Implementation guidance (without changing structure):
+   - Do NOT rebuild cards. Keep current markup, just apply wrappers or small internal divs to split “title area” vs “body area”.
+   - Title area should have padding and remain white.
+   - Body area should have padding + light green/teal background + rounded corners that match the card aesthetic.
+   - Preserve current border/shadow look; only adjust what's necessary.
+
+General constraints:
+- Only edit app/about/page.tsx unless absolutely unavoidable.
+- Do not change Navbar, stats strip, or any other sections.
+- Verify build passes.
+
+Deliverable:
+- Commit with only About page changes.

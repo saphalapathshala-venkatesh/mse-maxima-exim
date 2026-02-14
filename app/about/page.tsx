@@ -25,16 +25,20 @@ export default function AboutPage() {
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-4">
               About Us
             </span>
-            <h1 className="font-playfair text-3xl sm:text-4xl text-text-main mb-5">About MSE</h1>
-            <p className="text-text-muted mb-4 leading-relaxed text-sm sm:text-base">
-              Magna SSK Exim Solutions Pvt Ltd (MSE) is a leading exporter of premium spices, vegetables, grains and cocoa beans. With years of experience in the export industry, we have established ourselves as a trusted partner for businesses worldwide.
-            </p>
-            <p className="text-text-muted mb-4 leading-relaxed text-sm sm:text-base">
-              Our state-of-the-art processing facilities, combined with rigorous quality control measures, ensure that every product we export meets the highest international standards.
-            </p>
-            <p className="text-text-muted leading-relaxed text-sm sm:text-base">
-              We are committed to building long-term relationships with our customers through consistent quality, competitive pricing, and reliable service.
-            </p>
+            <h1 className="font-playfair text-3xl sm:text-4xl text-primary mb-5">About MSE</h1>
+            <div className="bg-primary/5 border border-primary/10 rounded-2xl px-6 py-6 sm:px-10 sm:py-10">
+              <div className="max-w-3xl space-y-5">
+                <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+                  Magna SSK Exim Solutions Pvt Ltd (MSE) is a leading exporter of premium spices, vegetables, grains and cocoa beans. With years of experience in the export industry, we have established ourselves as a trusted partner for businesses worldwide.
+                </p>
+                <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+                  Our state-of-the-art processing facilities, combined with rigorous quality control measures, ensure that every product we export meets the highest international standards.
+                </p>
+                <p className="text-text-muted leading-relaxed text-sm sm:text-base">
+                  We are committed to building long-term relationships with our customers through consistent quality, competitive pricing, and reliable service.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden shadow-xl">
             <Image
@@ -67,9 +71,13 @@ export default function AboutPage() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((value) => (
-            <div key={value.title} className="bg-white border border-border-light rounded-xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200">
-              <h3 className="font-playfair text-lg text-text-main mb-2">{value.title}</h3>
-              <p className="text-sm text-text-muted leading-relaxed">{value.desc}</p>
+            <div key={value.title} className="bg-white border border-border-light rounded-xl overflow-hidden hover:border-primary/30 hover:shadow-md transition-all duration-200">
+              <div className="px-6 pt-5 pb-3">
+                <h3 className="font-playfair text-lg text-primary">{value.title}</h3>
+              </div>
+              <div className="bg-primary/5 px-6 pt-3 pb-5">
+                <p className="text-sm text-text-muted leading-relaxed">{value.desc}</p>
+              </div>
             </div>
           ))}
         </div>
