@@ -41,6 +41,12 @@ export default function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
+            <Link
+              href="/"
+              className="text-sm text-text-main hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Home
+            </Link>
             <div ref={dropdownRef} className="relative group">
               <button className="flex items-center gap-1 text-sm text-text-main hover:text-primary transition-colors duration-200 font-medium">
                 Products
@@ -94,6 +100,13 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border-light animate-fade-in">
             <nav className="flex flex-col gap-1">
+              <Link
+                href="/"
+                className="text-sm text-text-main hover:text-primary hover:bg-surface rounded-lg px-4 py-3 transition-colors duration-200 font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
               <button
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
                 className="flex items-center justify-between text-sm text-text-main hover:text-primary hover:bg-surface rounded-lg px-4 py-3 transition-colors duration-200 font-medium"
