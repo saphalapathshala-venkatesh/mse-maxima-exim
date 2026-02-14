@@ -1,0 +1,47 @@
+You are working inside my existing Next.js app in this Replit workspace.
+
+TASK: Create an “Image Audit Report” so I can upload the right images without any mismatch later.
+
+STRICT RULES:
+- Do NOT change any UI, styling, layout, routes, or text.
+- Do NOT rename or delete any images.
+- Do NOT modify page components unless absolutely required to read paths (prefer read-only analysis).
+- Only read files and generate a report.
+
+WHAT TO DO:
+1) Identify the “single source of truth” for image paths:
+   - Check if we use data/assets.ts (or similar). If yes, treat it as the registry.
+   - If any page still uses hardcoded /images/... paths, list them separately.
+
+2) Produce a PAGE-WISE report with this structure:
+   - Page Route: /
+     - Component(s) that render images (ex: HeroCarousel, CategoryCards, etc.)
+     - Image usage list:
+       - Purpose (Hero banner / Section image / Card image / Thumbnail etc.)
+       - Registry key (if from assets.ts) OR literal path (if hardcoded)
+       - Final public path (ex: public/images/banners/hero-spices.jpg)
+       - File exists? (YES/NO)
+       - Recommended size/aspect ratio (based on how it’s rendered: 16:9 hero, square card, etc.)
+   Repeat for:
+   - /quality
+   - /certifications
+   - /about
+   - /contact
+   - /products/spices
+   - /products/vegetables
+   - /products/cocoa
+   - /products/grains
+   - /product/[slug] (product detail page)
+   - Any other routes present in app/
+
+3) Also output a FOLDER INVENTORY:
+   - List all files under public/images/** grouped by:
+     banners/, categories/, products/, site/
+   - Mark any duplicates (same-looking purpose but multiple filenames) and any unused files (present on disk but not referenced anywhere).
+
+4) Finally, create a clean “UPLOAD CHECKLIST”:
+   - A table of required filenames per folder (exact filenames), and which page(s) will break if missing.
+
+DELIVERABLE:
+- Print the report in the chat output.
+- If needed, save it as docs/IMAGE_AUDIT.md in the repo (this is allowed and does not change UI).
