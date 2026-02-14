@@ -1,13 +1,12 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Button from '@/components/Button'
-import { site } from '@/data/assets'
 import ProductBanner from '@/components/ProductBanner'
-import ProductGrid from '@/components/ProductGrid'
-import QuoteModal from '@/components/QuoteModal'
-import { Shield, Truck, FlaskConical, Globe } from 'lucide-react'
+import { categories } from '@/data/assets'
+import { categoryInfo } from '@/data/products'
+import { Shield, Truck, FlaskConical, Globe, Award, FileCheck } from 'lucide-react'
 
 const trustPoints = [
   { icon: Shield, title: 'Traceability', desc: 'Complete supply chain transparency from farm to port.' },
@@ -23,23 +22,29 @@ const credibilityItems = [
   { value: '4', label: 'Certifications' },
 ]
 
+const certList = [
+  { name: 'ISO 22000:2018', icon: Award },
+  { name: 'BRCGS Food Safety', icon: FileCheck },
+  { name: 'FSSC 22000', icon: Award },
+  { name: 'FSSAI Licensed', icon: FileCheck },
+  { name: 'HALAL Certified', icon: Award },
+  { name: 'Spices Board Registered', icon: FileCheck },
+]
+
+const categoryCards = [
+  { key: 'spices' as const, ...categoryInfo.spices, image: categories.spices },
+  { key: 'vegetables' as const, ...categoryInfo.vegetables, image: categories.vegetables },
+  { key: 'cocoa' as const, ...categoryInfo.cocoa, image: categories.cocoa },
+  { key: 'grains' as const, ...categoryInfo.grains, image: categories.grains },
+]
+
 export default function Home() {
-  const [quoteOpen, setQuoteOpen] = useState(false)
-  const [quoteProduct, setQuoteProduct] = useState('')
-
-  const openQuote = (productName: string) => {
-    setQuoteProduct(productName)
-    setQuoteOpen(true)
-  }
-
   return (
     <>
-      {/* Banner Carousel — immediately below header */}
       <div className="pt-[74px]">
-        <ProductBanner onGetQuote={openQuote} />
+        <ProductBanner />
       </div>
 
-      {/* Credibility Strip */}
       <section className="py-8 sm:py-10 bg-surface">
         <div className="container-main">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -53,60 +58,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero / About Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="container-main">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-5">
-                Trusted Global Exporter
-              </span>
-              <h1 className="font-playfair text-[clamp(2rem,5vw,3.25rem)] text-text-main leading-[1.15] mb-5">
-                Premium Agri-Exports with Global Compliance
-              </h1>
-              <p className="text-base sm:text-lg text-text-muted mb-7 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                Your trusted partner for high-quality spices, vegetables, grains and cocoa beans. Complete traceability and international certifications guaranteed.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <Button href="/products" variant="secondary" size="lg">View Products</Button>
-                <Button href="/contact" variant="primary" size="lg">Request Quote</Button>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative h-[280px] sm:h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={site.heroMain}
-                  alt="Premium spices and fresh vegetables for global export"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* All Products Grid */}
-      <section className="py-14 sm:py-20 bg-surface">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="container-main">
           <div className="text-center mb-10">
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/10 rounded-full mb-3">
               Our Range
             </span>
-            <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-3">All Products</h2>
+            <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl text-text-main mb-3">Product Categories</h2>
             <p className="text-text-muted max-w-xl mx-auto text-sm sm:text-base">
-              Click any product to get an instant quote with pricing and quantity options.
+              Explore our diverse portfolio of premium export-quality agri-products.
             </p>
           </div>
-          <ProductGrid onProductClick={openQuote} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {categoryCards.map((cat) => (
+              <Link key={cat.key} href={`/products/${cat.slug}`} className="group">
+                <div className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-border-light hover:border-primary/20 aspect-[4/3]">
+                  <Image
+                    src={cat.image}
+                    alt={cat.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <h3 className="text-white font-playfair text-lg font-semibold mb-1">{cat.title}</h3>
+                    <p className="text-white/70 text-xs line-clamp-2">{cat.description}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Trust / Certifications Strip */}
-      <section className="py-14 sm:py-16 bg-white">
+      <section className="py-14 sm:py-16 bg-surface">
         <div className="container-main">
           <div className="text-center mb-10">
             <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Why Choose MSE</h2>
@@ -118,7 +104,7 @@ export default function Home() {
             {trustPoints.map((item) => {
               const IconComp = item.icon
               return (
-                <div key={item.title} className="bg-surface rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 border border-border-light hover:border-primary/20 hover:-translate-y-1">
+                <div key={item.title} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-200 border border-border-light hover:border-primary/20 hover:-translate-y-1">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <IconComp size={22} className="text-primary" />
                   </div>
@@ -131,7 +117,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Band */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container-main">
+          <div className="text-center mb-8">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-3">
+              Standards
+            </span>
+            <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Certifications</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {certList.map((cert) => {
+              const IconComp = cert.icon
+              return (
+                <div key={cert.name} className="bg-surface rounded-xl p-4 text-center border border-border-light hover:border-primary/20 transition-all">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                    <IconComp size={18} className="text-primary" />
+                  </div>
+                  <p className="text-xs font-medium text-text-main leading-tight">{cert.name}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       <section className="py-14 sm:py-20 bg-primary">
         <div className="container-main text-center">
           <h2 className="font-playfair text-2xl sm:text-3xl text-white mb-4 leading-snug">
@@ -142,22 +151,15 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <Button href="/contact" variant="primary" size="lg">Request a Quote</Button>
-            <button
-              onClick={() => openQuote('')}
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white border-2 border-white/40 rounded-full hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
-              Quick Quote
-            </button>
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Quote Modal */}
-      <QuoteModal
-        isOpen={quoteOpen}
-        onClose={() => setQuoteOpen(false)}
-        productName={quoteProduct}
-      />
     </>
   )
 }

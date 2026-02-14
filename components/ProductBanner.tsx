@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { banners as bannerImages } from '@/data/assets'
 
@@ -12,6 +13,7 @@ const banners = [
     subtitle: 'Dry Red Chilies • Turmeric • Black Pepper • Cardamom • Cinnamon',
     badge: 'EXPORT GRADE',
     image: bannerImages.spices,
+    href: '/products/spices',
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const banners = [
     subtitle: 'Chilli Powder • Turmeric Powder',
     badge: 'PREMIUM QUALITY',
     image: bannerImages.quality,
+    href: '/products/spices',
   },
   {
     id: 3,
@@ -26,6 +29,7 @@ const banners = [
     subtitle: 'Onions • Green Chilies',
     badge: 'FARM FRESH',
     image: bannerImages.vegetables,
+    href: '/products/vegetables',
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ const banners = [
     subtitle: 'Premium Export Quality Cocoa',
     badge: 'CERTIFIED',
     image: bannerImages.cocoa,
+    href: '/products/cocoa',
   },
   {
     id: 5,
@@ -40,14 +45,11 @@ const banners = [
     subtitle: 'Ragi • Bajra • Jowar',
     badge: 'ORGANIC',
     image: bannerImages.grains,
+    href: '/products/grains',
   },
 ]
 
-interface ProductBannerProps {
-  onGetQuote?: (productName: string) => void
-}
-
-export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
+export default function ProductBanner() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [touchStart, setTouchStart] = useState<number | null>(null)
@@ -116,13 +118,13 @@ export default function ProductBanner({ onGetQuote }: ProductBannerProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-black/10" />
 
             <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
-              <button
-                onClick={() => onGetQuote?.(banner.title)}
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-saffron hover:bg-saffron-dark text-white font-semibold text-xs sm:text-sm rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 Get Quote
                 <ChevronRight size={16} />
-              </button>
+              </Link>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">

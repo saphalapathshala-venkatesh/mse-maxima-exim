@@ -1,11 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Button from './Button'
+import { ChevronDown } from 'lucide-react'
+
+const productCategories = [
+  { name: 'Spices', href: '/products/spices' },
+  { name: 'Vegetables', href: '/products/vegetables' },
+  { name: 'Cocoa', href: '/products/cocoa' },
+  { name: 'Millets & Grains', href: '/products/grains' },
+]
 
 const navItems = [
-  { name: 'Products', href: '/products' },
   { name: 'Quality', href: '/quality' },
   { name: 'Certifications', href: '/certifications' },
   { name: 'About', href: '/about' },
@@ -15,6 +22,8 @@ const navItems = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
@@ -32,6 +41,25 @@ export default function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
+            <div ref={dropdownRef} className="relative group">
+              <button className="flex items-center gap-1 text-sm text-text-main hover:text-primary transition-colors duration-200 font-medium">
+                Products
+                <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-white rounded-xl shadow-lg border border-border-light py-2 min-w-[200px]">
+                  {productCategories.map((cat) => (
+                    <Link
+                      key={cat.name}
+                      href={cat.href}
+                      className="block px-5 py-2.5 text-sm text-text-main hover:text-primary hover:bg-surface transition-colors"
+                    >
+                      {cat.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -66,6 +94,27 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border-light animate-fade-in">
             <nav className="flex flex-col gap-1">
+              <button
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="flex items-center justify-between text-sm text-text-main hover:text-primary hover:bg-surface rounded-lg px-4 py-3 transition-colors duration-200 font-medium"
+              >
+                Products
+                <ChevronDown size={14} className={`transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileProductsOpen && (
+                <div className="pl-4 space-y-1">
+                  {productCategories.map((cat) => (
+                    <Link
+                      key={cat.name}
+                      href={cat.href}
+                      className="block text-sm text-text-muted hover:text-primary hover:bg-surface rounded-lg px-4 py-2.5 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {cat.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
               {navItems.map((item) => (
                 <Link
                   key={item.name}

@@ -1,32 +1,114 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { MapPin, Mail, Phone } from 'lucide-react'
+import { allProducts } from '@/data/products'
+
+const countries = [
+  { name: 'United States', code: '+1' },
+  { name: 'United Kingdom', code: '+44' },
+  { name: 'United Arab Emirates', code: '+971' },
+  { name: 'Saudi Arabia', code: '+966' },
+  { name: 'Germany', code: '+49' },
+  { name: 'France', code: '+33' },
+  { name: 'Netherlands', code: '+31' },
+  { name: 'Canada', code: '+1' },
+  { name: 'Australia', code: '+61' },
+  { name: 'Singapore', code: '+65' },
+  { name: 'Malaysia', code: '+60' },
+  { name: 'Japan', code: '+81' },
+  { name: 'South Korea', code: '+82' },
+  { name: 'China', code: '+86' },
+  { name: 'India', code: '+91' },
+  { name: 'Indonesia', code: '+62' },
+  { name: 'Thailand', code: '+66' },
+  { name: 'Vietnam', code: '+84' },
+  { name: 'Bangladesh', code: '+880' },
+  { name: 'Sri Lanka', code: '+94' },
+  { name: 'South Africa', code: '+27' },
+  { name: 'Nigeria', code: '+234' },
+  { name: 'Kenya', code: '+254' },
+  { name: 'Egypt', code: '+20' },
+  { name: 'Brazil', code: '+55' },
+  { name: 'Mexico', code: '+52' },
+  { name: 'Turkey', code: '+90' },
+  { name: 'Russia', code: '+7' },
+  { name: 'Spain', code: '+34' },
+  { name: 'Italy', code: '+39' },
+]
 
 export default function ContactPage() {
+  return (
+    <Suspense fallback={<div className="pt-[74px] bg-white min-h-screen" />}>
+      <ContactPageInner />
+    </Suspense>
+  )
+}
+
+function ContactPageInner() {
+  const searchParams = useSearchParams()
+  const preselectedProduct = searchParams.get('product') || ''
+
   const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
-    phone: '',
     country: '',
-    port: '',
+    phone: '',
     product: '',
-    quantity: '',
     message: '',
   })
+  const [phoneCode, setPhoneCode] = useState('')
+
+  useEffect(() => {
+    if (preselectedProduct) {
+      const found = allProducts.find(p => p.slug === preselectedProduct)
+      if (found) {
+        setFormData(prev => ({ ...prev, product: found.name }))
+      }
+    }
+  }, [preselectedProduct])
+
+  const selectedCountry = countries.find(c => c.name === formData.country)
+
+  useEffect(() => {
+    if (selectedCountry) {
+      setPhoneCode(selectedCountry.code)
+    }
+  }, [selectedCountry])
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {}
+    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.email.trim()) newErrors.email = 'Email is required'
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Enter a valid email'
+    if (!formData.country) newErrors.country = 'Please select a country'
+    if (!formData.message.trim()) newErrors.message = 'Message is required'
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (validate()) {
+      setSubmitted(true)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    if (errors[name]) {
+      setErrors(prev => { const n = { ...prev }; delete n[name]; return n })
+    }
   }
 
-  const inputClass = 'w-full px-4 py-3 bg-white border border-border-light rounded-xl text-text-main placeholder-text-light focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm'
+  const inputClass = (field: string) =>
+    `w-full px-4 py-3 bg-white border rounded-xl text-text-main placeholder-text-light focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm ${
+      errors[field] ? 'border-red-400' : 'border-border-light'
+    }`
 
   return (
     <div className="pt-[74px] bg-white min-h-screen">
@@ -92,7 +174,7 @@ export default function ContactPage() {
                 <h2 className="font-playfair text-2xl text-text-main mb-3">Thank You!</h2>
                 <p className="text-text-muted mb-6">Your inquiry has been submitted. We&apos;ll get back to you within 24 business hours.</p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', company: '', email: '', phone: '', country: '', port: '', product: '', quantity: '', message: '' }) }}
+                  onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', country: '', phone: '', product: '', message: '' }); setErrors({}) }}
                   className="px-6 py-2.5 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-dark transition-colors"
                 >
                   Send Another Inquiry
@@ -100,64 +182,57 @@ export default function ContactPage() {
               </div>
             ) : (
               <div className="bg-surface rounded-2xl p-6 sm:p-8">
-                <h2 className="font-playfair text-xl text-text-main mb-6">Request a Quote</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <h2 className="font-playfair text-xl text-text-main mb-6">Send Us a Message</h2>
+                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-xs font-medium text-text-muted mb-1.5">Full Name *</label>
-                      <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Your name" />
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="block text-xs font-medium text-text-muted mb-1.5">Company</label>
-                      <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} className={inputClass} placeholder="Your company" />
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className={inputClass('name')} placeholder="Your name" />
+                      {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-xs font-medium text-text-muted mb-1.5">Email *</label>
-                      <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@company.com" />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-xs font-medium text-text-muted mb-1.5">Phone</label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className={inputClass} placeholder="+1 234 567 8900" />
-                    </div>
-                    <div>
-                      <label htmlFor="country" className="block text-xs font-medium text-text-muted mb-1.5">Country *</label>
-                      <input type="text" id="country" name="country" required value={formData.country} onChange={handleChange} className={inputClass} placeholder="Your country" />
-                    </div>
-                    <div>
-                      <label htmlFor="port" className="block text-xs font-medium text-text-muted mb-1.5">Delivery Port/City</label>
-                      <input type="text" id="port" name="port" value={formData.port} onChange={handleChange} className={inputClass} placeholder="Destination port" />
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className={inputClass('email')} placeholder="you@company.com" />
+                      {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="product" className="block text-xs font-medium text-text-muted mb-1.5">Product of Interest</label>
-                      <select id="product" name="product" value={formData.product} onChange={handleChange} className={inputClass}>
-                        <option value="">Select a product</option>
-                        <option>Dry Red Chilies</option>
-                        <option>Chilli Powder</option>
-                        <option>Turmeric Rhizomes</option>
-                        <option>Turmeric Powder</option>
-                        <option>Black Pepper</option>
-                        <option>Cardamom</option>
-                        <option>Cinnamon</option>
-                        <option>Cocoa Beans</option>
-                        <option>Onions</option>
-                        <option>Green Chilies</option>
-                        <option>Ragi (Finger Millet)</option>
-                        <option>Bajra (Pearl Millet)</option>
-                        <option>Jowar (Sorghum)</option>
+                      <label htmlFor="country" className="block text-xs font-medium text-text-muted mb-1.5">Country *</label>
+                      <select id="country" name="country" value={formData.country} onChange={handleChange} className={inputClass('country')}>
+                        <option value="">Select your country</option>
+                        {countries.map((c) => (
+                          <option key={c.name} value={c.name}>{c.name}</option>
+                        ))}
                       </select>
+                      {errors.country && <p className="text-xs text-red-500 mt-1">{errors.country}</p>}
                     </div>
                     <div>
-                      <label htmlFor="quantity" className="block text-xs font-medium text-text-muted mb-1.5">Quantity (KG)</label>
-                      <input type="text" id="quantity" name="quantity" value={formData.quantity} onChange={handleChange} className={inputClass} placeholder="e.g. 100 KG" />
+                      <label htmlFor="phone" className="block text-xs font-medium text-text-muted mb-1.5">Phone</label>
+                      <div className="flex gap-2">
+                        <span className="flex items-center px-3 bg-white border border-border-light rounded-xl text-sm text-text-muted min-w-[60px] justify-center">
+                          {phoneCode || '—'}
+                        </span>
+                        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className={inputClass('phone')} placeholder="Phone number" />
+                      </div>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-text-muted mb-1.5">Message / Requirements *</label>
-                    <textarea id="message" name="message" required rows={4} value={formData.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Tell us about your requirements..." />
+                    <label htmlFor="product" className="block text-xs font-medium text-text-muted mb-1.5">Product Interested In</label>
+                    <select id="product" name="product" value={formData.product} onChange={handleChange} className={inputClass('product')}>
+                      <option value="">Select a product</option>
+                      {allProducts.map((p) => (
+                        <option key={p.slug} value={p.name}>{p.name}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-xs font-medium text-text-muted mb-1.5">Message *</label>
+                    <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className={`${inputClass('message')} resize-none`} placeholder="Tell us about your requirements..." />
+                    {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
                   </div>
 
                   <button type="submit" className="w-full py-3.5 bg-saffron text-white font-semibold rounded-full hover:bg-saffron-dark transition-all shadow-md text-sm">

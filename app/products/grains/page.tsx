@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Button from '@/components/Button'
 import { categoryInfo, getProductsByCategory } from '@/data/products'
 
-export default function VegetablesPage() {
-  const info = categoryInfo.vegetables
-  const items = getProductsByCategory('vegetables')
+export default function GrainsPage() {
+  const info = categoryInfo.grains
+  const items = getProductsByCategory('grains')
 
   return (
     <div className="pt-[74px] bg-white">
@@ -15,7 +15,7 @@ export default function VegetablesPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
         </div>
         <div className="container-main relative z-10">
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">Farm Fresh</span>
+          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">Organic</span>
           <h1 className="font-playfair text-3xl sm:text-4xl text-white mb-3">{info.title}</h1>
           <p className="text-base text-white/80 max-w-2xl">{info.description}</p>
         </div>
@@ -44,9 +44,9 @@ export default function VegetablesPage() {
         </div>
 
         <div className="mt-14 text-center bg-surface rounded-2xl p-8 sm:p-12">
-          <h2 className="font-playfair text-xl sm:text-2xl text-text-main mb-3">Bulk Orders Available</h2>
+          <h2 className="font-playfair text-xl sm:text-2xl text-text-main mb-3">Health Food Markets Growing</h2>
           <p className="text-text-muted max-w-xl mx-auto mb-6 text-sm sm:text-base">
-            Contact us for bulk pricing, custom specifications, and sample requests.
+            Millets are the future of sustainable nutrition. Partner with us for reliable supply.
           </p>
           <Button href="/contact" variant="primary" size="lg">Get Quote</Button>
         </div>
