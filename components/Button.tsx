@@ -52,7 +52,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={combinedStyles}>
+      <Link href={href} className={combinedStyles} onClick={onClick}>
         <span className="relative z-10">{children}</span>
       </Link>
     )

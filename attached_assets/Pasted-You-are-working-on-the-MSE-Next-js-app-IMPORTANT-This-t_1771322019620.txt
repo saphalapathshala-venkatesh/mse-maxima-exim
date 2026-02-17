@@ -1,0 +1,35 @@
+You are working on the MSE Next.js app. IMPORTANT: This task is ONLY to fix mobile navigation accessibility/UX issues in the header/hamburger menu. Do NOT change any other UI, layouts, pages, colors, fonts, spacing, or routing.
+
+Problem:
+On mobile, when the hamburger menu is open and the user clicks "Request Quote" (or any nav link), the app navigates correctly but the mobile menu/overlay remains open and continues to cover the newly opened page (e.g., contact form), harming UX.
+
+Goal:
+Ensure the mobile menu ALWAYS closes when a navigation occurs, and improve basic mobile accessibility for the menu without breaking anything.
+
+Requirements:
+1) When user clicks ANY link inside the mobile menu (including "Request Quote" / "Contact"), close the menu immediately (set open=false) so the overlay disappears.
+2) If navigation occurs via router (e.g., route change), also ensure the menu closes (defensive approach).
+3) Add ESC key support: pressing Escape closes the menu when it is open.
+4) Prevent background scroll when menu is open (body scroll lock), and restore scroll when closed.
+5) Ensure proper aria attributes:
+   - Hamburger button: aria-expanded, aria-controls pointing to menu panel id
+   - Mobile menu panel: role="dialog" (or role="menu" if appropriate) and aria-modal="true" if using dialog overlay
+6) Do NOT change desktop navigation behavior.
+7) Do NOT change the visual design, only behavior/accessibility.
+
+Implementation guidance (use what the project already uses):
+- Locate the header/navbar component that contains the hamburger menu state (e.g., useState isOpen).
+- Add a shared handler function closeMenu() that sets isOpen to false.
+- For all <Link> elements inside the mobile menu, add onClick={() => closeMenu()} (or equivalent) so menu closes on selection.
+- Add a router event listener to close menu on route changes:
+  - For Next.js App Router: usePathname() + useEffect to close menu whenever pathname changes.
+  - For Pages Router: useRouter().events.on('routeChangeStart', closeMenu).
+  Choose the correct approach based on project structure and do it minimally.
+- Add useEffect for Escape key when menu is open.
+- Add useEffect to toggle document.body.style.overflow = 'hidden' while menu is open.
+
+Acceptance checks:
+- On mobile: open hamburger → click Request Quote → Contact page opens and the menu/overlay is fully closed, no obstruction.
+- Same for any nav item.
+- No regressions on desktop.
+- No changes outside header/mobile menu behavior.

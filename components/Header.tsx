@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Button from './Button'
 import { ChevronDown } from 'lucide-react'
 
@@ -24,12 +25,40 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+
+  const closeMenu = useCallback(() => {
+    setMobileMenuOpen(false)
+    setMobileProductsOpen(false)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    closeMenu()
+  }, [pathname, closeMenu])
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [mobileMenuOpen, closeMenu])
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileMenuOpen])
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'}`}>
@@ -86,6 +115,8 @@ export default function Header() {
             className="lg:hidden p-2 text-text-main"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
@@ -98,12 +129,17 @@ export default function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border-light animate-fade-in">
+          <div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            className="lg:hidden py-4 border-t border-border-light animate-fade-in"
+          >
             <nav className="flex flex-col gap-1">
               <Link
                 href="/"
                 className="text-sm text-text-main hover:text-primary hover:bg-surface rounded-lg px-4 py-3 transition-colors duration-200 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMenu}
               >
                 Home
               </Link>
@@ -121,7 +157,7 @@ export default function Header() {
                       key={cat.name}
                       href={cat.href}
                       className="block text-sm text-text-muted hover:text-primary hover:bg-surface rounded-lg px-4 py-2.5 transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={closeMenu}
                     >
                       {cat.name}
                     </Link>
@@ -133,14 +169,14 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className="text-sm text-text-main hover:text-primary hover:bg-surface rounded-lg px-4 py-3 transition-colors duration-200 font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMenu}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="flex flex-col gap-2 pt-4 px-4">
-                <Button href="/contact" variant="primary" size="md">Request Quote</Button>
-                <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-6 py-3 text-sm bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
+                <Button href="/contact" variant="primary" size="md" onClick={closeMenu}>Request Quote</Button>
+                <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-6 py-3 text-sm bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
               </div>
             </nav>
           </div>
