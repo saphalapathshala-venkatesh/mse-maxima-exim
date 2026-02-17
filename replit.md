@@ -50,6 +50,7 @@ components/
 ├── Button.tsx          # Rounded button component (primary/secondary/outline)
 ├── Section.tsx         # Reusable section wrapper
 ├── ProductBanner.tsx   # 5-banner carousel with touch/swipe support
+├── ProductHero.tsx     # Reusable category hero with text card, bullets, CTAs, and image
 
 data/
 ├── assets.ts           # Central image path registry (single source of truth)
@@ -86,7 +87,7 @@ public/images/
 5. **Credibility Strip** - 50+ countries, 100+ MT capacity, 13+ products, 4 certifications
 6. **Why Choose MSE** - 4 trust points (Traceability, Export Standards, Quality Testing, Logistics)
 7. **Certifications Strip** - 6 certification badges on homepage
-8. **Category Pages** - Banner + intro + filtered product grid per category
+8. **Category Pages** - ProductHero component with structured text card (badge, title, intro, 5 bullet highlights, Request Quote + WhatsApp CTA buttons) + right-side category image + filtered product grid
 9. **Product Detail Pages** - /product/[slug] with 2-4 image gallery, specs, related products, contact CTA
 10. **Contact Form** - Country dropdown with auto phone code, product selector, validation
 11. **CTA Section** - Green background CTA section on homepage linking to Contact
