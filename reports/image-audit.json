@@ -1,5 +1,38 @@
 {
-  "generatedAt": "2026-02-17T10:02:00.060Z",
+  "generatedAt": "2026-02-17T10:07:47.341Z",
+  "assetsRegistry": {
+    "banners.spices": "/images/banners/hero-spices.jpg",
+    "banners.vegetables": "/images/banners/hero-vegetables.jpg",
+    "banners.cocoa": "/images/banners/hero-cocoa.jpg",
+    "banners.grains": "/images/banners/hero-grains.jpg",
+    "banners.quality": "/images/banners/hero-quality.jpg",
+    "categories.spices": "/images/categories/spices.jpg",
+    "categories.vegetables": "/images/categories/vegetables.jpg",
+    "categories.cocoa": "/images/categories/cocoa.jpg",
+    "categories.grains": "/images/categories/grains.jpg",
+    "categories.oleoresins": "/images/categories/oleoresins.jpg",
+    "products.dryRedChilli": "/images/products/dry-red-chilli.jpg",
+    "products.chilliPowder": "/images/products/chilli-powder.jpg",
+    "products.turmericRhizomes": "/images/products/turmeric-rhizomes.jpg",
+    "products.turmericPowder": "/images/products/turmeric-powder.jpg",
+    "products.blackPepper": "/images/products/black-pepper.jpg",
+    "products.cardamom": "/images/products/cardamom.jpg",
+    "products.cinnamon": "/images/products/cinnamon.jpg",
+    "products.cocoaBeans": "/images/products/cocoa-beans.jpg",
+    "products.onions": "/images/products/onions.jpg",
+    "products.greenChillies": "/images/products/green-chillies.jpg",
+    "products.ragi": "/images/products/ragi.jpg",
+    "products.bajra": "/images/products/bajra.jpg",
+    "products.jowar": "/images/products/jowar.jpg",
+    "site.facility": "/images/site/facility.jpg",
+    "site.qualityLab": "/images/site/quality-lab.png",
+    "site.heroMain": "/images/banners/hero-spices.jpg",
+    "site.qualityHeroLab": "/images/site/quality-hero-lab.jpg",
+    "site.qaStepSourcing": "/images/site/qa-step-sourcing.jpg",
+    "site.qaStepInspection": "/images/site/qa-step-inspection.jpg",
+    "site.qaStepProcessing": "/images/site/qa-step-processing.jpg",
+    "site.qaStepLabTesting": "/images/site/qa-step-labtesting.jpg"
+  },
   "summary": {
     "totalImageReferences": 19,
     "totalPublicImages": 17,
@@ -7,217 +40,246 @@
     "totalMissingSizing": 0
   },
   "pageWise": {
-    "/about": [
-      {
-        "type": "next/image",
-        "file": "app/about/page.tsx",
-        "src": "site.facility",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [
-          "h-[300px]",
-          "h-[380px]",
-          "w-hidden",
-          "w-xl"
-        ],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": false
-      }
-    ],
-    "/": [
-      {
-        "type": "next/image",
-        "file": "app/page.tsx",
-        "src": "cat.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
-        "priority": false
-      },
-      {
-        "type": "next/image",
-        "file": "app/page.tsx",
-        "src": "site.qualityLab",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [
-          "w-hidden",
-          "w-xl",
-          "aspect-[4/3]"
-        ],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": false
-      }
-    ],
-    "/product/[slug]": [
-      {
-        "type": "next/image",
-        "file": "app/product/[slug]/page.tsx",
-        "src": "product.gallery[activeImage]",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": true
-      },
-      {
-        "type": "next/image",
-        "file": "app/product/[slug]/page.tsx",
-        "src": "img",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "80px",
-        "priority": false
-      },
-      {
-        "type": "next/image",
-        "file": "app/product/[slug]/page.tsx",
-        "src": "rel.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, 33vw",
-        "priority": false
-      }
-    ],
-    "/products/cocoa": [
-      {
-        "type": "next/image",
-        "file": "app/products/cocoa/page.tsx",
-        "src": "product.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
-        "priority": false
-      }
-    ],
-    "/products/grains": [
-      {
-        "type": "next/image",
-        "file": "app/products/grains/page.tsx",
-        "src": "product.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
-        "priority": false
-      }
-    ],
-    "/products/spices": [
-      {
-        "type": "next/image",
-        "file": "app/products/spices/page.tsx",
-        "src": "product.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
-        "priority": false
-      }
-    ],
-    "/products/vegetables": [
-      {
-        "type": "next/image",
-        "file": "app/products/vegetables/page.tsx",
-        "src": "product.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover transition-transform duration-500 group-hover:scale-110",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
-        "priority": false
-      }
-    ],
-    "/quality": [
-      {
-        "type": "next/image",
-        "file": "app/quality/page.tsx",
-        "src": "site.qualityHeroLab",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [
-          "w-hidden",
-          "w-xl",
-          "aspect-[4/3]"
-        ],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": true
-      },
-      {
-        "type": "next/image",
-        "file": "app/quality/page.tsx",
-        "src": "item.image",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "220px",
-        "priority": false
-      },
-      {
-        "type": "next/image",
-        "file": "app/quality/page.tsx",
-        "src": "site.qualityLab",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": false
-      },
-      {
-        "type": "next/image",
-        "file": "app/quality/page.tsx",
-        "src": "banners.quality",
-        "width": null,
-        "height": null,
-        "fill": true,
-        "className": "object-cover",
-        "cssSizingHints": [],
-        "parentSizingHints": [],
-        "sizes": "(max-width: 1024px) 100vw, 50vw",
-        "priority": false
-      }
-    ]
+    "/about": {
+      "file": "app/about/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/about/page.tsx",
+          "src": "site.facility",
+          "resolvedPath": "/images/site/facility.jpg",
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": false
+        }
+      ]
+    },
+    "/": {
+      "file": "app/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/page.tsx",
+          "src": "cat.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+          "priority": false
+        },
+        {
+          "type": "next/image",
+          "file": "app/page.tsx",
+          "src": "site.qualityLab",
+          "resolvedPath": "/images/site/quality-lab.png",
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [
+            "w-hidden",
+            "w-xl",
+            "aspect-[4/3]"
+          ],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": false
+        }
+      ]
+    },
+    "/product/[slug]": {
+      "file": "app/product/[slug]/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/product/[slug]/page.tsx",
+          "src": "product.gallery[activeImage]",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": true
+        },
+        {
+          "type": "next/image",
+          "file": "app/product/[slug]/page.tsx",
+          "src": "img",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "80px",
+          "priority": false
+        },
+        {
+          "type": "next/image",
+          "file": "app/product/[slug]/page.tsx",
+          "src": "rel.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, 33vw",
+          "priority": false
+        }
+      ]
+    },
+    "/products/cocoa": {
+      "file": "app/products/cocoa/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/products/cocoa/page.tsx",
+          "src": "product.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+          "priority": false
+        }
+      ]
+    },
+    "/products/grains": {
+      "file": "app/products/grains/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/products/grains/page.tsx",
+          "src": "product.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+          "priority": false
+        }
+      ]
+    },
+    "/products/spices": {
+      "file": "app/products/spices/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/products/spices/page.tsx",
+          "src": "product.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+          "priority": false
+        }
+      ]
+    },
+    "/products/vegetables": {
+      "file": "app/products/vegetables/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/products/vegetables/page.tsx",
+          "src": "product.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover transition-transform duration-500 group-hover:scale-110",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+          "priority": false
+        }
+      ]
+    },
+    "/quality": {
+      "file": "app/quality/page.tsx",
+      "usages": [
+        {
+          "type": "next/image",
+          "file": "app/quality/page.tsx",
+          "src": "site.qualityHeroLab",
+          "resolvedPath": "/images/site/quality-hero-lab.jpg",
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": true
+        },
+        {
+          "type": "next/image",
+          "file": "app/quality/page.tsx",
+          "src": "item.image",
+          "resolvedPath": null,
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "220px",
+          "priority": false
+        },
+        {
+          "type": "next/image",
+          "file": "app/quality/page.tsx",
+          "src": "site.qualityLab",
+          "resolvedPath": "/images/site/quality-lab.png",
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": false
+        },
+        {
+          "type": "next/image",
+          "file": "app/quality/page.tsx",
+          "src": "banners.quality",
+          "resolvedPath": "/images/banners/hero-quality.jpg",
+          "width": null,
+          "height": null,
+          "fill": true,
+          "className": "object-cover",
+          "cssSizingHints": [],
+          "parentSizingHints": [],
+          "sizes": "(max-width: 1024px) 100vw, 50vw",
+          "priority": false
+        }
+      ]
+    }
   },
   "componentWise": {
     "components/Card.tsx": [
@@ -225,6 +287,7 @@
         "type": "next/image",
         "file": "components/Card.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -243,6 +306,7 @@
         "type": "next/image",
         "file": "components/ProductBanner.tsx",
         "src": "banner.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -258,17 +322,13 @@
         "type": "next/image",
         "file": "components/ProductGrid.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
         "className": "object-cover transition-transform duration-500 group-hover:scale-110",
         "cssSizingHints": [],
-        "parentSizingHints": [
-          "w-hidden",
-          "w-sm",
-          "w-xl",
-          "aspect-[4/3]"
-        ],
+        "parentSizingHints": [],
         "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
         "priority": false
       }
@@ -278,6 +338,7 @@
         "type": "next/image",
         "file": "components/ProductHero.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -293,16 +354,15 @@
         "type": "next/image",
         "file": "components/ProductHero.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
         "className": "object-cover",
         "cssSizingHints": [],
         "parentSizingHints": [
-          "h-[300px]",
-          "w-hidden",
-          "w-xl",
-          "min-h-[300px]"
+          "w-md",
+          "h-11"
         ],
         "sizes": "(max-width: 1280px) 340px, 400px",
         "priority": false
@@ -310,11 +370,12 @@
     ]
   },
   "reusedImages": {
-    "site.qualityLab": [
+    "/images/site/quality-lab.png": [
       {
         "type": "next/image",
         "file": "app/page.tsx",
         "src": "site.qualityLab",
+        "resolvedPath": "/images/site/quality-lab.png",
         "width": null,
         "height": null,
         "fill": true,
@@ -332,6 +393,7 @@
         "type": "next/image",
         "file": "app/quality/page.tsx",
         "src": "site.qualityLab",
+        "resolvedPath": "/images/site/quality-lab.png",
         "width": null,
         "height": null,
         "fill": true,
@@ -347,6 +409,7 @@
         "type": "next/image",
         "file": "app/products/cocoa/page.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -360,6 +423,7 @@
         "type": "next/image",
         "file": "app/products/grains/page.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -373,6 +437,7 @@
         "type": "next/image",
         "file": "app/products/spices/page.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -386,6 +451,7 @@
         "type": "next/image",
         "file": "app/products/vegetables/page.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -399,17 +465,13 @@
         "type": "next/image",
         "file": "components/ProductGrid.tsx",
         "src": "product.image",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
         "className": "object-cover transition-transform duration-500 group-hover:scale-110",
         "cssSizingHints": [],
-        "parentSizingHints": [
-          "w-hidden",
-          "w-sm",
-          "w-xl",
-          "aspect-[4/3]"
-        ],
+        "parentSizingHints": [],
         "sizes": "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
         "priority": false
       }
@@ -419,6 +481,7 @@
         "type": "next/image",
         "file": "components/Card.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -435,6 +498,7 @@
         "type": "next/image",
         "file": "components/ProductHero.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
@@ -450,16 +514,15 @@
         "type": "next/image",
         "file": "components/ProductHero.tsx",
         "src": "imageSrc",
+        "resolvedPath": null,
         "width": null,
         "height": null,
         "fill": true,
         "className": "object-cover",
         "cssSizingHints": [],
         "parentSizingHints": [
-          "h-[300px]",
-          "w-hidden",
-          "w-xl",
-          "min-h-[300px]"
+          "w-md",
+          "h-11"
         ],
         "sizes": "(max-width: 1280px) 340px, 400px",
         "priority": false
