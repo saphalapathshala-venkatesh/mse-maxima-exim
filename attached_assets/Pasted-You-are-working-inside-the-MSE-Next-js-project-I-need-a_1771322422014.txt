@@ -1,0 +1,41 @@
+You are working inside the MSE Next.js project. I need an “Image Audit Report” and NOTHING else should be changed.
+
+Goal:
+Generate a page-wise inventory of all images used across the website, including:
+1) Page/route where the image appears (e.g., /products/spices, /contact, /, etc.)
+2) Component file path where it is referenced
+3) Image source (local path in repo OR remote URL)
+4) Exact dimensions:
+   - If using next/image: capture width/height props OR "fill" usage.
+   - If fill=true, capture the parent container size constraints if determinable from className (e.g., h-[380px], aspect-[...], w-full).
+   - If using <img>: capture width/height attributes if present.
+   - Always include “declared sizing” (props/attrs) and “CSS sizing hints” (className/style) in the report.
+5) Reuse detection:
+   - List images reused across multiple pages/components
+   - Highlight if the same image is used with different declared sizes or different CSS sizing constraints
+
+Implementation:
+- Create a script at: scripts/image-audit.ts (or .js if TS setup is heavy)
+- The script must scan these directories recursively:
+  - app/ (or pages/) for route pages
+  - components/
+  - public/ for local image assets
+- The script should parse .tsx/.ts/.jsx/.js files and detect:
+  - next/image imports and <Image ... src=... />
+  - <img src=... />
+  - CSS background-image usage if present in JSX/style strings (best effort)
+- Output:
+  - A JSON report at: reports/image-audit.json
+  - A human-readable Markdown report at: reports/image-audit.md
+- In the Markdown report:
+  - Section 1: Page-wise listing (Route → images used)
+  - Section 2: Reused images summary table (Image → occurrences → sizing differences)
+  - Section 3: Missing/unknown sizing notes (if width/height not found)
+
+Constraints:
+- Do NOT change any UI, pages, components behavior, styling, routing, or assets.
+- Only add the script and reports folder.
+- Provide a single command to run it (e.g., npm run image:audit) by updating package.json scripts ONLY (no other package changes unless absolutely required).
+
+After implementing, run the script and confirm the report files are generated.
+
