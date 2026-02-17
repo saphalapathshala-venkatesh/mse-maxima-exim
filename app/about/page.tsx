@@ -20,7 +20,7 @@ export default function AboutPage() {
   return (
     <div className="pt-[74px] bg-white">
       <div className="container-main py-10 sm:py-14">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-stretch">
           <div>
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-primary bg-primary/10 rounded-full mb-4">
               About Us
@@ -40,7 +40,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="relative h-[300px] sm:h-[380px] rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl min-h-[300px] sm:min-h-[380px] h-full">
             <Image
               src={site.facility}
               alt="MSE processing facility"
