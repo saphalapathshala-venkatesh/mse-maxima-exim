@@ -8,7 +8,7 @@ const qualitySteps = [
   { step: 2, title: 'Incoming Inspection', desc: 'Rigorous batch inspection for quality parameters, foreign matter, and contamination.', icon: Search, color: '#E09F3E', image: site.qaStepInspection },
   { step: 3, title: 'Processing Control', desc: 'Continuous monitoring of temperature, humidity, and hygiene throughout processing.', icon: Settings, color: '#2D6A4F', image: site.qaStepProcessing },
   { step: 4, title: 'Laboratory Testing', desc: 'Comprehensive microbiological, chemical, and physical parameter testing in-house.', icon: FlaskConical, color: '#E09F3E', image: site.qaStepLabTesting },
-  { step: 5, title: 'Final Quality Check', desc: 'Pre-shipment verification to meet customer specs and regulatory requirements.', icon: PackageCheck, color: '#2D6A4F', image: site.qaStepLabTesting },
+  { step: 5, title: 'Final Quality Check', desc: 'Pre-shipment verification to meet customer specs and regulatory requirements.', icon: PackageCheck, color: '#2D6A4F', image: site.qaStepFinalCheck },
 ]
 
 const credibilityStrip = [

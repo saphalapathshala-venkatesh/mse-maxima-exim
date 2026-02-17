@@ -39,6 +39,7 @@ export const site = {
   qaStepInspection: "/images/site/qa-step-inspection.jpg",
   qaStepProcessing: "/images/site/qa-step-processing.jpg",
   qaStepLabTesting: "/images/site/qa-step-labtesting.jpg",
+  qaStepFinalCheck: "/images/site/qa-step-finalcheck.jpg",
 };
 
 export const allImagePaths = [
