@@ -1,0 +1,101 @@
+You are working on the MSE Next.js website. The product category pages under the Products dropdown are:
+- /products/spices
+- /products/vegetables
+- /products/cocoa
+- /products/millets-grains (or the existing route for Millets & Grains)
+
+Goal: Polish UI only. No new features. Keep header/footer unchanged. Do NOT change the hero/background design (background must remain exactly as is). Do NOT change routing except to ensure the above pages use a shared hero section layout. Do NOT break existing responsiveness.
+
+TASK (single coherent change across all 4 pages):
+1) Replace the current hero text block (long paragraph) with a structured “Text Card” component on the LEFT:
+   - A small badge (e.g., "EXPORT GRADE") at top
+   - H1 title (category name)
+   - A short 2–3 line intro
+   - 5 bullet highlights (with a small check icon)
+   - A small helper line: “Looking for reliable bulk export supply?”
+   - Two CTA buttons (desktop inline, mobile stack):
+       Primary: "Request Quote" → links to /contact?product=<slug>
+       Secondary: "WhatsApp Inquiry" → links to https://wa.me/919866036606?text=<prefilled category message>
+   The product slug must match the page (spices/vegetables/cocoa/millets-grains).
+
+2) BUTTON STYLING (must match desired outcome):
+   - Request Quote button must be a YELLOW/GOLD solid button with WHITE text (primary CTA).
+     Use the same yellow/gold tone already used elsewhere in the site for primary actions if it exists; otherwise use a tasteful export-gold.
+     Include subtle shadow and a slightly darker hover.
+   - WhatsApp Inquiry button must be WHITE background with GREEN text AND a GREEN 1px border (outlined style).
+     Hover state: very light green tint background OR subtle shadow (keep premium, not loud).
+   - Keep button sizes consistent (same height, same border radius), and ensure accessible contrast.
+
+3) On the RIGHT, keep the category image but make it visually match the Text Card height:
+   - The image container should stretch to the same height as the card (use CSS grid/flex align-stretch).
+   - The image should cover the container (object-fit: cover), with rounded corners and a subtle border/shadow consistent with the card.
+   - Prevent huge empty vertical space: align top edges of card and image, and keep both vertically centered within the hero section.
+   - Ensure no distortion; preserve aspect ratio with cover.
+
+4) Layout + spacing:
+   - Use a 2-column layout on desktop (left card, right image) with consistent gap.
+   - On mobile, stack cleanly (keep whichever order matches the current site style), ensure no overflow, good padding.
+   - Reduce perceived whitespace by tightening the hero’s internal spacing moderately (do not remove breathing room completely). Do NOT change the hero background.
+
+5) Implementation requirement:
+   - Create a reusable component (e.g., ProductHero) and a small data object for each category (title, badge, intro, bullets, image src, productSlug, whatsappText).
+   - Then update all 4 pages to use this component with their own content.
+   - Keep changes limited to these pages + the new shared component/styles only.
+
+Content to use:
+
+SPICES
+Badge: EXPORT GRADE
+Title: Spices
+Intro: Premium whole and ground spices sourced from trusted farms across India. Each batch is quality-checked for purity, aroma, and export compliance.
+Bullets:
+- Steam sterilized & machine cleaned
+- Custom grinding & packaging available
+- Export compliant documentation
+- Bulk & private label supply
+- Lab tested for purity & contaminants
+WhatsApp text: "Hello MSE, I am interested in Spices export. Please share specifications, pricing, MOQ and delivery timelines."
+
+VEGETABLES
+Badge: FRESH EXPORT QUALITY
+Title: Vegetables
+Intro: Fresh and processed vegetables sourced from certified farms with consistent grading, hygienic handling, and export-ready packaging.
+Bullets:
+- Farm to shipment traceability
+- Hygienic processing & grading
+- Custom packing as per buyer needs
+- Temperature-controlled logistics support
+- Residue & pesticide testing support
+WhatsApp text: "Hello MSE, I am interested in Vegetables export. Please share available varieties, packaging options, MOQ and pricing."
+
+COCOA
+Badge: PREMIUM QUALITY
+Title: Cocoa
+Intro: High-grade cocoa products processed with strict quality supervision for consistent flavor, texture, and international food safety compliance.
+Bullets:
+- High purity cocoa powder
+- Natural & alkalized variants
+- Consistent quality batches
+- Custom packaging available
+- Bulk industrial supply
+WhatsApp text: "Hello MSE, I am interested in Cocoa products export. Please share specifications, available variants, MOQ and pricing."
+
+MILLETS & GRAINS
+Badge: NUTRIENT RICH EXPORTS
+Title: Millets & Grains
+Intro: Premium millets and grains sourced from reliable networks, processed for cleanliness, nutrition, and export-ready consistency.
+Bullets:
+- Naturally processed & cleaned
+- Organic options available
+- Bulk export packaging
+- Lab tested quality
+- Long shelf life assurance
+WhatsApp text: "Hello MSE, I am interested in Millets & Grains export. Please share product list, specs, MOQ and pricing."
+
+Acceptance checks:
+- Background/hero styling remains unchanged.
+- On desktop, the right image height matches the left card height (no awkward empty area).
+- On all 4 pages, whitespace is reduced and layout looks balanced.
+- Buttons match requested styles: Yellow solid primary + White outlined green secondary.
+- Buttons work (Request Quote → /contact?product=..., WhatsApp opens with prefilled text).
+- No other site pages/components are changed.

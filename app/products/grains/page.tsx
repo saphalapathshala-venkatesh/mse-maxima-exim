@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '@/components/Button'
+import ProductHero from '@/components/ProductHero'
 import { categoryInfo, getProductsByCategory } from '@/data/products'
 
 export default function GrainsPage() {
@@ -9,24 +10,21 @@ export default function GrainsPage() {
 
   return (
     <div className="pt-[74px] bg-white">
-      <section className="relative py-16 sm:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={info.image} alt={info.title} fill className="object-cover opacity-20" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/70" />
-        </div>
-        <div className="container-main relative z-10">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
-            <div>
-              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase text-saffron bg-saffron/20 rounded-full mb-4">Organic</span>
-              <h1 className="font-playfair text-3xl sm:text-4xl text-white mb-3">{info.title}</h1>
-              <p className="text-base text-white/80 max-w-2xl">{info.description}</p>
-            </div>
-            <div className="hidden lg:block relative w-[280px] xl:w-[340px] aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
-              <Image src={info.image} alt={info.title} fill className="object-cover" sizes="340px" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductHero
+        badge="NUTRIENT RICH EXPORTS"
+        title="Millets & Grains"
+        intro="Premium millets and grains sourced from reliable networks, processed for cleanliness, nutrition, and export-ready consistency."
+        bullets={[
+          'Naturally processed & cleaned',
+          'Organic options available',
+          'Bulk export packaging',
+          'Lab tested quality',
+          'Long shelf life assurance',
+        ]}
+        imageSrc={info.image}
+        productSlug="millets-grains"
+        whatsappText="Hello MSE, I am interested in Millets & Grains export. Please share product list, specs, MOQ and pricing."
+      />
 
       <div className="container-main py-10 sm:py-14">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
