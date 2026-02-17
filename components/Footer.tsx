@@ -10,11 +10,11 @@ const quickLinks = [
 ]
 
 const productLinks = [
-  { name: 'Spices (Whole)', href: '/products' },
-  { name: 'Spices (Powders)', href: '/products' },
-  { name: 'Vegetables', href: '/products' },
-  { name: 'Cocoa Beans', href: '/products' },
-  { name: 'Millets & Grains', href: '/products' },
+  { name: 'Spices (Whole)', href: '/products/spices?type=whole' },
+  { name: 'Spices (Powder)', href: '/products/spices?type=powder' },
+  { name: 'Vegetables', href: '/products/vegetables' },
+  { name: 'Cocoa Beans', href: '/products/cocoa' },
+  { name: 'Millets & Grains', href: '/products/grains' },
 ]
 
 export default function Footer() {
