@@ -1,0 +1,35 @@
+You are working on the MSE Next.js web app.
+
+Goal: Finish the last 2 pending tasks with minimal changes and no UI/layout changes.
+
+TASK A — Email lead delivery (support 1 or 2 recipients, configurable):
+1) Identify where the “lead / enquiry / contact form” submission is handled (API route / server action).
+2) Update the email sending logic so it can send to multiple recipients:
+   - Read recipients from an environment variable called LEADS_TO
+   - LEADS_TO may contain one email or multiple emails separated by commas, like:
+     "sales@mse.com" OR "sales@mse.com,owner@mse.com"
+   - Parse and trim values, remove empties, and deduplicate.
+   - If LEADS_TO is missing, fall back to a single safe default like process.env.DEFAULT_LEADS_TO or the existing recipient currently hardcoded.
+3) Make sure the email subject/body remain unchanged except to include the same existing lead details.
+4) Ensure the API responds exactly as before (same JSON shape/status), so nothing breaks on frontend.
+
+TASK B — WhatsApp redirect final link replacement:
+1) Find where WhatsApp link is defined/used (footer, header, contact buttons, floating widget, etc.).
+2) Replace all hardcoded WhatsApp href values with a single source:
+   - Create a constant (e.g. lib/contacts.ts) exporting WHATSAPP_URL
+   - WHATSAPP_URL is read from process.env.NEXT_PUBLIC_WHATSAPP_URL
+   - Provide a fallback to the currently used WhatsApp link if env var is missing (so nothing breaks).
+3) Update all components to import and use WHATSAPP_URL.
+4) Ensure links open in a new tab where applicable and preserve existing rel attributes (noopener/noreferrer).
+
+DEPLOY / VERIFY:
+1) Add to README or .env.example:
+   - LEADS_TO=
+   - NEXT_PUBLIC_WHATSAPP_URL=
+2) Run:
+   - npm run lint (or equivalent)
+   - npm run build
+3) Verify:
+   - Submit enquiry form → email arrives to ALL recipients in LEADS_TO
+   - WhatsApp click from every place opens the correct number/link
+4) Commit with message: "Finalize leads email + WhatsApp link config"

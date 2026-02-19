@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
 import { ChevronDown } from 'lucide-react'
+import { WHATSAPP_URL } from '@/lib/contacts'
 
 const productCategories = [
   { name: 'Spices', href: '/products/spices' },
@@ -108,7 +109,7 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-3">
             <Button href="/contact" variant="primary" size="sm">Request Quote</Button>
-            <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-4 py-2 text-xs bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-4 py-2 text-xs bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
           </div>
 
           <button
@@ -176,7 +177,7 @@ export default function Header() {
               ))}
               <div className="flex flex-col gap-2 pt-4 px-4">
                 <Button href="/contact" variant="primary" size="md" onClick={closeMenu}>Request Quote</Button>
-                <a href="https://wa.link/j2fx0w" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-6 py-3 text-sm bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full relative overflow-hidden whitespace-nowrap px-6 py-3 text-sm bg-primary text-white font-semibold shadow-[0_2px_12px_rgba(45,106,79,0.25)] hover:bg-primary-dark hover:shadow-[0_4px_16px_rgba(45,106,79,0.35)] hover:-translate-y-0.5 active:translate-y-0"><span className="relative z-10">WhatsApp</span></a>
               </div>
             </nav>
           </div>

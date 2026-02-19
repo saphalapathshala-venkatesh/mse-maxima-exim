@@ -43,3 +43,10 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[userenv]
+
+[userenv.shared]
+LEADS_TO = "we@magnasskexim.in"
+NEXT_PUBLIC_WHATSAPP_URL = "https://wa.link/j2fx0w"
+NEXT_PUBLIC_WHATSAPP_NUMBER = "919866036606"

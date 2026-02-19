@@ -51,6 +51,8 @@ function ContactPageInner() {
   const preselectedProduct = searchParams.get('product') || ''
 
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [formData, setFormData] = useState({
     name: '',
@@ -90,10 +92,32 @@ function ContactPageInner() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (validate()) {
-      setSubmitted(true)
+    if (!validate()) return
+    setSubmitting(true)
+    setSubmitError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setSubmitError(data.error || 'Something went wrong. Please try again.')
+        return
+      }
+      const data = await res.json()
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setSubmitError(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setSubmitError('Network error. Please try again.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -239,8 +263,10 @@ function ContactPageInner() {
                     {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
                   </div>
 
-                  <button type="submit" className="w-full py-3.5 bg-saffron text-white font-semibold rounded-full hover:bg-saffron-dark transition-all shadow-md text-sm">
-                    Get in Touch with Us
+                  {submitError && <p className="text-xs text-red-500 text-center">{submitError}</p>}
+
+                  <button type="submit" disabled={submitting} className="w-full py-3.5 bg-saffron text-white font-semibold rounded-full hover:bg-saffron-dark transition-all shadow-md text-sm disabled:opacity-60 disabled:cursor-not-allowed">
+                    {submitting ? 'Sending...' : 'Get in Touch with Us'}
                   </button>
                 </form>
               </div>

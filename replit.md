@@ -42,7 +42,12 @@ app/
 ├── quality/page.tsx        # Quality assurance page
 ├── certifications/page.tsx # Certifications page
 ├── about/page.tsx          # About page
-└── contact/page.tsx        # Contact form (country dropdown, phone code, validation)
+├── contact/page.tsx        # Contact form (country dropdown, phone code, validation)
+└── api/
+    └── contact/route.ts    # Contact form API (email via Resend, LEADS_TO env var)
+
+lib/
+└── contacts.ts             # Centralized WhatsApp URL + number constants
 
 components/
 ├── Header.tsx          # Sticky header with Products dropdown (hover/click)
@@ -89,7 +94,7 @@ public/images/
 7. **Certifications Strip** - 6 certification badges on homepage
 8. **Category Pages** - ProductHero component with structured text card (badge, title, intro, 5 bullet highlights, Request Quote + WhatsApp CTA buttons) + right-side category image + filtered product grid
 9. **Product Detail Pages** - /product/[slug] with 2-4 image gallery, specs, related products, contact CTA
-10. **Contact Form** - Country dropdown with auto phone code, product selector, validation
+10. **Contact Form** - Country dropdown with auto phone code, product selector, validation, submits to /api/contact
 11. **CTA Section** - Green background CTA section on homepage linking to Contact
 
 ## Products (13 items across 4 categories)

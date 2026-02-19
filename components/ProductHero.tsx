@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Check } from 'lucide-react'
+import { WHATSAPP_NUMBER } from '@/lib/contacts'
 
 interface ProductHeroProps {
   badge: string
@@ -21,7 +22,7 @@ export default function ProductHero({
   productSlug,
   whatsappText,
 }: ProductHeroProps) {
-  const whatsappUrl = `https://wa.me/919866036606?text=${encodeURIComponent(whatsappText)}`
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`
   const quoteUrl = `/contact?product=${productSlug}`
 
   return (
