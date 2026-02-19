@@ -70,8 +70,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Magnassk Exim Logo"
-              width={40}
-              height={40}
+              width={52}
+              height={52}
               priority
               className="object-contain"
             />
