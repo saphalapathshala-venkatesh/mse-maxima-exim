@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Button from './Button'
 import { ChevronDown } from 'lucide-react'
@@ -65,9 +66,19 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'}`}>
       <div className="container-main">
         <div className="flex items-center justify-between h-[72px]">
-          <Link href="/" className="flex flex-col">
-            <span className="text-2xl font-playfair font-bold text-primary tracking-wide">MSE</span>
-            <span className="text-[8px] text-text-muted tracking-[0.15em] uppercase leading-tight">Magna SSK Exim Solutions Pvt Ltd</span>
+          <Link href="/" className="flex items-center gap-2.5 pl-1">
+            <Image
+              src="/logo.png"
+              alt="Magnassk Exim Logo"
+              width={40}
+              height={40}
+              priority
+              className="object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="text-2xl font-playfair font-bold text-primary tracking-wide">MSE</span>
+              <span className="text-[8px] text-text-muted tracking-[0.15em] uppercase leading-tight">Magna SSK Exim Solutions Pvt Ltd</span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
