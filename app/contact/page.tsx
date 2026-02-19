@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { MapPin, Mail, Phone } from 'lucide-react'
 import { allProducts } from '@/data/products'
+import { WHATSAPP_URL } from '@/lib/contacts'
 
 const countries = [
   { name: 'United States', code: '+1' },
@@ -103,16 +104,11 @@ function ContactPageInner() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}))
-        setSubmitError(data.error || 'Something went wrong. Please try again.')
-        return
-      }
-      const data = await res.json()
-      if (data.success) {
+      const data = await res.json().catch(() => ({ ok: false }))
+      if (res.ok && data.ok) {
         setSubmitted(true)
       } else {
-        setSubmitError(data.error || 'Something went wrong. Please try again.')
+        setSubmitError('Something went wrong. Please try again.')
       }
     } catch {
       setSubmitError('Network error. Please try again.')
@@ -263,7 +259,14 @@ function ContactPageInner() {
                     {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message}</p>}
                   </div>
 
-                  {submitError && <p className="text-xs text-red-500 text-center">{submitError}</p>}
+                  {submitError && (
+                    <div className="text-center space-y-1">
+                      <p className="text-xs text-red-500">{submitError}</p>
+                      <p className="text-xs text-text-muted">
+                        If urgent, <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-saffron">contact us on WhatsApp</a>.
+                      </p>
+                    </div>
+                  )}
 
                   <button type="submit" disabled={submitting} className="w-full py-3.5 bg-saffron text-white font-semibold rounded-full hover:bg-saffron-dark transition-all shadow-md text-sm disabled:opacity-60 disabled:cursor-not-allowed">
                     {submitting ? 'Sending...' : 'Get in Touch with Us'}
