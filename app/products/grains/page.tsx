@@ -23,7 +23,6 @@ export default function GrainsPage() {
         ]}
         imageSrc={info.image}
         productSlug="millets-grains"
-        whatsappText="Hello MSE, I am interested in Millets & Grains export. Please share product list, specs, MOQ and pricing."
       />
 
       <div className="container-main py-10 sm:py-14">

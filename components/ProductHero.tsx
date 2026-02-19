@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Check } from 'lucide-react'
-import { WHATSAPP_NUMBER } from '@/lib/contacts'
+import { WHATSAPP_URL } from '@/lib/contacts'
 
 interface ProductHeroProps {
   badge: string
@@ -10,7 +10,6 @@ interface ProductHeroProps {
   bullets: string[]
   imageSrc: string
   productSlug: string
-  whatsappText: string
 }
 
 export default function ProductHero({
@@ -20,9 +19,7 @@ export default function ProductHero({
   bullets,
   imageSrc,
   productSlug,
-  whatsappText,
 }: ProductHeroProps) {
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`
   const quoteUrl = `/contact?product=${productSlug}`
 
   return (
@@ -59,7 +56,7 @@ export default function ProductHero({
                 Request Quote
               </Link>
               <a
-                href={whatsappUrl}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center h-11 px-6 rounded-full text-sm font-semibold text-primary bg-white border border-primary/30 hover:bg-primary/5 hover:shadow-md transition-all duration-200"

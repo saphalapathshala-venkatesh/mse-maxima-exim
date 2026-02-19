@@ -23,7 +23,6 @@ export default function VegetablesPage() {
         ]}
         imageSrc={info.image}
         productSlug="vegetables"
-        whatsappText="Hello MSE, I am interested in Vegetables export. Please share available varieties, packaging options, MOQ and pricing."
       />
 
       <div className="container-main py-10 sm:py-14">

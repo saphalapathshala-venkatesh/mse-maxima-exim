@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 function getRecipients(): string[] {
-  const leadsTo = process.env.LEADS_TO || process.env.DEFAULT_LEADS_TO || 'we@magnasskexim.in'
+  const leadsTo = process.env.LEADS_TO || 'we@magnasskexim.in'
   const recipients = leadsTo
     .split(',')
     .map(email => email.trim().toLowerCase())

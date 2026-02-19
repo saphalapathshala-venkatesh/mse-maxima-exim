@@ -23,7 +23,6 @@ export default function CocoaPage() {
         ]}
         imageSrc={info.image}
         productSlug="cocoa"
-        whatsappText="Hello MSE, I am interested in Cocoa products export. Please share specifications, available variants, MOQ and pricing."
       />
 
       <div className="container-main py-10 sm:py-14">

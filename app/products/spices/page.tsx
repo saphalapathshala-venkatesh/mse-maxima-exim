@@ -23,7 +23,6 @@ export default function SpicesPage() {
         ]}
         imageSrc={info.image}
         productSlug="spices"
-        whatsappText="Hello MSE, I am interested in Spices export. Please share specifications, pricing, MOQ and delivery timelines."
       />
 
       <div className="container-main py-10 sm:py-14">

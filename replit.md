@@ -47,7 +47,7 @@ app/
     └── contact/route.ts    # Contact form API (email via Resend, LEADS_TO env var)
 
 lib/
-└── contacts.ts             # Centralized WhatsApp URL + number constants
+└── contacts.ts             # Centralized WHATSAPP_URL constant (from env or fallback)
 
 components/
 ├── Header.tsx          # Sticky header with Products dropdown (hover/click)
