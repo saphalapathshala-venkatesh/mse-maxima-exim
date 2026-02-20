@@ -152,7 +152,6 @@ function ContactPageInner() {
                   <h3 className="font-semibold text-text-main text-sm mb-1">Registered Office</h3>
                   <p className="text-sm text-text-muted">
                     1-26-4/E, 4th Floor,<br />
-                    Sri Sahithi Krishna Hospital,<br />
                     Necklace Road, SVR Circle,<br />
                     Kadakatla Street, Tadepalligudem,<br />
                     West Godavari,<br />
