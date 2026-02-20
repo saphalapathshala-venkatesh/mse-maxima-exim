@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-const debug = process.env.EMAIL_DEBUG === 'true'
+import { sendEmail } from '@/lib/email/resend'
 
 function getRecipients(): string[] {
   const leadsTo = process.env.LEADS_TO || 'we@magnasskexim.in'
@@ -11,26 +10,21 @@ function getRecipients(): string[] {
   return Array.from(new Set(recipients))
 }
 
-async function sendEmail(payload: {
-  from: string
-  to: string[]
-  subject: string
-  text: string
-  reply_to?: string
-}) {
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}))
-    throw new Error(`Resend ${res.status}: ${JSON.stringify(body)}`)
-  }
-  return res.json()
+function escapeHtml(str: string) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+function buildAdminHtml(fields: Record<string, string>) {
+  const rows = Object.entries(fields)
+    .map(([label, value]) => `<tr><td style="padding:8px 12px;font-weight:600;border:1px solid #dee2e6;background:#f8f9fa">${escapeHtml(label)}</td><td style="padding:8px 12px;border:1px solid #dee2e6">${escapeHtml(value)}</td></tr>`)
+    .join('')
+  return `<div style="font-family:Inter,Arial,sans-serif;max-width:600px"><h2 style="color:#2D6A4F">New Inquiry — MSE Website</h2><table style="width:100%;border-collapse:collapse;margin-top:16px">${rows}</table><p style="margin-top:20px;font-size:13px;color:#6c757d">This lead was submitted via the MSE website contact form.</p></div>`
+}
+
+function buildAdminText(fields: Record<string, string>) {
+  return 'New Inquiry — MSE Website\n\n' +
+    Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n') +
+    '\n\n---\nThis lead was submitted via the MSE website contact form.'
 }
 
 export async function POST(request: NextRequest) {
@@ -47,44 +41,22 @@ export async function POST(request: NextRequest) {
 
     const recipients = getRecipients()
 
-    const adminBody = `
-New Lead / Enquiry from MSE Website
-
-Name: ${name}
-Email: ${email}
-Country: ${country}
-Phone: ${phone || 'Not provided'}
-Product Interest: ${product || 'Not specified'}
-
-Message:
-${message}
-
----
-This lead was submitted via the MSE website contact form.
-    `.trim()
-
-    const resendApiKey = process.env.RESEND_API_KEY
-
-    if (!resendApiKey) {
-      if (debug) {
-        console.log('--- LEAD RECEIVED (EMAIL_DEBUG, no RESEND_API_KEY) ---')
-        console.log(`Recipients: ${recipients.join(', ')}`)
-        console.log(adminBody)
-        console.log('--- END LEAD ---')
-      }
-      return NextResponse.json(
-        { ok: false, code: 'EMAIL_FAILED', error: 'Email service is not configured' },
-        { status: 500 }
-      )
+    const fields: Record<string, string> = {
+      'Name': name,
+      'Email': email,
+      'Country': country,
+      'Phone': phone || 'Not provided',
+      'Product Interest': product || 'Not specified',
+      'Message': message,
     }
 
     try {
       await sendEmail({
-        from: 'MSE Website <onboarding@resend.dev>',
         to: recipients,
-        subject: `New Enquiry from ${name} – ${product || 'General'}`,
-        text: adminBody,
-        reply_to: email,
+        subject: `New Inquiry — MSE Website`,
+        html: buildAdminHtml(fields),
+        text: buildAdminText(fields),
+        replyTo: email,
       })
     } catch (err) {
       console.error('Admin email failed:', err)
@@ -94,28 +66,20 @@ This lead was submitted via the MSE website contact form.
       )
     }
 
-    const ackBody = `
-Hi ${name},
+    const ackHtml = `<div style="font-family:Inter,Arial,sans-serif;max-width:600px"><p>Hi ${escapeHtml(name)},</p><p>Thank you for reaching out to <strong>Magna SSK Exim Solutions Pvt Ltd</strong>.</p><p>We have received your enquiry${product ? ` regarding <strong>${escapeHtml(product)}</strong>` : ''} and our team will respond within <strong>24 business hours</strong>.</p><p>For urgent inquiries, you can also reach us on <a href="https://wa.link/e854rz" style="color:#2D6A4F;font-weight:600">WhatsApp</a>.</p><p style="margin-top:24px">Warm regards,<br/><strong>MSE Export Team</strong><br/>www.magnasskexim.in</p></div>`
 
-Thank you for reaching out to Magna SSK Exim Solutions Pvt Ltd.
-
-We have received your enquiry${product ? ` regarding ${product}` : ''} and our team will respond within 24 business hours.
-
-Warm regards,
-MSE Export Team
-www.magnasskexim.in
-    `.trim()
+    const ackText = `Hi ${name},\n\nThank you for reaching out to Magna SSK Exim Solutions Pvt Ltd.\n\nWe have received your enquiry${product ? ` regarding ${product}` : ''} and our team will respond within 24 business hours.\n\nFor urgent inquiries, reach us on WhatsApp: https://wa.link/e854rz\n\nWarm regards,\nMSE Export Team\nwww.magnasskexim.in`
 
     sendEmail({
-      from: 'MSE Website <onboarding@resend.dev>',
       to: [email],
-      subject: 'We received your enquiry – MSE',
-      text: ackBody,
+      subject: 'We received your inquiry — MSE',
+      html: ackHtml,
+      text: ackText,
     }).catch(err => {
       console.error('Ack email to lead failed (non-blocking):', err)
     })
 
-    return NextResponse.json({ ok: true })
+    return NextResponse.json({ ok: true, code: 'LEAD_SUBMITTED' })
   } catch (error) {
     console.error('Contact form error:', error)
     return NextResponse.json(

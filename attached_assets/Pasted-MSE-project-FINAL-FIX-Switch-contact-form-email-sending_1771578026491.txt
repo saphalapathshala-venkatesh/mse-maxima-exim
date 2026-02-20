@@ -1,0 +1,55 @@
+MSE project — FINAL FIX: Switch contact-form email sending to Resend (admin + acknowledgement) with strict reliability. Make NO other UI/UX changes.
+
+Requirements:
+1) Admin lead email MUST send successfully. If it fails, return HTTP 500 and the frontend must NOT show success.
+2) After admin email succeeds, send acknowledgement email to the lead (non-blocking; failures logged only).
+3) Add a test endpoint POST /api/_resend-test to verify Resend quickly.
+4) Update .env.example to include RESEND_API_KEY, LEADS_TO, FROM_EMAIL.
+5) Keep existing form fields, success UI, and styling unchanged.
+
+Env vars:
+- RESEND_API_KEY (required)
+- LEADS_TO (required) e.g. "we@magnasskexim.in" (support comma-separated list)
+- FROM_EMAIL (required) e.g. "MSE Magna SSK Exim <we@magnasskexim.in>"
+
+Implementation steps:
+A) Install dependency:
+- npm i resend
+
+B) Create helper: lib/email/resend.ts
+- Initialize Resend with process.env.RESEND_API_KEY
+- Export sendEmail({to, subject, html, text, replyTo?})
+- Use from: process.env.FROM_EMAIL
+- Throw clear error if RESEND_API_KEY or FROM_EMAIL missing
+
+C) Update the existing contact form API route (whatever route the form currently calls):
+- Replace Nodemailer/SMTP with Resend helper.
+- Parse the incoming fields (name, email, phone, company, product, message, etc — keep whatever exists).
+- Send ADMIN email:
+  to: LEADS_TO list
+  subject: "New Inquiry — MSE Website"
+  replyTo: lead email if present
+  body: include all submitted fields in a neat HTML table + plaintext
+- If admin send fails: console.error full error and return:
+  status 500 JSON { ok:false, code:"EMAIL_FAILED" }
+
+- If admin succeeds:
+  - Send acknowledgement to lead email (if provided):
+    subject: "We received your inquiry — MSE"
+    short CTA + reassure response time + WhatsApp link https://wa.link/e854rz
+  - Ack email failure must NOT block response (log only)
+  - Return status 200 JSON { ok:true, code:"LEAD_SUBMITTED" }
+
+D) Add API route: app/api/_resend-test/route.ts
+- POST sends a test email to LEADS_TO using Resend
+- Return 200 { ok:true, code:"SENT" } or 500 { ok:false, code:"EMAIL_FAILED" }
+
+E) Update .env.example:
+RESEND_API_KEY=
+LEADS_TO=
+FROM_EMAIL=
+
+F) Verify:
+- npm run build must pass
+- Print exact files changed/created
+- Commit message: "Use Resend for contact emails (admin + ack) + test endpoint"
