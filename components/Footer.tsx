@@ -67,6 +67,7 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Edit contact address here */}
           <div>
             <h4 className="font-playfair text-base text-text-main font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-text-muted leading-relaxed">

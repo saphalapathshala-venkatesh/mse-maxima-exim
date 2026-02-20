@@ -66,13 +66,13 @@ export default function ProductHero({
             </div>
           </div>
 
-          <div className="hidden lg:block relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 min-h-[300px]">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 aspect-[16/10] lg:aspect-auto lg:min-h-[300px]">
             <Image
               src={imageSrc}
               alt={title}
               fill
               className="object-cover"
-              sizes="(max-width: 1280px) 340px, 400px"
+              sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 340px, 400px"
             />
           </div>
         </div>
