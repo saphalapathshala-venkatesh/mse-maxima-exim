@@ -1,0 +1,107 @@
+Make the following content and UI updates to the existing MSE web app without changing the overall design language, layout quality, or responsiveness.
+
+OBJECTIVE
+Implement a small set of production-safe website updates:
+1. Change logo presentation to circular
+2. Update product content
+3. Update contact section text
+4. Update certification page to show exactly 3 downloadable certificates
+5. Use GitHub/static file links for certificate downloads and image updates where needed
+
+REQUIRED CHANGES
+
+1) LOGO UPDATE
+- Change the logo display everywhere from shield/square-style presentation to a circular presentation.
+- Apply this consistently in:
+  - navbar
+  - footer
+  - any hero/about/company branding sections where the logo appears
+- Ensure:
+  - image is centered
+  - image is not stretched or cropped badly
+  - circular container looks clean on both desktop and mobile
+  - spacing/alignment remains visually balanced
+
+2) PRODUCT CONTENT CHANGES
+Update the product/content section exactly as follows:
+- Cardamom:
+  - update specification text to:
+    "Volatile oil percentage: >6–8%"
+- Remove Ceylon Cinnamon completely from the website wherever it appears
+- Add Ginger as a product item
+  - create the Ginger card/section in the same style as the other product entries
+  - keep Ginger specifications easy to edit in one place
+  - if exact specifications are not yet available in code/content source, add a placeholder structure for Ginger specs that can be updated easily later, but do not invent random values
+- Ensure product list/grid remains visually aligned after removing Ceylon Cinnamon and adding Ginger
+
+3) CONTACT SECTION UPDATE
+Update the contact/address details:
+- remove hospital name
+- remove "Necklace Road"
+- add "Kadakatla"
+- keep all other valid contact details unchanged unless already obsolete
+- ensure the contact section still reads naturally and cleanly after editing
+
+4) CERTIFICATION PAGE UPDATE
+Modify the existing certification page to show exactly 3 certifications only:
+- FSSAI
+- Spices Board
+- APEDA
+
+Implementation requirements:
+- show only these 3 certificate cards/items
+- each certificate card should include:
+  - certificate name/title
+  - optional short subtitle/description if appropriate
+  - a download button
+- clicking the download button should download/open the respective certificate PDF cleanly
+- do not build any public upload feature
+- this is a static/admin-managed certificate section only
+
+5) CERTIFICATE FILE INTEGRATION
+Use static file references / GitHub-managed assets / existing hosted file paths for the 3 certificates.
+Wire the certificate cards to these files cleanly:
+- FSSAI certificate
+- Spices Board certificate
+- APEDA certificate
+
+Make the certificate data easy to maintain, ideally using a single structured data array/object like:
+- title
+- file url/path
+- optional description
+- optional display icon/thumbnail
+
+6) IMAGE CHANGES
+Where image replacements are needed, allow images to be updated from GitHub/static hosted sources.
+- keep implementation simple
+- avoid unnecessary backend work
+- ensure no broken images
+- preserve aspect ratio and responsive rendering
+
+7) GENERAL QUALITY CHECKS
+Ensure all updated sections are:
+- responsive
+- visually polished
+- consistent with existing site branding
+- free from broken links
+- free from layout shifts
+- accessible enough for normal brochure-site usage
+
+8) DO NOT
+- do not redesign the whole site
+- do not change unrelated sections
+- do not introduce complex CMS/backend upload logic
+- do not create extra certificate cards beyond the 3 listed above
+
+EXPECTED OUTPUT
+- circular logo styling applied across the site
+- cardamom text updated
+- Ceylon Cinnamon removed
+- Ginger added
+- contact section updated with Kadakatla and old address fragments removed
+- certification page limited to 3 certificates:
+  - FSSAI
+  - Spices Board
+  - APEDA
+- working download buttons for certificate PDFs
+- clean, production-ready final UI

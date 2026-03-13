@@ -53,7 +53,7 @@ export const allProducts: Product[] = [
     category: 'Spices',
     description: 'Bold and aromatic black peppercorns in Malabar and Tellicherry grades. Sun-dried and machine-cleaned for uniform size. High piperine content ensures excellent flavor for culinary and industrial applications.',
     image: products.blackPepper,
-    gallery: [products.blackPepper, products.cinnamon],
+    gallery: [products.blackPepper, products.cardamom],
     specs: ['Piperine: ≥4%', 'Moisture: ≤12%', 'Grades: MG1 / TGSEB', 'Packaging: 25/50 KG PP bags'],
   },
   {
@@ -62,17 +62,21 @@ export const allProducts: Product[] = [
     category: 'Spices',
     description: 'Fragrant green cardamom pods hand-picked from plantations in Kerala and Karnataka. Carefully dried to preserve essential oil content and vibrant green color. Available in multiple size grades for export markets.',
     image: products.cardamom,
-    gallery: [products.cardamom, products.cinnamon],
-    specs: ['Size: 6–8mm / 7–8mm', 'Moisture: ≤12%', 'Essential Oil: ≥3%', 'Packaging: 5/10/25 KG cartons'],
+    gallery: [products.cardamom, products.blackPepper],
+    specs: ['Size: 6–8mm / 7–8mm', 'Moisture: ≤12%', 'Volatile oil: >6–8%', 'Packaging: 5/10/25 KG cartons'],
   },
   {
-    name: 'Cinnamon',
-    slug: 'cinnamon',
+    name: 'Ginger',
+    slug: 'ginger',
     category: 'Spices',
-    description: 'Premium cinnamon sticks (quills) and split cassia bark sourced from certified suppliers. Rich aroma and warm flavor profile suitable for baking, beverages, and food processing applications worldwide.',
-    image: products.cinnamon,
-    gallery: [products.cinnamon, products.cardamom],
-    specs: ['Type: Cassia / Ceylon', 'Moisture: ≤14%', 'Oil Content: ≥1%', 'Packaging: 25 KG cartons'],
+    description: 'Premium export-grade dried ginger sourced from select farming regions across India. Available as whole dried rhizomes or as ginger powder. Known for its characteristic pungency and aroma, meeting international food safety standards.',
+    image: products.ginger,
+    gallery: [products.ginger, products.turmericRhizomes],
+    specs: [
+      // Update specs with actual values when available
+      'Moisture: ≤12%',
+      'Packaging: 25/50 KG bags',
+    ],
   },
   {
     name: 'Cocoa Beans',

@@ -72,8 +72,8 @@ export default function Footer() {
             <h4 className="font-playfair text-base text-text-main font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-text-muted leading-relaxed">
               <li>1-26-4/E, 4th Floor,</li>
-              <li>Necklace Road, SVR Circle,</li>
-              <li>Tadepalligudem, West Godavari,</li>
+              <li>Kadakatla, Tadepalligudem,</li>
+              <li>West Godavari,</li>
               <li>Andhra Pradesh - 534101</li>
               <li className="pt-3">
                 <a

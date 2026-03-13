@@ -67,14 +67,16 @@ export default function Header() {
       <div className="container-main">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-2.5 pl-1">
-            <Image
-              src="/logo.png"
-              alt="Magnassk Exim Logo"
-              width={52}
-              height={52}
-              priority
-              className="object-contain"
-            />
+            <div className="w-[52px] h-[52px] rounded-full overflow-hidden flex items-center justify-center shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Magnassk Exim Logo"
+                width={52}
+                height={52}
+                priority
+                className="object-cover w-full h-full"
+              />
+            </div>
             <div className="flex flex-col">
               <span className="text-2xl font-playfair font-bold text-primary tracking-wide">MSE</span>
               <span className="text-[8px] text-text-muted tracking-[0.15em] uppercase leading-tight">Magna SSK Exim Solutions Pvt Ltd</span>

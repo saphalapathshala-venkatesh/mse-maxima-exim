@@ -27,7 +27,8 @@ export const products = {
   greenChillies: "/images/products/green-chillies.jpg",
   ragi: "/images/products/ragi.jpg",
   bajra: "/images/products/bajra.jpg",
-  jowar: "/images/products/jowar.jpg"
+  jowar: "/images/products/jowar.jpg",
+  ginger: "/images/products/ginger.jpg"
 };
 
 export const site = {
