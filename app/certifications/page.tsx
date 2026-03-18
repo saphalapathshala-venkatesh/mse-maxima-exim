@@ -1,22 +1,21 @@
 import Button from '@/components/Button'
-import Image from 'next/image'
 
 // To update: replace fileUrl with your hosted PDF path, and logoSrc with your logo image.
 // Place PDF files in public/certificates/ and logos in public/images/certs/
 const certificates = [
   {
     title: 'FSSAI',
-    logoSrc: '/images/certs/fssai.png',
+    logoSrc: '/images/certs/fssai.jpg',
     fileUrl: '/certificates/fssai.pdf',
   },
   {
     title: 'Spices Board',
-    logoSrc: '/images/certs/spices-board.png',
+    logoSrc: '/images/certs/spices-board.jpg',
     fileUrl: '/certificates/spices-board.pdf',
   },
   {
     title: 'APEDA',
-    logoSrc: '/images/certs/apeda.png',
+    logoSrc: '/images/certs/apeda.jpg',
     fileUrl: '/certificates/apeda.pdf',
   },
 ]
@@ -46,15 +45,13 @@ export default function CertificationsPage() {
               className="group flex items-center justify-center bg-white border border-border-light rounded-2xl p-8 hover:border-primary/40 hover:shadow-lg transition-all duration-200 cursor-pointer"
               title={`Download ${cert.title} certificate`}
             >
-              <div className="w-full bg-white rounded-xl p-2">
-                <Image
-                  src={cert.logoSrc}
-                  alt={`${cert.title} Certificate`}
-                  width={280}
-                  height={160}
-                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
-                />
-              </div>
+              {/* Using standard img tag to ensure white background — no image optimization pipeline */}
+              <img
+                src={cert.logoSrc}
+                alt={`${cert.title} Certificate`}
+                style={{ background: '#ffffff' }}
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
+              />
             </a>
           ))}
         </div>
