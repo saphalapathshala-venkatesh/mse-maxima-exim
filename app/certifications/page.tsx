@@ -6,17 +6,17 @@ import Image from 'next/image'
 const certificates = [
   {
     title: 'FSSAI',
-    logoSrc: '/images/certs/fssai.svg',
+    logoSrc: '/images/certs/fssai.png',
     fileUrl: '/certificates/fssai.pdf',
   },
   {
     title: 'Spices Board',
-    logoSrc: '/images/certs/spices-board.svg',
+    logoSrc: '/images/certs/spices-board.png',
     fileUrl: '/certificates/spices-board.pdf',
   },
   {
     title: 'APEDA',
-    logoSrc: '/images/certs/apeda.svg',
+    logoSrc: '/images/certs/apeda.png',
     fileUrl: '/certificates/apeda.pdf',
   },
 ]
@@ -46,13 +46,15 @@ export default function CertificationsPage() {
               className="group flex items-center justify-center bg-white border border-border-light rounded-2xl p-8 hover:border-primary/40 hover:shadow-lg transition-all duration-200 cursor-pointer"
               title={`Download ${cert.title} certificate`}
             >
-              <Image
-                src={cert.logoSrc}
-                alt={`${cert.title} Certificate`}
-                width={280}
-                height={160}
-                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
-              />
+              <div className="w-full bg-white rounded-xl p-2">
+                <Image
+                  src={cert.logoSrc}
+                  alt={`${cert.title} Certificate`}
+                  width={280}
+                  height={160}
+                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                />
+              </div>
             </a>
           ))}
         </div>
