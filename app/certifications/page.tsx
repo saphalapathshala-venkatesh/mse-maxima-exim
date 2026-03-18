@@ -1,24 +1,22 @@
 import Button from '@/components/Button'
-import { Download } from 'lucide-react'
+import Image from 'next/image'
 
-// To update certificate files: replace the `fileUrl` values below with the correct hosted PDF URLs.
+// To update: replace fileUrl with your hosted PDF path, and logoSrc with your logo image.
+// Place PDF files in public/certificates/ and logos in public/images/certs/
 const certificates = [
   {
     title: 'FSSAI',
-    description: 'Food Safety and Standards Authority of India license for food business operations.',
-    scope: 'All products manufactured and exported from India.',
+    logoSrc: '/images/certs/fssai.svg',
     fileUrl: '/certificates/fssai.pdf',
   },
   {
     title: 'Spices Board',
-    description: 'Registration with the Spices Board of India for export of spices and spice products.',
-    scope: 'Export of all spice products.',
+    logoSrc: '/images/certs/spices-board.svg',
     fileUrl: '/certificates/spices-board.pdf',
   },
   {
     title: 'APEDA',
-    description: 'Agricultural and Processed Food Products Export Development Authority registration for export of agri and processed food products.',
-    scope: 'All agricultural and processed food exports.',
+    logoSrc: '/images/certs/apeda.svg',
     fileUrl: '/certificates/apeda.pdf',
   },
 ]
@@ -37,28 +35,31 @@ export default function CertificationsPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {certificates.map((cert) => (
-            <div key={cert.title} className="bg-white border border-border-light rounded-xl p-6 hover:border-primary/30 hover:shadow-md transition-all duration-200 flex flex-col">
-              <span className="inline-block px-2.5 py-0.5 text-[9px] font-bold tracking-wider uppercase text-primary bg-primary/10 rounded-full self-start mb-3">
-                Certified
-              </span>
-              <h3 className="font-playfair text-lg text-text-main mb-2">{cert.title}</h3>
-              <p className="text-sm text-text-muted mb-3 flex-grow leading-relaxed">{cert.description}</p>
-              <p className="text-xs text-text-light mb-4">
-                <span className="text-saffron font-medium">Scope:</span> {cert.scope}
-              </p>
-              <a
-                href={cert.fileUrl}
-                download
-                className="inline-flex items-center justify-center gap-2 h-9 px-4 rounded-full text-xs font-semibold border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200"
-              >
-                <Download size={13} />
-                Download Certificate
-              </a>
-            </div>
+            <a
+              key={cert.title}
+              href={cert.fileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="group flex items-center justify-center bg-white border border-border-light rounded-2xl p-8 hover:border-primary/40 hover:shadow-lg transition-all duration-200 cursor-pointer"
+              title={`Download ${cert.title} certificate`}
+            >
+              <Image
+                src={cert.logoSrc}
+                alt={`${cert.title} Certificate`}
+                width={280}
+                height={160}
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
+              />
+            </a>
           ))}
         </div>
+
+        <p className="text-center text-xs text-text-muted mt-6">
+          Click on a logo to view or download the certificate
+        </p>
       </div>
 
       <div className="bg-surface py-12 sm:py-14">

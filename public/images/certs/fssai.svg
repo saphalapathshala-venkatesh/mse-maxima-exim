@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 160" width="280" height="160">
+  <rect width="280" height="160" fill="white"/>
+  <!-- Ashoka Chakra simplified -->
+  <circle cx="140" cy="42" r="22" fill="none" stroke="#003580" stroke-width="2.5"/>
+  <circle cx="140" cy="42" r="6" fill="#003580"/>
+  <line x1="140" y1="20" x2="140" y2="64" stroke="#003580" stroke-width="1.5"/>
+  <line x1="118" y1="42" x2="162" y2="42" stroke="#003580" stroke-width="1.5"/>
+  <line x1="124" y1="27" x2="156" y2="57" stroke="#003580" stroke-width="1.2"/>
+  <line x1="124" y1="57" x2="156" y2="27" stroke="#003580" stroke-width="1.2"/>
+  <line x1="118" y1="35" x2="162" y2="49" stroke="#003580" stroke-width="1"/>
+  <line x1="118" y1="49" x2="162" y2="35" stroke="#003580" stroke-width="1"/>
+  <!-- fssai text stylised -->
+  <text x="96" y="96" font-family="Georgia, serif" font-size="30" font-style="italic" font-weight="bold" fill="#003A8C">f</text>
+  <text x="113" y="96" font-family="Georgia, serif" font-size="30" font-style="italic" font-weight="bold" fill="#E05A1E">ss</text>
+  <text x="148" y="96" font-family="Georgia, serif" font-size="30" font-style="italic" font-weight="bold" fill="#4CAF50">a</text>
+  <text x="168" y="96" font-family="Georgia, serif" font-size="30" font-style="italic" font-weight="bold" fill="#003A8C">i</text>
+  <!-- underline leaf -->
+  <path d="M96 101 Q140 110 184 101" stroke="#4CAF50" stroke-width="2.5" fill="none"/>
+  <!-- subtitle -->
+  <text x="140" y="124" font-family="Arial, sans-serif" font-size="9.5" fill="#444444" text-anchor="middle">Food Safety and Standards</text>
+  <text x="140" y="138" font-family="Arial, sans-serif" font-size="9.5" fill="#444444" text-anchor="middle">Authority of India</text>
+</svg>

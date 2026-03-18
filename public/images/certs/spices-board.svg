@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 160" width="280" height="160">
+  <rect width="280" height="160" fill="white"/>
+  <!-- Decorative spice leaf circle emblem -->
+  <g transform="translate(60, 18)">
+    <circle cx="32" cy="48" r="38" fill="none" stroke="#8B2500" stroke-width="2"/>
+    <circle cx="32" cy="48" r="30" fill="#8B2500" opacity="0.08"/>
+    <!-- stylised pepper/chilli cluster -->
+    <ellipse cx="32" cy="40" rx="7" ry="18" fill="#C0392B" transform="rotate(-20 32 40)"/>
+    <ellipse cx="42" cy="44" rx="6" ry="16" fill="#E74C3C" transform="rotate(10 42 44)"/>
+    <ellipse cx="22" cy="44" rx="6" ry="16" fill="#A93226" transform="rotate(-10 22 44)"/>
+    <!-- stem -->
+    <line x1="32" y1="22" x2="32" y2="14" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- small leaves at top -->
+    <path d="M32 18 C26 12 24 6 28 2 C30 8 31 13 32 18Z" fill="#4CAF50"/>
+    <path d="M32 18 C38 12 40 6 36 2 C34 8 33 13 32 18Z" fill="#388E3C"/>
+  </g>
+  <!-- Text -->
+  <text x="158" y="50" font-family="Georgia, serif" font-size="13" fill="#8B2500" text-anchor="middle" font-weight="bold" letter-spacing="0.5">SPICES BOARD</text>
+  <text x="158" y="68" font-family="Arial, sans-serif" font-size="10" fill="#555555" text-anchor="middle">of India</text>
+  <line x1="110" y1="76" x2="206" y2="76" stroke="#8B2500" stroke-width="1" opacity="0.4"/>
+  <text x="158" y="92" font-family="Arial, sans-serif" font-size="8.5" fill="#666" text-anchor="middle">Ministry of Commerce &amp; Industry</text>
+  <text x="158" y="106" font-family="Arial, sans-serif" font-size="8.5" fill="#666" text-anchor="middle">Government of India</text>
+  <!-- decorative dots -->
+  <circle cx="118" cy="120" r="3" fill="#8B2500" opacity="0.5"/>
+  <circle cx="140" cy="120" r="3" fill="#C0392B" opacity="0.5"/>
+  <circle cx="162" cy="120" r="3" fill="#8B2500" opacity="0.5"/>
+</svg>
