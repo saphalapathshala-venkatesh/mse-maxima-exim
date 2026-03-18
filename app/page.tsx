@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 import ProductBanner from '@/components/ProductBanner'
 import { categories, site } from '@/data/assets'
 import { categoryInfo } from '@/data/products'
-import { Shield, Truck, FlaskConical, Globe, Award, FileCheck } from 'lucide-react'
+import { Shield, Truck, FlaskConical, Globe } from 'lucide-react'
 
 const trustPoints = [
   { icon: Shield, title: 'Traceability', desc: 'Complete supply chain transparency from farm to port.' },
@@ -19,16 +19,13 @@ const credibilityItems = [
   { value: '50+', label: 'Countries Served' },
   { value: '100+ MT', label: 'Monthly Capacity' },
   { value: '13+', label: 'Product Lines' },
-  { value: '4', label: 'Certifications' },
+  { value: '3', label: 'Certifications' },
 ]
 
 const certList = [
-  { name: 'ISO 22000:2018', icon: Award },
-  { name: 'BRCGS Food Safety', icon: FileCheck },
-  { name: 'FSSC 22000', icon: Award },
-  { name: 'FSSAI Licensed', icon: FileCheck },
-  { name: 'HALAL Certified', icon: Award },
-  { name: 'Spices Board Registered', icon: FileCheck },
+  { name: 'FSSAI', logoSrc: '/images/certs/fssai.jpg' },
+  { name: 'Spices Board', logoSrc: '/images/certs/spices-board.jpg' },
+  { name: 'APEDA', logoSrc: '/images/certs/apeda.jpg' },
 ]
 
 const categoryCards = [
@@ -153,18 +150,17 @@ export default function Home() {
             </span>
             <h2 className="font-playfair text-2xl sm:text-3xl text-text-main mb-3">Certifications</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {certList.map((cert) => {
-              const IconComp = cert.icon
-              return (
-                <div key={cert.name} className="bg-white rounded-xl p-4 text-center border border-border-light hover:border-primary/20 transition-all">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
-                    <IconComp size={18} className="text-primary" />
-                  </div>
-                  <p className="text-xs font-medium text-text-main leading-tight">{cert.name}</p>
-                </div>
-              )
-            })}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-2xl mx-auto">
+            {certList.map((cert) => (
+              <Link key={cert.name} href="/certifications" className="group bg-white rounded-2xl p-6 flex items-center justify-center border border-border-light hover:border-primary/30 hover:shadow-md transition-all duration-200">
+                <img
+                  src={cert.logoSrc}
+                  alt={cert.name}
+                  style={{ background: '#ffffff' }}
+                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-200"
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </section>
