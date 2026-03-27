@@ -79,7 +79,7 @@ export default function AboutPage() {
             <h2 className="font-playfair text-2xl sm:text-3xl text-text-main">Director&apos;s Message</h2>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
             {/* Message card — 60% */}
             <div className="w-full lg:w-[60%] bg-white rounded-2xl shadow-sm border border-border-light p-7 sm:p-10 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
@@ -104,8 +104,8 @@ export default function AboutPage() {
             </div>
 
             {/* Image card — 40% */}
-            <div className="w-full lg:w-[40%] bg-white rounded-2xl shadow-sm border border-border-light overflow-hidden">
-              <div className="relative w-full aspect-[3/4]">
+            <div className="w-full lg:w-[40%] bg-white rounded-2xl shadow-sm border border-border-light overflow-hidden flex flex-col">
+              <div className="relative flex-1 min-h-[320px]">
                 <Image
                   src={director.imageUrl}
                   alt={`${director.name} — ${director.designation}`}
@@ -114,7 +114,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
-              <div className="px-5 py-4 text-center border-t border-border-light">
+              <div className="px-5 py-4 text-center border-t border-border-light shrink-0">
                 <p className="font-playfair text-base text-primary font-semibold">{director.name}</p>
                 <p className="text-xs text-text-muted mt-0.5">{director.designation}</p>
               </div>
