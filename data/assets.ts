@@ -35,6 +35,7 @@ export const site = {
   facility: "/images/site/facility.jpg",
   qualityLab: "/images/site/quality-lab.png",
   heroMain: "/images/banners/hero-spices.jpg",
+  director: "/images/site/director.jpg",
   qualityHeroLab: "/images/site/quality-hero-lab.jpg",
   qaStepSourcing: "/images/site/qa-step-sourcing.jpg",
   qaStepInspection: "/images/site/qa-step-inspection.jpg",

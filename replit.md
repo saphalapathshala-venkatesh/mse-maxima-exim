@@ -108,5 +108,12 @@ public/images/
 - Build: `npm run build`
 - Start: `npm start`
 
+## Director's Message Section
+- Added to `app/about/page.tsx` between the intro and stats sections
+- 60/40 layout (message card left, photo card right) on desktop; stacked on mobile
+- All content configurable via `director` object at top of file:
+  - `director.name`, `director.designation`, `director.message[]`, `director.imageUrl`
+- Director photo: `public/images/site/director.jpg` (registered in `data/assets.ts` as `site.director`)
+
 ## Still Missing (awaiting manual upload)
 - All 13 product images in `public/images/products/`
