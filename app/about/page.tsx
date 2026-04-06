@@ -5,8 +5,8 @@ import { Quote } from 'lucide-react'
 
 // ─── Director content — update here ───────────────────────────────────────────
 const director = {
-  name: 'Director',
-  designation: 'Managing Director, Magna SSK Exim Solutions Pvt Ltd',
+  name: 'Dr. Tara Krishna',
+  designation: 'MD General Medicine, Manipal | Managing Director, Magna SSK Exim Solutions Pvt Ltd',
   imageUrl: site.director,
   message: [
     'Magna SSK Exim Solutions Pvt Ltd is a new company — but it is not built casually.',
@@ -20,9 +20,9 @@ const director = {
 // ──────────────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { value: '50+', label: 'Countries Served' },
+  { value: '10+', label: 'Countries Served' },
   { value: '100+', label: 'MT Monthly Capacity' },
-  { value: '15+', label: 'Years Experience' },
+  { value: '2+', label: 'Years Experience' },
   { value: '13+', label: 'Product Lines' },
 ]
 
