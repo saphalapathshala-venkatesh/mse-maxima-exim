@@ -20,7 +20,7 @@ const director = {
 // ──────────────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { value: '10+', label: 'Countries Served' },
+  { value: '20+', label: 'Countries Served' },
   { value: '100+', label: 'MT Monthly Capacity' },
   { value: '2+', label: 'Years Experience' },
   { value: '13+', label: 'Product Lines' },

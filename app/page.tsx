@@ -12,11 +12,11 @@ const trustPoints = [
   { icon: Shield, title: 'Traceability', desc: 'Complete supply chain transparency from farm to port.' },
   { icon: Globe, title: 'Export Standards', desc: 'Meeting FDA, EU, and international regulatory standards.' },
   { icon: FlaskConical, title: 'Quality Testing', desc: 'Rigorous lab testing at every stage of production.' },
-  { icon: Truck, title: 'Global Logistics', desc: 'Efficient, reliable delivery to 50+ countries worldwide.' },
+  { icon: Truck, title: 'Global Logistics', desc: 'Efficient, reliable delivery to 20+ countries worldwide.' },
 ]
 
 const credibilityItems = [
-  { value: '50+', label: 'Countries Served' },
+  { value: '20+', label: 'Countries Served' },
   { value: '100+ MT', label: 'Monthly Capacity' },
   { value: '13+', label: 'Product Lines' },
   { value: '3', label: 'Certifications' },
